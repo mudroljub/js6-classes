@@ -1,0 +1,117 @@
+// dodaj interfejs
+// mitraljez puca iz bunkera, prepreke su zakloni
+// sukcesivno se povećava broj prepreka i težina igre
+  // svaki nivo novi random raspored, igrač igra dok ne izgubi
+// minimalno rastojanje bombaša i bunkera?
+// vremenski ograniceno?
+
+import * as $ from '../konstante';
+import {Scena} from '../core/Scena';
+import {Casovnik} from '../core/Casovnik';
+import {Pozadina} from '../core/Pozadina';
+
+import {Bombas} from '../2d-bocno/Bombas';
+import {Bunker} from '../2d-bocno/Bunker';
+import {Prepreka} from '../2d-bocno/Prepreka';
+
+/*** KONFIG ***/
+
+let scena;
+let pozadina;
+let bombas;
+let bunker;
+let tabela;
+let nivo = 1;
+let brojac;
+let vreme;
+let info;
+let izbor;
+const ZADATOVREME = 50;
+const BROJ_PREPREKA = 10;
+let prepreke = [];
+
+/*** LOGIKA IGRE ***/
+
+window.onload = init;
+
+function init() {
+  info = document.getElementById("info");
+  tabela = document.getElementById("tabela");
+  izbor = document.getElementById("izbor");
+  scena = new Scena(update);
+  pozadina = new Pozadina(scena, $.root + "slike/teksture/beton.gif");
+  brojac = new Casovnik();
+  bombas = new Bombas(scena, $.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55);
+  bunker = new Bunker(scena, 112, 103);
+  bunker.nemojPreko(bombas);
+  praviPrepreke();
+  scena.start();
+}
+
+function update() {
+  scena.cisti();
+  pozadina.update();
+  proveriVreme();
+  proveriPobedu();
+  proveriPrepreke();
+  bunker.update();
+  bombas.update();
+  // prikaziStatistike();
+}
+
+/*** POMOĆNE FUNKCIJE ***/
+
+function praviPrepreke() {
+  for (let i = 0; i < BROJ_PREPREKA; i++) {
+    prepreke[i] = new Prepreka(scena, [bunker, bombas]);
+  }
+}
+
+function proveriPobedu() {
+  if (bombas.razmakDo(bunker) < 75) {
+    bunker.gori();
+    zavrsiIgru('Neprijateljski bunker je uništen.');
+  }
+}
+
+function proveriVreme() {
+  vreme = brojac.dajProtekleSekunde();
+  if (vreme > ZADATOVREME) {
+    zavrsiIgru('Tvoje vreme je isteklo. Igra je završena!');
+  }
+}
+
+function proveriPrepreke() {
+  for (let i = 0; i < BROJ_PREPREKA; i++) {
+    if (bombas.sudara(prepreke[i])) {
+      zavrsiIgru('Poginuo si. Igra je završena.');
+    }
+    prepreke[i].update();
+  }
+}
+
+function praviUI() {
+  return `
+    <h1>Bitka za Krupanj 1941.</h1>
+    <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
+    <div class="tabela">
+      Nivo: ${nivo} <br>
+      Vreme: ${Math.floor(vreme)} <br>
+      Prepreke: ${BROJ_PREPREKA}
+    </div>
+  `;
+}
+
+function zavrsiIgru(poruka) {
+  let dugme = `<a class="izbor">Igraj opet</a><a href="#" class="izbor">Vrati me u priču</a>`;
+  console.log(poruka, dugme);
+  scena.stop();
+}
+
+function reset() {
+  // nekako resetovati
+}
+
+/*** EXPORT ***/
+
+export {scena}
