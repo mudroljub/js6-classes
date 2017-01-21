@@ -12,25 +12,18 @@ import {Patrola} from '../2d-odozgo/Patrola';
 
 /*** KONFIG ***/
 
-var scena;
-var pozadina;
-var ranjenik;
-var patrola;
 let postavka = 0;
 
-/*** LOGIKA IGRE ***/
+/*** INIT ***/
 
-window.onload = init;
+const scena = new Scena(update);
+const pozadina = new Pozadina(scena, $.root + "slike/2d-odozgo/shumarak-pozadina.png");
+const ranjenik = new Ranjenik(scena);
+ranjenik.polozaj(scena.sirina / 4, scena.visina / 2);
+const patrola = new Patrola(scena, $.root + "slike/2d-odozgo/nemci-patrola.gif");
+patrola.polozaj(scena.sirina * 3/4, scena.visina * 3/4);
 
-function init() {
-  scena = new Scena(update);
-  pozadina = new Pozadina(scena, $.root + "slike/2d-odozgo/shumarak-pozadina.png");
-  ranjenik = new Ranjenik(scena);
-  ranjenik.polozaj(scena.sirina / 4, scena.visina / 2);
-  patrola = new Patrola(scena, $.root + "slike/2d-odozgo/nemci-patrola.gif");
-  patrola.polozaj(scena.sirina * 3/4, scena.visina * 3/4);
-  scena.start();
-}
+/*** FUNKCIJE ***/
 
 function update() {
   scena.cisti();
@@ -41,8 +34,6 @@ function update() {
   ranjenik.update();
   patrola.update();
 }
-
-/*** POMOCNE FUNKCIJE ***/
 
 function proveriSudare() {
   if (patrola.sudara(ranjenik)) {
@@ -77,4 +68,4 @@ function promeniPostavku() {
 
 /*** EXPORT ***/
 
-export {scena}
+export default scena
