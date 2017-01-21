@@ -6,20 +6,12 @@
 // import bombasPrepreke from './scene/bombas-i-prepreke';
 // import savoDan from './scene/savo-dan';
 // import savoNoc from './scene/savo-noc';
-import ranjenikPatrola from './scene/ranjenik-i-patrola';
-// import xx from './scene/ranjenik-i-paljba';
-// import xx from './scene/nemci-iz-rovova';
-// import xx from './scene/ubij-okupatora';
-// import xx from './scene/bekstvo-iz-jasenovca';
-// import xx from './scene/tenk-puca-odozgo';
-// import xx from './scene/camac';
+// import ranjenikPatrola from './scene/ranjenik-i-patrola';
+// import ranjenikPaljba from './scene/ranjenik-i-paljba';
+// import nemciIzRovova from './scene/nemci-iz-rovova';
+// import ubijOkupatora from './scene/ubij-okupatora';
+// import jasenovac from './scene/bekstvo-iz-jasenovca';
+// import tenkOdozgo from './scene/tenk-puca-odozgo';
+import camac from './scene/camac';
 
-// avionPuca.start()
-// tenkicIde.start()
-// tenkici.start()
-// avionBocno.start()
-// tenkicAi.start()
-// bombasPrepreke.start()
-// savoDan.start()
-// savoNoc.start()
-ranjenikPatrola.start()
+camac.start()

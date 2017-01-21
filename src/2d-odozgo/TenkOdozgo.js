@@ -9,7 +9,6 @@ export class TenkOdozgo extends Predmet {
     this.x = x;
     this.y = y;
     this.tenkMp3 = new Zvuk($.root + "zvuci/zvuk-tenka.mp3");
-    this.tenkOgg = new Zvuk($.root + "zvuci/zvuk-tenka.ogg");
     this.dodajSilu(0, 3);
   }
 

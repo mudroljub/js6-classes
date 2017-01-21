@@ -5,6 +5,7 @@ export class Animiran extends Predmet {
 
   constructor(scena, src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
     super(scena, src);
+    this.podloga = scena.podloga;
     this.animacije = [];
     this.tekucaAnimacija = 0;
     this.duzinaAnimacije = 1000;

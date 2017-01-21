@@ -5,21 +5,11 @@
 import {Scena} from '../core/Scena';
 import {CamacIgracOdozgo} from '../2d-odozgo/CamacIgracOdozgo';
 
-/*** KONFIG ***/
-
-var scena;
-var camac;
-
 /*** INIT ***/
 
-window.onload = init;
-
-function init() {
-  scena = new Scena(update);
-  scena.bojaPozadine = "#000066";
-  camac = new CamacIgracOdozgo(scena);
-  scena.start();
-}
+const scena = new Scena(update);
+scena.bojaPozadine = "#000066";
+const camac = new CamacIgracOdozgo(scena);
 
 function update() {
   scena.cisti();
@@ -28,4 +18,4 @@ function update() {
 
 /*** EXPORT ***/
 
-export {scena}
+export default scena

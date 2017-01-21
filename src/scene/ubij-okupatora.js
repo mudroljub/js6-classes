@@ -7,12 +7,6 @@ import {Okupator} from '../2d-prvo-lice/Okupator';
 
 /*** KONFIG ***/
 
-let ui;
-let scena;
-let pozadina;
-let strazar;
-let nishan;
-
 const interfejs = `
   <h1>Ubij okupatora!</h1>
   <audio controls autoplay preload="auto">
@@ -21,20 +15,17 @@ const interfejs = `
   </audio>
 `;
 
-/*** LOGIKA IGRE ***/
+/*** INIT ***/
 
-window.onload = init;
+const ui = new UI();
+ui.dodaj(interfejs);
+const scena = new Scena(update);
+const pozadina = new Pozadina(scena, $.root + "slike/pozadine/rusevine-varsava.jpg");
+const strazar = new Okupator(scena);
+const nishan = new Nishan(scena);
+scena.platno.addEventListener('click', () => strazar.proveriPogodak());
 
-function init() {
-  ui = new UI();
-  ui.dodaj(interfejs);
-  scena = new Scena(update);
-  pozadina = new Pozadina(scena, $.root + "slike/pozadine/rusevine-varsava.jpg");
-  strazar = new Okupator(scena);
-  nishan = new Nishan(scena);
-  scena.platno.addEventListener('click', () => strazar.proveriPogodak());
-  scena.start();
-}
+/*** FUNKCIJE ***/
 
 function update() {
   pozadina.update();
@@ -44,4 +35,4 @@ function update() {
 
 /*** EXPORT ***/
 
-export {scena}
+export default scena

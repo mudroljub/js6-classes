@@ -7,22 +7,11 @@ import {Scena} from '../core/Scena';
 import {Pozadina} from '../core/Pozadina';
 import {TenkIgracOdozgo} from '../2d-odozgo/TenkIgracOdozgo';
 
-/*** KONFIG ***/
-
-let scena;
-let pozadina;
-let tenk;
-
 /*** INIT ***/
 
-window.onload = init;
-
-function init() {
-  scena = new Scena(update);
-  pozadina = new Pozadina(scena, $.root + "slike/2d-odozgo/shumarak-pozadina.png");
-  tenk = new TenkIgracOdozgo(scena);
-  scena.start();
-}
+const scena = new Scena(update);
+const pozadina = new Pozadina(scena, $.root + "slike/2d-odozgo/shumarak-pozadina.png");
+const tenk = new TenkIgracOdozgo(scena);
 
 function update() {
   pozadina.update();
@@ -31,4 +20,4 @@ function update() {
 
 /*** EXPORT ***/
 
-export {scena}
+export default scena
