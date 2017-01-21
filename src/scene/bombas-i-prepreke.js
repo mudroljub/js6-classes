@@ -9,44 +9,33 @@ import * as $ from '../konstante';
 import {Scena} from '../core/Scena';
 import {Casovnik} from '../core/Casovnik';
 import {Pozadina} from '../core/Pozadina';
-
 import {Bombas} from '../2d-bocno/Bombas';
 import {Bunker} from '../2d-bocno/Bunker';
 import {Prepreka} from '../2d-bocno/Prepreka';
 
 /*** KONFIG ***/
 
-let scena;
-let pozadina;
-let bombas;
-let bunker;
-let tabela;
-let nivo = 1;
-let brojac;
-let vreme;
-let info;
-let izbor;
 const ZADATOVREME = 50;
 const BROJ_PREPREKA = 10;
-let prepreke = [];
+const prepreke = [];
+let nivo = 1;
+let vreme;
 
 /*** LOGIKA IGRE ***/
 
-window.onload = init;
+const brojac = new Casovnik();
+const info = document.getElementById("info");
+const izbor = document.getElementById("izbor");
+const scena = new Scena(update);
+const pozadina = new Pozadina(scena, $.root + "slike/teksture/beton.gif");
+const bombas = new Bombas(scena, $.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55);
+const bunker = new Bunker(scena, 112, 103);
+bunker.nemojPreko(bombas);
+const tabela = document.getElementById("tabela");
 
-function init() {
-  info = document.getElementById("info");
-  tabela = document.getElementById("tabela");
-  izbor = document.getElementById("izbor");
-  scena = new Scena(update);
-  pozadina = new Pozadina(scena, $.root + "slike/teksture/beton.gif");
-  brojac = new Casovnik();
-  bombas = new Bombas(scena, $.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55);
-  bunker = new Bunker(scena, 112, 103);
-  bunker.nemojPreko(bombas);
-  praviPrepreke();
-  scena.start();
-}
+praviPrepreke();
+
+/*** POMOĆNE FUNKCIJE ***/
 
 function update() {
   scena.cisti();
@@ -58,8 +47,6 @@ function update() {
   bombas.update();
   // prikaziStatistike();
 }
-
-/*** POMOĆNE FUNKCIJE ***/
 
 function praviPrepreke() {
   for (let i = 0; i < BROJ_PREPREKA; i++) {
@@ -114,4 +101,4 @@ function reset() {
 
 /*** EXPORT ***/
 
-export {scena}
+export default scena

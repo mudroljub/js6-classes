@@ -1,36 +1,24 @@
-'use strict';
 // ubaciti uništen tenk
-
-/*** IMPORT ***/
+// ukloniti dvostruki interval
 
 import * as $ from '../konstante';
 import {UI} from '../core/UI';
 import {Scena} from '../core/Scena';
 import {Pozadina} from '../core/Pozadina';
 import {TenkPartizanski} from '../2d-bocno/TenkPartizanski';
-import {TenkNemacki} from '../podcore/TenkNemacki';
+import {TenkNemacki} from '../2d-bocno/TenkNemacki';
 
-/*** KONFIG ***/
+/*** INIT ***/
 
-let scena;
-let tenk1;
-let tenk2;
-let pozadina;
-let interfejs;
+const scena = new Scena(update, 800, 500);
+const tenk1 = new TenkPartizanski(scena, 100, 450);
+const tenk2 = new TenkNemacki(scena);
+const pozadina = new Pozadina(scena, $.root + "slike/pozadine/razrusen-grad-savremen.jpg");
+const interfejs = new UI();
 
-/*** LOGIKA IGRE ***/
+window.setInterval(() => tenk2.puca(), 3000);
 
-window.onload = init;
-
-function init() {
-  interfejs = new UI();
-  scena = new Scena(update, 800, 500);
-  pozadina = new Pozadina(scena, $.root + "slike/pozadine/razrusen-grad-savremen.jpg");
-  tenk1 = new TenkPartizanski(scena, 100, 450);
-  tenk2 = new TenkNemacki(scena);
-  window.setInterval(() => tenk2.puca(), 3000);
-  scena.start();
-} // init
+/*** FUNKCIJE ***/
 
 function update() {
   scena.cisti();
@@ -41,10 +29,7 @@ function update() {
   tenk1.update();
   tenk2.update();
   interfejs.render(praviUI());
-} // update
-
-
-/*** POMOĆNE FUNKCIJE ***/
+}
 
 function proveriPogodak(granata, tenk, pomak) {
   if (granata.sudara(tenk)) {
@@ -56,7 +41,7 @@ function proveriPogodak(granata, tenk, pomak) {
       reset();
     }
   }
-} // proveriPogodak
+}
 
 function reset() {
   // da piše jel izgubio il pobedio i nudi opet
@@ -64,7 +49,7 @@ function reset() {
   tenk2.polozaj(Math.random() * 300 + 500, 450);
   tenk1.energija = 100;
   tenk2.energija = 100;
-} // reset
+}
 
 function praviUI() {
   return `
@@ -90,8 +75,8 @@ function praviUI() {
     <progress class="komande poluprovidno progres1" value="${tenk1.energija}" max="100"></progress>
     <progress class="komande poluprovidno progres2" value="${tenk2.energija}" max="100"></progress>
   `;
-} // praviUI
+}
 
 /*** EXPORT ***/
 
-export {scena}
+export default scena

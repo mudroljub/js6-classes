@@ -4,7 +4,7 @@ Male igrice o Nemcima i partizanima.
 
 ## Instalacija
 
-Prvo instaliraj [node.js](https://nodejs.org). Nakon toga kloniraj repo i instaliraj zavisnosti:
+Prvo instaliraj [node.js](https://nodejs.org), noviju verziju. Nakon toga kloniraj repo i instaliraj zavisnosti:
 ```
 git clone
 npm install
@@ -16,11 +16,12 @@ npm start
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
 ## Uraditi:
+- veliki problem ucitavanje zeza
+- srediti ucitavač: učitavati slike u JS, podesiti webpack
 - dodati glavni meni
 - dodati fiziku
 - napraviti Kameru
 - redukovati css
-- srediti ucitavač: učitavati slike u JS, podesiti webpack
 
 ### Faza 1: refaktor i sredjivanje
 - nivoe refaktorisati u core (u instancu core Nivo ili tako nešto)
