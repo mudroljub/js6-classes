@@ -2,8 +2,9 @@
 // da prosledjivanje update funkcije sceni bude opciono
 // ukinuti zavisnost predmeta od scene?
 
+import Jadran from './scene/Jadran';
 import AvionPucaBocno from './scene/AvionPucaBocno';
-// import avionPuca from './scene/avion-puca-odozgo';
+import Osvetnik1944 from './scene/Osvetnik1944';
 // import tenkicIde from './scene/tenkic-ide-puca';
 // import tenkici from './scene/tenkic-dva-igraca';
 // import tenkicAi from './scene/tenkic-protiv-kompa';
@@ -16,9 +17,8 @@ import AvionPucaBocno from './scene/AvionPucaBocno';
 // import ubijOkupatora from './scene/ubij-okupatora';
 // import jasenovac from './scene/bekstvo-iz-jasenovca';
 // import tenkOdozgo from './scene/tenk-puca-odozgo';
-import Jadran from './scene/Jadran';
 
-const trenutnaScena = new AvionPucaBocno()
+const trenutnaScena = new Osvetnik1944()
 trenutnaScena.start()
 
-// avionBocno.start()
+// avionPuca.start()

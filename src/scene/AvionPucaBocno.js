@@ -44,9 +44,9 @@ export default class AvionPucaBocno extends Scena {
   constructor() {
     super()
     this.igrac = new AvionIgrac(this);
-    // primeniti fabriku
+    // napraviti fabriku
     for (let i = 0; i < BROJ_OBLAKA; i++) oblaci[i] = new Oblak();
-    for (let i = 0; i < BROJ_ZBUNOVA; i++) zbunovi[i] = new Zbun(); // zbunovi su na nebu
+    for (let i = 0; i < BROJ_ZBUNOVA; i++) zbunovi[i] = new Zbun();
     for (let i = 0; i < BROJ_SHUME; i++) shume[i] = new Shuma();
     this.dodaj(this.igrac, vozilo, aerodrom, ruina, ...oblaci, ...zbunovi, ...shume)
     this.pocniParalax();

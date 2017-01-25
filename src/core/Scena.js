@@ -3,8 +3,7 @@ const podloga = platno.podloga
 
 export class Scena {
 
-  constructor(update) {
-    // this.loop = update;
+  constructor() {
     this.platno = platno;
     this.touchable = 'createTouch' in document;
     this.predmeti = [];

@@ -3,6 +3,7 @@ import {Igrac} from '../core/Igrac';
 import {Zvuk} from '../core/Zvuk';
 import {Casovnik} from '../core/Casovnik';
 import {Metak} from '../2d-odozgo/Metak';
+import platno from '../io/platno'
 
 const BROJ_METAKA = 999;
 const SIRINA_PALJBE = 13;
@@ -20,7 +21,7 @@ export class Avionce extends Igrac {
     this.trenutniMetak = 0;
     this.brzina = 0;
     this.ugao = $.TAU * 3/ 4;
-    this.polozaj(scena.sirina / 2, scena.visina - this.visina);
+    this.polozaj(platno.sirina / 2, platno.visina - this.visina);
     this.praviMetke();
     this.granicnik = $.OGRANICI;
   }
@@ -51,7 +52,7 @@ export class Avionce extends Igrac {
 
   praviMetke() {
     for (let i = 0; i < BROJ_METAKA; i++) {
-      this.meci[i] = new Metak(this.scena, this);
+      this.meci[i] = new Metak(this);
     }
   }
 
