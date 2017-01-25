@@ -9,7 +9,7 @@ export class Predmet extends Slika {
 
   constructor (scena, src, sirina, visina, x = 200, y = 200) {
     super(src, sirina, visina);
-    this.scena = scena;
+    // this.scena = scena;
     // scena.dodaj(this)
     this.platno = platno;
     this.x = x;
@@ -243,8 +243,7 @@ export class Predmet extends Slika {
   }
 
   jeMishStisnutIznad() {
-    let kliknuto = this.scena.touchable || mish.stisnut;
-    if (kliknuto && this.jeMishIznad()) return true;
+    if (mish.stisnut && this.jeMishIznad()) return true;
     return false;
   }
 
