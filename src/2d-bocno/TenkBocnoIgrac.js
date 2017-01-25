@@ -7,14 +7,14 @@ import * as $ from '../konstante';
 import * as _ from '../funkcije';
 import {Predmet} from '../core/Predmet';
 import {Igrac} from '../core/Igrac';
+import platno from '../io/platno'
 
 export class TenkBocnoIgrac extends Igrac {
 
-  constructor (scena, src, jelNadesno, sirina, visina) {
-    super(scena, src, sirina, visina);
+  constructor (nivoTla, src, jelNadesno, sirina, visina) {
+    super(nivoTla, src, sirina, visina);
     this.x = 100;
-    this.y = scena.nivoTla;
-    this.scena = scena;
+    this.y = nivoTla;
     this.okrenutNadesno = jelNadesno;
     this.energija = 100;
     this.brzina = 0;
@@ -32,7 +32,7 @@ export class TenkBocnoIgrac extends Igrac {
   }
 
   postaviCev(cevSrc, sirina, visina) {
-    this.cev = new Predmet(this.scena, cevSrc, sirina, visina);
+    this.cev = new Predmet(null, cevSrc, sirina, visina);
     this.cev.brzina = 0;
     this.cev.granicnik = $.NASTAVI;
     this.podesiUgaoCevi();
@@ -51,7 +51,7 @@ export class TenkBocnoIgrac extends Igrac {
   }
 
   postaviGranatu() {
-    this.granata = new Predmet(this.scena, $.root + "slike/granata.gif", 12, 3);
+    this.granata = new Predmet(null, $.root + "slike/granata.gif", 12, 3);
     this.granata.sakrij();
     this.granata.granicnik = $.NESTANI;
   }
@@ -84,8 +84,8 @@ export class TenkBocnoIgrac extends Igrac {
       this.brzina = Math.random() * 10 - 5;
       this.ugaoKretanja = 180;
     }
-    if (this.x >= this.scena.sirina - 10) {
-      this.x = this.scena.sirina - 10;
+    if (this.x >= platno.sirina - 10) {
+      this.x = platno.sirina - 10;
     }
     if (this.x <= 450) {
       this.brzina = Math.random() * 10 - 5;

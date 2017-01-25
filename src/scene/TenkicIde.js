@@ -10,6 +10,7 @@ import {Zbun} from '../2d-bocno/Zbun';
 import {Shuma} from '../2d-bocno/Shuma';
 import {Planina} from '../2d-bocno/Planina';
 import {Oblak} from '../2d-bocno/Oblak';
+import platno from '../io/platno'
 
 /*** KONFIG ***/
 
@@ -18,39 +19,44 @@ const BROJ_ZBUNOVA = 10;
 const PARALAX_1 = -5;
 const zbunovi = [];
 const oblaci = [];
+const nivoTla = platno.visina - 100;
 
-const scena = new Scena(update);
-const tenk = new TenkPartizanski(scena);
-const planina = new Planina(scena);
-const shumarak = new Shuma(scena);
+const tenk = new TenkPartizanski(nivoTla);
+const planina = new Planina(nivoTla);
+const shumarak = new Shuma();
 const interfejs = new UI();
 
-scena.nivoTla = scena.visina - 100;
 shumarak.dx = PARALAX_1;
 planina.dx = PARALAX_1;
 
 for (let i = 0; i < BROJ_ZBUNOVA; i++) {
-  zbunovi[i] = new Zbun(scena);
+  zbunovi[i] = new Zbun();
   zbunovi[i].dx = PARALAX_1;
 }
 
 for (let i = 0; i < BROJ_OBLAKA; i++) {
-  oblaci[i] = new Oblak(scena, 150, 100);
+  oblaci[i] = new Oblak(150, 100);
   oblaci[i].dx = PARALAX_1;
 }
 
-/*** FUNCTIONS ***/
+export default class TenkicIde extends Scena {
+  constructor() {
+    super()
+    this.nivoTla = nivoTla
+    this.dodaj(tenk, planina, shumarak, ...zbunovi, ...oblaci)
+  }
 
-function update() {
-  scena.crtaNeboZemlju(scena.nivoTla);
-  planina.update();
-  shumarak.update();
-  shumarak.proveriGranice(scena.sirina / 2);
-  planina.proveriGranice(scena.sirina + 200);
-  azurirajOblake();
-  tenk.update();
-  azurirajZbunje();
-  interfejs.render(praviUI());
+  update() {
+    this.crtaNeboZemlju(nivoTla);
+    planina.update();
+    shumarak.update();
+    shumarak.proveriGranice(platno.sirina / 2);
+    planina.proveriGranice(platno.sirina + 200);
+    azurirajOblake();
+    tenk.update();
+    azurirajZbunje();
+    interfejs.render(praviUI());
+  }
 }
 
 /*** POMOĆNE FUNKCIJE ***/
@@ -83,7 +89,3 @@ function azurirajOblake() {
     oblaci[i].proveriGranice();
   }
 }
-
-/*** EXPORT ***/
-
-export default scena
