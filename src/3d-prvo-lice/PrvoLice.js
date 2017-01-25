@@ -1,4 +1,5 @@
 import * as $ from '../konstante'
+import platno from '../io/platno'
 import {tipke} from '../io/tipke'
 import {Slika} from '../core/Slika.js';
 
@@ -12,7 +13,7 @@ const BOJA_LAMPE = '#ff0';
 
 export class PrvoLice {
 
-  constructor(platno, mapa, x, y, ugao = 0) {
+  constructor(mapa, x, y, ugao = 0) {
     this.platno = platno;
     this.podloga = platno.podloga;
     this.x = x;

@@ -1,10 +1,11 @@
 import {mapa} from '../mape/mapa-mala';
+import platno from '../io/platno'
 
 const BOJE = ['#fff', '#444', '#701206', '#000'];
 
 export class Mapa {
 
-  constructor(platno, velicinaPolja = 30, polja = mapa) {
+  constructor(velicinaPolja = 30, polja = mapa) {
     this.podloga = platno.podloga;
     this.polja = polja;
     this.velicinaPolja = velicinaPolja;

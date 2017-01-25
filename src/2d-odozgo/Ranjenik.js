@@ -6,8 +6,8 @@ const OKRET = _.uRadijane(2);
 
 export class Ranjenik extends Igrac {
 
-  constructor(scena) {
-    super (scena, $.root + "slike/2d-odozgo/ranjeni-partizan.png", 70, 30);
+  constructor() {
+    super (null, $.root + "slike/2d-odozgo/ranjeni-partizan.png", 70, 30);
     this.korak = 1;
     this.pogodjen = 0;
   }

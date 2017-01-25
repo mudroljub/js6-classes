@@ -9,14 +9,14 @@ import TenkicIde from './scene/TenkicIde'
 import Tenkici from './scene/Tenkici'
 import TenkicAI from './scene/TenkicAI'
 import BombasBunker from './scene/BombasBunker'
-// import savoDan from './scene/savo-dan'
-// import savoNoc from './scene/savo-noc'
-// import ranjenikPatrola from './scene/ranjenik-i-patrola'
-// import ranjenikPaljba from './scene/ranjenik-i-paljba'
-// import nemciIzRovova from './scene/nemci-iz-rovova'
+import SavoDan from './scene/SavoDan'
+import SavoNoc from './scene/SavoNoc'
+import RanjenikPatrole from './scene/RanjenikPatrole'
+import RanjenikPaljba from './scene/RanjenikPaljba'
+import NemciIzRovova from './scene/NemciIzRovova'
 // import ubijOkupatora from './scene/ubij-okupatora'
 // import jasenovac from './scene/bekstvo-iz-jasenovca'
 // import tenkOdozgo from './scene/tenk-puca-odozgo'
 
-const trenutnaScena = new BombasBunker()
+const trenutnaScena = new NemciIzRovova()
 trenutnaScena.start()

@@ -1,4 +1,5 @@
 import * as $ from '../konstante';
+import platno from '../io/platno'
 import {Slika} from '../core/Slika.js';
 
 const BOJA_TLA = '#701206';
@@ -12,7 +13,7 @@ const KISHA_PADA = true;
 
 export class Panorama {
 
-  constructor(platno, prvoLice, nebo, ...teksture) {
+  constructor(prvoLice, nebo, ...teksture) {
     this.platno = platno;
     this.podloga = platno.podloga;
     this.prvoLice = prvoLice;

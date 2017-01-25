@@ -18,29 +18,16 @@ let pocetakPaljbe = 500;
 
 /*** INIT ***/
 
-const scena = new Scena(update);
-const pozadina = new Pozadina(scena, $.root + "slike/teksture/beton.gif");
-const ranjenik = new Ranjenik(scena);
+const pozadina = new Pozadina($.root + "slike/teksture/beton.gif");
+const ranjenik = new Ranjenik();
 const casovnik = new Casovnik();
 // const tabela = document.getElementById("tabela");
-
-function update() {
-  scena.cisti();
-  pozadina.update();
-  azurirajVreme()
-  // prikaziRezultat();
-  pali();
-  for (let i = 0; i < plotuni.length; i++) {
-    plotuni[i].update();
-  }
-  ranjenik.update();
-}
 
 /*** FUNKCIJE ***/
 
 function pali() {
   if (protekleMilisekunde < pocetakPaljbe || ovajPlotun >= BROJ_PLOTUNA) return;
-  plotuni[ovajPlotun] = new Paljba(scena);
+  plotuni[ovajPlotun] = new Paljba();
   if (ranjenik.sudara(plotuni[ovajPlotun])) ranjenik.pogodjen += 1;
   pocetakPaljbe += RITAM_PALJBE;
   ovajPlotun++;
@@ -50,15 +37,31 @@ function prikaziRezultat() {
   tabela.innerHTML = `Pogoci: ${ranjenik.pogodjen}. Vreme: ${Math.floor(protekloVreme)}`;
 }
 
-function azurirajVreme() {
-  protekleMilisekunde = casovnik.dajProtekleMilisekunde();
-  protekloVreme = casovnik.dajProtekleSekunde();
-  if (protekloVreme > ZADATO_VREME) {
-    scena.stop();
-    // javi game over
-  }
-}
-
 /*** EXPORT ***/
 
-export default scena
+export default class RanjenikPaljba extends Scena {
+  constructor() {
+    super()
+  }
+
+  update() {
+    this.cisti();
+    pozadina.update();
+    this.azurirajVreme()
+    // prikaziRezultat();
+    pali();
+    for (let i = 0; i < plotuni.length; i++) {
+      plotuni[i].update();
+    }
+    ranjenik.update();
+  }
+
+  azurirajVreme() {
+    protekleMilisekunde = casovnik.dajProtekleMilisekunde();
+    protekloVreme = casovnik.dajProtekleSekunde();
+    if (protekloVreme > ZADATO_VREME) {
+      this.stop();
+      // javi game over
+    }
+  }
+}
