@@ -8,7 +8,7 @@ import Osvetnik1944 from './scene/Osvetnik1944'
 import TenkicIde from './scene/TenkicIde'
 import Tenkici from './scene/Tenkici'
 import TenkicAI from './scene/TenkicAI'
-// import bombasPrepreke from './scene/bombas-i-prepreke'
+import BombasBunker from './scene/BombasBunker'
 // import savoDan from './scene/savo-dan'
 // import savoNoc from './scene/savo-noc'
 // import ranjenikPatrola from './scene/ranjenik-i-patrola'
@@ -18,5 +18,5 @@ import TenkicAI from './scene/TenkicAI'
 // import jasenovac from './scene/bekstvo-iz-jasenovca'
 // import tenkOdozgo from './scene/tenk-puca-odozgo'
 
-const trenutnaScena = new TenkicAI()
+const trenutnaScena = new BombasBunker()
 trenutnaScena.start()

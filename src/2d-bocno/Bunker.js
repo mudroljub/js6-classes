@@ -3,8 +3,8 @@ import * as $ from '../konstante';
 
 export class Bunker extends Predmet {
 
-  constructor(scena, sirina, visina){
-    super(scena, $.root + "slike/2d-bocno/kuca-bunker.png", sirina, visina)
+  constructor(sirina, visina){
+    super(null, $.root + "slike/2d-bocno/kuca-bunker.png", sirina, visina)
     this.brzina = 0;
     this.polozaj(400, 100);
   }

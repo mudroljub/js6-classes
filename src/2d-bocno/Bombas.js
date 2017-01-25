@@ -4,8 +4,8 @@ import {Igrac} from '../core/Igrac';
 
 export class Bombas extends Igrac {
 
-  constructor(scena, slika, sirina, visina) {
-    super(scena, slika, sirina, visina);
+  constructor(slika, sirina, visina) {
+    super(null, slika, sirina, visina);
     this.tipke = tipke;
     this.mish = mish;
     this.potisak = 2.4;

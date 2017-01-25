@@ -3,8 +3,8 @@ import * as $ from '../konstante';
 
 export class Prepreka extends Predmet {
 
-  constructor(scena, nizPredmeta) {
-    super(scena, $.root + "slike/2d-bocno/stvari/kutija.png", 50, 50);
+  constructor(nizPredmeta) {
+    super(null, $.root + "slike/2d-bocno/stvari/kutija.png", 50, 50);
     this.nemojPreko (nizPredmeta);
   }
 

@@ -261,7 +261,7 @@ export class Predmet extends Slika {
     podloga.rotate(this.ugao);
     podloga.scale(this.skalarX, this.skalarY);
     podloga.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina);
-    podloga.restore();
+    podloga.restore();``
   }
 
   /* DEBUG */

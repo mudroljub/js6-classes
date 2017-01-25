@@ -1,9 +1,9 @@
 export class UI {
 
-  constructor(sablon) {
+  constructor(praviSablon = () => ``) {
     this.element = document.createElement('div');
     document.body.appendChild(this.element);
-    this.sablon = sablon
+    this.praviSablon = praviSablon
   }
 
   dodaj(sablon) {
@@ -11,7 +11,7 @@ export class UI {
   }
 
   render() {
-    if (this.element.innerHTML !== this.sablon()) this.element.innerHTML = this.sablon()
+    if (this.element.innerHTML !== this.praviSablon()) this.element.innerHTML = this.praviSablon()
   }
 
 }
