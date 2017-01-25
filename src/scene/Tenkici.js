@@ -4,9 +4,8 @@
 // napraviti beskonačnu pozadinu sa preprekama i objektima koji nalecu
 // napraviti verziju za minobacače
 
-/*** IMPORT ***/
-
 import * as $ from '../konstante';
+import platno from '../io/platno'
 import {UI} from '../core/UI';
 import {Scena} from '../core/Scena';
 import {Pozadina} from '../core/Pozadina';
@@ -15,24 +14,30 @@ import {TenkNemacki} from '../2d-bocno/TenkNemacki';
 
 /*** INIT ***/
 
-const scena = new Scena(update);
-scena.velicina(800, 500);
-const tenk1 = new TenkPartizanski(scena, 100, 450);
-const tenk2 = new TenkNemacki(scena, 650, 450);
-const pozadina = new Pozadina(scena, $.root + "slike/pozadine/razrusen-grad-savremen.jpg");
+const tenk1 = new TenkPartizanski(100, 450);
+const tenk2 = new TenkNemacki(650, 450);
+const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg");
 const interfejs = new UI();
 
-/*** POMOĆNE FUNKCIJE ***/
+export default class Tenkici extends Scena {
+  constructor() {
+    super()
+    this.velicina(800, 500);
+    this.dodaj()
+  }
 
-function update() {
-  pozadina.update();
-  tenk2.proveriTipke();
-  tenk1.update();
-  tenk2.update();
-  proveriPogodak(tenk1.granata, tenk2, 2)
-  proveriPogodak(tenk2.granata, tenk1, -2)
-  interfejs.render(praviUI());
+  update() {
+    pozadina.update();
+    tenk2.proveriTipke();
+    tenk1.update();
+    tenk2.update();
+    proveriPogodak(tenk1.granata, tenk2, 2)
+    proveriPogodak(tenk2.granata, tenk1, -2)
+    interfejs.render(praviUI());
+  }
 }
+
+/*** POMOĆNE FUNKCIJE ***/
 
 function proveriPogodak(granata, tenk, pomak) {
   if (granata.sudara(tenk)) {
@@ -47,9 +52,8 @@ function proveriPogodak(granata, tenk, pomak) {
 }
 
 function reset() {
-  let polaSirine = scena.sirina / 2;
-  let x1 = (Math.random() * polaSirine);
-  let x2 = (Math.random() * polaSirine) + polaSirine;
+  let x1 = (Math.random() * platno.polaSirine);
+  let x2 = (Math.random() * platno.polaSirine) + platno.polaSirine;
   tenk1.polozaj(x1, 450);
   tenk2.polozaj(x2, 450);
   tenk1.energija = tenk2.energija = 100;
@@ -80,7 +84,3 @@ function praviUI() {
     <progress class="komande poluprovidno progres2" value="${tenk2.energija}" max="100"></progress>
   `;
 }
-
-/*** EXPORT ***/
-
-export default scena
