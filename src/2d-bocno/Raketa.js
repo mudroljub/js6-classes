@@ -42,9 +42,9 @@ export class Raketa extends Predmet {
   }
 
   pucaPratecu() {
-    this.pripremi();
-    this.traziNajblizuMetu(this.cilj);
-    this.pali();
+    this.pripremi()
+    this.traziNajblizuMetu()
+    this.pali()
   }
 
   nisani(predmet) {

@@ -6,8 +6,8 @@ const SANSA_PUCNJA = 0.01;
 
 export class Hummel extends VoziloBocno {
 
-  constructor(scena) {
-    super(scena, $.root + "slike/2d-bocno/hummel.png", 150, 70);
+  constructor(nivoTla) {
+    super(nivoTla, $.root + "slike/2d-bocno/hummel.png", 150, 70);
     this.slikaMrtav = $.root + "slike/2d-bocno/unisten-tenk-gori.png";
     this.oznake.neprijatelj = true;
     this.raketa = new Raketa(this);

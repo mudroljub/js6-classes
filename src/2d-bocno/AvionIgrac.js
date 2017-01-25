@@ -1,3 +1,5 @@
+// popraviti proveriSudare()
+
 import * as $ from '../konstante';
 import {tipke} from '../io/tipke';
 import {Igrac} from '../core/Igrac';
@@ -10,7 +12,8 @@ const GRAVITACIJA = 0.3;
 export class AvionIgrac extends Igrac {
 
   constructor(scena, src = $.root + "slike/2d-bocno/spitfire.png", sirina = 200, visina = 60) {
-    super(scena, src, sirina, visina);
+    super(scena.nivoTla, src, sirina, visina);
+    this.scena = scena
     this.brzina = 0;
     this.granicnik = $.OGRANICI;
     this.nivoTla = scena.nivoTla;
@@ -22,7 +25,7 @@ export class AvionIgrac extends Igrac {
   update() {
     super.update();
     this.proveriTlo();
-    this.proveriSudare();
+    // this.proveriSudare()
     this.proveriGranice();
     this.proveriGravitaciju();
     this.ispraviAvion();

@@ -3,11 +3,11 @@ import {Predmet} from '../core/Predmet';
 
 export class VoziloBocno extends Predmet {
 
-  constructor(scena, src, sirina, visina) {
-    super(scena, src, sirina, visina);
+  constructor(nivoTla, src, sirina, visina) {
+    super(null, src, sirina, visina);
     this.dodajSilu(this.ugao, 3);
     this.x = 100;
-    this.y = scena.visina - this.visina / 2;
+    this.y = nivoTla - this.visina / 2;
   }
 
   patroliraj() {

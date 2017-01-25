@@ -60,7 +60,7 @@ export class Predmet extends Slika {
   /* POLOZAJ RANDOM */
 
   postaviRandom() {
-    this.polozaj(Math.random() * this.scena.sirina, Math.random() * this.scena.visina);
+    this.polozaj(Math.random() * platno.sirina, Math.random() * platno.visina);
   }
 
   postaviRandomUredno() { // ne viri sa platna
@@ -68,11 +68,11 @@ export class Predmet extends Slika {
     this.randomY();
   }
 
-  randomX(pocetnoX = this.sirina/2, zavrsnoX = this.scena.sirina - this.sirina/2) {
+  randomX(pocetnoX = this.sirina/2, zavrsnoX = platno.sirina - this.sirina/2) {
     this.x = _.randomRange(pocetnoX, zavrsnoX);
   }
 
-  randomY(pocetnoY = this.visina/2, zavrsnoY = this.scena.visina - this.visina/2) {
+  randomY(pocetnoY = this.visina/2, zavrsnoY = platno.visina - this.visina/2) {
     this.y = _.randomRange(pocetnoY, zavrsnoY);
   }
 
@@ -184,7 +184,7 @@ export class Predmet extends Slika {
   /* GRANICE */
 
   get naEkranu() {
-    return (this.x >= 0 && this.x <= this.scena.sirina) && (this.y >= 0 && this.y <= this.scena.visina);
+    return (this.x >= 0 && this.x <= platno.sirina) && (this.y >= 0 && this.y <= platno.visina);
   }
 
   izasaoLevo() {
@@ -192,7 +192,7 @@ export class Predmet extends Slika {
   }
 
   vracaVodoravno (procenatVracanja = 1) {
-    if (this.izasaoLevo() && Math.random() < procenatVracanja) this.x = this.scena.sirina + this.sirina / 2;
+    if (this.izasaoLevo() && Math.random() < procenatVracanja) this.x = platno.sirina + this.sirina / 2;
   }
 
   get granicnik() {
