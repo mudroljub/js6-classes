@@ -34,7 +34,7 @@ export default class Osvetnik1944 extends Scena {
     avionce.update()
     azurirajOblake()
     this.proveriSudare()
-    interfejs.render(this.praviUI())
+    // interfejs.render(this.praviUI())
   }
 
   praviUI() {

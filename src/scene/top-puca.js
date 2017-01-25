@@ -22,7 +22,7 @@ function init() {
 function update() {
   scena.crtaNeboZemlju(250, "lightblue", "green");
   haubica.update();
-  interfejs.render(praviUI());
+  // interfejs.render(praviUI());
 }
 
 /*** POMOĆNE FUNKCIJE ***/

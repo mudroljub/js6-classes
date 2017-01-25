@@ -33,7 +33,7 @@ export default class Tenkici extends Scena {
     tenk2.update();
     proveriPogodak(tenk1.granata, tenk2, 2)
     proveriPogodak(tenk2.granata, tenk1, -2)
-    interfejs.render(praviUI());
+    // interfejs.render(praviUI());
   }
 }
 

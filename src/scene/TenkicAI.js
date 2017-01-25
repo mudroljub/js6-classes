@@ -13,7 +13,7 @@ import {TenkNemacki} from '../2d-bocno/TenkNemacki';
 const tenk1 = new TenkPartizanski(100, 450);
 const tenk2 = new TenkNemacki();
 const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg");
-const interfejs = new UI();
+const interfejs = new UI(sablon);
 
 window.setInterval(() => tenk2.puca(), 3000);
 
@@ -21,17 +21,14 @@ export default class TenkicAI extends Scena {
   constructor() {
     super()
     this.velicina(800, 500)
+    this.dodaj(pozadina, tenk1, tenk2, interfejs)
   }
 
   update() {
-    this.cisti();
-    pozadina.update();
+    super.update()
     tenk2.mrdaNasumicno();
     proveriPogodak(tenk1.granata, tenk2, 2)
     proveriPogodak(tenk2.granata, tenk1, -2)
-    tenk1.update();
-    tenk2.update();
-    interfejs.render(praviUI());
   }
 }
 
@@ -57,7 +54,7 @@ function reset() {
   tenk2.energija = 100;
 }
 
-function praviUI() {
+function sablon() {
   return `
     <div class="komande bg-poluprovidno komande1">
       <span class="bold">Tenk 1</span>

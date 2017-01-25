@@ -55,7 +55,7 @@ export default class TenkicIde extends Scena {
     azurirajOblake();
     tenk.update();
     azurirajZbunje();
-    interfejs.render(praviUI());
+    // interfejs.render(praviUI());
   }
 }
 

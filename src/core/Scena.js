@@ -41,16 +41,18 @@ export class Scena {
   /* GLAVNI LOOP */
 
   update() {
-    this.predmeti.map(predmet => {
-      predmet.update()
-    })
+    this.predmeti.map(predmet => 'update' in predmet && predmet.update())
+  }
+
+  render() {
+    this.predmeti.map(predmet => 'render' in predmet && predmet.render())
   }
 
   loop() {
     this.loopID = window.requestAnimationFrame(this.loop.bind(this))
     this.cisti()
     this.update()
-    // this.render()
+    this.render()
   }
 
   start() {

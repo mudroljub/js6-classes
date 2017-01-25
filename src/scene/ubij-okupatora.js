@@ -18,7 +18,7 @@ const interfejs = `
 /*** INIT ***/
 
 const ui = new UI();
-ui.dodaj(interfejs);
+// ui.dodaj(interfejs);
 const scena = new Scena(update);
 const pozadina = new Pozadina(scena, $.root + "slike/pozadine/rusevine-varsava.jpg");
 const strazar = new Okupator(scena);

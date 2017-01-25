@@ -1,16 +1,17 @@
 export class UI {
 
-  constructor() {
-    this.interfejs = document.createElement('div');
-    document.body.appendChild(this.interfejs);
+  constructor(sablon) {
+    this.element = document.createElement('div');
+    document.body.appendChild(this.element);
+    this.sablon = sablon
   }
 
-  dodaj(interfejs) {
-    this.interfejs.innerHTML = interfejs;
+  dodaj(sablon) {
+    this.element.innerHTML = sablon
   }
 
-  render(interfejs) {
-    if (this.interfejs.innerHTML !== interfejs) this.dodaj(interfejs);
+  render() {
+    if (this.element.innerHTML !== this.sablon()) this.element.innerHTML = this.sablon()
   }
 
 }
