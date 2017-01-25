@@ -5,17 +5,11 @@
 import {Scena} from '../core/Scena';
 import {CamacIgracOdozgo} from '../2d-odozgo/CamacIgracOdozgo';
 
-/*** INIT ***/
-
-const scena = new Scena(update);
-scena.bojaPozadine = "#000066";
-const camac = new CamacIgracOdozgo(scena);
-
-function update() {
-  scena.cisti();
-  camac.update();
+export default class Jadran extends Scena {
+  constructor() {
+    super()
+    this.bojaPozadine = "#000066";
+    const camac = new CamacIgracOdozgo();
+    this.dodaj(camac)
+  }
 }
-
-/*** EXPORT ***/
-
-export default scena

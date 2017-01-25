@@ -1,18 +1,19 @@
-import platno from '../io/platno';
+import platno from '../io/platno'
+const podloga = platno.podloga
 
 export class Scena {
 
   constructor(update) {
-    this.loop = update;
+    // this.loop = update;
     this.platno = platno;
-    this.podloga = platno.podloga;
     this.touchable = 'createTouch' in document;
     this.predmeti = [];
     this.nivoTla = this.visina;
+    this.loopID = null
   }
 
-  dodaj(premet) {
-    this.predmeti.push(premet);
+  dodaj(...premeti) {
+    this.predmeti.push(...premeti);
   }
 
   /* VELIČINA */
@@ -42,31 +43,31 @@ export class Scena {
 
   set bojaPozadine(boja) {
     this.platno.style.backgroundColor = boja;
-    this.podloga.fillStyle = boja;
+    podloga.fillStyle = boja;
   }
 
   get bojaPozadine() {
-    return this.podloga.fillStyle;
+    return podloga.fillStyle;
   }
 
   cisti() {
-    this.podloga.clearRect(0, 0, this.sirina, this.visina);
+    podloga.clearRect(0, 0, this.sirina, this.visina);
   }
 
   crtaNebo(nivoTla = this.nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
     this.bojaPozadine = bojaNeba;
     if (bojaNebaPreliv) {
-      let preliv = this.podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla);
+      let preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla);
       preliv.addColorStop(0, bojaNeba);
       preliv.addColorStop(1, bojaNebaPreliv);
       this.bojaPozadine = preliv;
     }
-    this.podloga.fillRect(0, 0, this.sirina, nivoTla);
+    podloga.fillRect(0, 0, this.sirina, nivoTla);
   }
 
   crtaZemlju(nivoTla, bojaZemlje = "#00b011") {
     this.bojaPozadine = bojaZemlje;
-    this.podloga.fillRect(0, nivoTla, this.sirina, this.visina);
+    podloga.fillRect(0, nivoTla, this.sirina, this.visina);
   }
 
   crtaNeboZemlju(nivoTla, bojaNeba = "lightblue", bojaZemlje = "green", bojaNebaPreliv = 'blue') {
@@ -76,12 +77,28 @@ export class Scena {
 
   /* GLAVNI LOOP */
 
+  update() {
+    this.predmeti.map(predmet => {
+      predmet.update()
+    })
+  }
+
+  loop() {
+    this.loopID = window.requestAnimationFrame(this.loop.bind(this))
+    this.cisti()
+    this.update()
+    // this.render()
+  }
+
   start() {
-    this.interval = setInterval(this.loop, 50);
+    if (this.loopID) return
+    this.loop()
   }
 
   stop() {
-    clearInterval(this.interval);
+    if (!this.loopID) return
+    window.cancelAnimationFrame(this.loopID)
+    this.loopID = null
   }
 
   /* PREDMETI SCENE */

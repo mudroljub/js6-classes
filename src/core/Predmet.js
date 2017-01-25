@@ -3,13 +3,14 @@ import platno from '../io/platno';
 import mish from '../io/mish';
 import {Slika} from './Slika';
 import {proveriGranice} from '../akcije/proveriGranice';
+const podloga = platno.podloga
 
 export class Predmet extends Slika {
 
   constructor (scena, src, sirina, visina, x = 200, y = 200) {
     super(src, sirina, visina);
     this.scena = scena;
-    scena.dodaj(this);
+    // scena.dodaj(this)
     this.platno = platno;
     this.x = x;
     this.y = y;
@@ -256,7 +257,6 @@ export class Predmet extends Slika {
 
   crta() {
     if (!this.vidljiv) return;
-    let podloga = this.scena.podloga;
     podloga.save();
     podloga.translate(this.x, this.y);
     podloga.rotate(this.ugao);

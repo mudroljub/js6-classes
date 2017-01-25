@@ -16,6 +16,7 @@
 // import ubijOkupatora from './scene/ubij-okupatora';
 // import jasenovac from './scene/bekstvo-iz-jasenovca';
 // import tenkOdozgo from './scene/tenk-puca-odozgo';
-import camac from './scene/camac';
+import Jadran from './scene/Jadran';
 
-camac.start()
+const trenutnaScena = new Jadran()
+trenutnaScena.start()
