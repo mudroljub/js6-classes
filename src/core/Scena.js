@@ -38,6 +38,41 @@ export class Scena {
     this.visina = visina;
   }
 
+  /* GLAVNI LOOP */
+
+  update() {
+    this.predmeti.map(predmet => {
+      predmet.update()
+    })
+  }
+
+  loop() {
+    this.loopID = window.requestAnimationFrame(this.loop.bind(this))
+    this.cisti()
+    this.update()
+    // this.render()
+  }
+
+  start() {
+    if (this.loopID) return
+    this.loop()
+  }
+
+  stop() {
+    if (!this.loopID) return
+    window.cancelAnimationFrame(this.loopID)
+    this.loopID = null
+  }
+
+  /* PREDMETI SCENE */
+
+  sviOstali(uradiNesto) {
+    for (let predmet of this.predmeti) {
+      if ("igrac" in predmet.oznake || "raketa" in predmet.oznake) continue;
+      uradiNesto(predmet);
+    }
+  }
+
   /* POZADINA */
 
   set bojaPozadine(boja) {
@@ -72,41 +107,6 @@ export class Scena {
   crtaNeboZemlju(nivoTla, bojaNeba = "lightblue", bojaZemlje = "green", bojaNebaPreliv = 'blue') {
     this.crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
     this.crtaZemlju(nivoTla, bojaZemlje)
-  }
-
-  /* GLAVNI LOOP */
-
-  update() {
-    this.predmeti.map(predmet => {
-      predmet.update()
-    })
-  }
-
-  loop() {
-    this.loopID = window.requestAnimationFrame(this.loop.bind(this))
-    this.cisti()
-    this.update()
-    // this.render()
-  }
-
-  start() {
-    if (this.loopID) return
-    this.loop()
-  }
-
-  stop() {
-    if (!this.loopID) return
-    window.cancelAnimationFrame(this.loopID)
-    this.loopID = null
-  }
-
-  /* PREDMETI SCENE */
-
-  sviOstali(uradiNesto) {
-    for (let predmet of this.predmeti) {
-      if ("igrac" in predmet.oznake || "raketa" in predmet.oznake) continue;
-      uradiNesto(predmet);
-    }
   }
 
   /* MISH */

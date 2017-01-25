@@ -10,26 +10,32 @@ import {TenkNemacki} from '../2d-bocno/TenkNemacki';
 
 /*** INIT ***/
 
-const scena = new Scena(update, 800, 500);
-const tenk1 = new TenkPartizanski(scena, 100, 450);
-const tenk2 = new TenkNemacki(scena);
-const pozadina = new Pozadina(scena, $.root + "slike/pozadine/razrusen-grad-savremen.jpg");
+const tenk1 = new TenkPartizanski(100, 450);
+const tenk2 = new TenkNemacki();
+const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg");
 const interfejs = new UI();
 
 window.setInterval(() => tenk2.puca(), 3000);
 
-/*** FUNKCIJE ***/
+export default class TenkicAI extends Scena {
+  constructor() {
+    super()
+    this.velicina(800, 500)
+  }
 
-function update() {
-  scena.cisti();
-  pozadina.update();
-  tenk2.mrdaNasumicno();
-  proveriPogodak(tenk1.granata, tenk2, 2)
-  proveriPogodak(tenk2.granata, tenk1, -2)
-  tenk1.update();
-  tenk2.update();
-  interfejs.render(praviUI());
+  update() {
+    this.cisti();
+    pozadina.update();
+    tenk2.mrdaNasumicno();
+    proveriPogodak(tenk1.granata, tenk2, 2)
+    proveriPogodak(tenk2.granata, tenk1, -2)
+    tenk1.update();
+    tenk2.update();
+    interfejs.render(praviUI());
+  }
 }
+
+/*** FUNKCIJE ***/
 
 function proveriPogodak(granata, tenk, pomak) {
   if (granata.sudara(tenk)) {
@@ -76,7 +82,3 @@ function praviUI() {
     <progress class="komande poluprovidno progres2" value="${tenk2.energija}" max="100"></progress>
   `;
 }
-
-/*** EXPORT ***/
-
-export default scena
