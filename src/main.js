@@ -1,3 +1,7 @@
+// popraviti loop
+// da prosledjivanje update funkcije sceni bude opciono
+// ukinuti zavisnost predmeta od scene?
+
 // import avionBocno from './scene/avion-puca-bocno';
 // import avionPuca from './scene/avion-puca-odozgo';
 // import tenkicIde from './scene/tenkic-ide-puca';

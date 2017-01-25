@@ -1,12 +1,10 @@
-export let platno = document.getElementById("platno");
+const platno = document.createElement('canvas')
 
-if (!platno) {
-  platno = document.createElement("canvas");
-  platno.id = 'platno';
-  document.body.appendChild(platno);
-}
+platno.width = document.body.clientWidth || 800
+platno.height = document.body.clientHeight || 600
+platno.style.backgroundColor = 'lightgray'
+platno.podloga = platno.getContext('2d')
+platno.id = 'platno'
+document.body.appendChild(platno)
 
-platno.width = document.body.clientWidth // window.innerWidth;
-platno.height = document.body.clientHeight // window.innerHeight;
-platno.style.backgroundColor = 'lightgray';
-platno.podloga = platno.getContext("2d");
+export default platno

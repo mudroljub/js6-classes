@@ -1,5 +1,6 @@
 import * as _ from '../funkcije';
-import {mish} from '../io/mish';
+import platno from '../io/platno';
+import mish from '../io/mish';
 import {Slika} from './Slika';
 import {proveriGranice} from '../akcije/proveriGranice';
 
@@ -9,7 +10,7 @@ export class Predmet extends Slika {
     super(src, sirina, visina);
     this.scena = scena;
     scena.dodaj(this);
-    this.platno = scena.platno;
+    this.platno = platno;
     this.x = x;
     this.y = y;
     this.ziv = true;
@@ -247,8 +248,8 @@ export class Predmet extends Slika {
   }
 
   pratiMisha() {
-    this.x = mish.x - this.scena.platno.offsetLeft;
-    this.y = mish.y - this.scena.platno.offsetTop;
+    this.x = mish.x - platno.offsetLeft;
+    this.y = mish.y - platno.offsetTop;
   }
 
   /* RENDER */

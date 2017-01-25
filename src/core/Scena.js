@@ -1,6 +1,4 @@
-import {
-  platno
-} from '../io/platno';
+import platno from '../io/platno';
 
 export class Scena {
 
@@ -79,7 +77,6 @@ export class Scena {
   /* GLAVNI LOOP */
 
   start() {
-    // requestAnimationFrame(update);
     this.interval = setInterval(this.loop, 50);
   }
 

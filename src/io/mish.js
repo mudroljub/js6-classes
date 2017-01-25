@@ -1,7 +1,4 @@
-'use strict';
-
-export const mish = {
-
+const mish = {
   _stisnut: false,
 
   init: () => {
@@ -36,5 +33,6 @@ export const mish = {
   set y(y) {
     mish._y = y;
   }
-
 }
+
+export default mish

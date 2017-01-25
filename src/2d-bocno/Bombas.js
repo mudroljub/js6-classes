@@ -1,5 +1,5 @@
 import {tipke} from '../io/tipke';
-import {mish} from '../io/mish';
+import mish from '../io/mish';
 import {Igrac} from '../core/Igrac';
 
 export class Bombas extends Igrac {

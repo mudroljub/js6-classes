@@ -15,6 +15,8 @@ npm start
 ```
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
+P.S. izbacuje grešku ako je negde već pokrenut webpack-dev-server.
+
 ## Uraditi:
 - veliki problem ucitavanje zeza
 - srediti ucitavač: učitavati slike u JS, podesiti webpack
