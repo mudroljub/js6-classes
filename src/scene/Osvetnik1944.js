@@ -34,7 +34,7 @@ export default class Osvetnik1944 extends Scena {
     super()
     const interfejs = new UI(sablon)
     const pozadina = new Okean(brzinaPozadine, this.platno.width)
-    for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(this, brzinaPozadine)
+    for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(brzinaPozadine)
     this.dodaj(pozadina, ostrvo, igrac, ...oblaci, interfejs)
   }
 

@@ -10,7 +10,7 @@ const GRAVITACIJA = 0.3
 export class AvionIgrac extends Igrac {
   // treba scena zbog pratecih
   constructor(scena, src = $.root + "slike/2d-bocno/spitfire.png", sirina = 200, visina = 60) {
-    super(null, src, sirina, visina)
+    super(src, sirina, visina)
     this.scena = scena
     this.brzina = 0
     this.granicnik = $.OGRANICI

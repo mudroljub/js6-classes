@@ -12,7 +12,7 @@ import platno from '../io/platno'
 export class TenkBocnoIgrac extends Igrac {
 
   constructor (nivoTla, src, jelNadesno, sirina, visina) {
-    super(nivoTla, src, sirina, visina);
+    super(src, sirina, visina);
     this.x = 100;
     this.y = nivoTla;
     this.okrenutNadesno = jelNadesno;

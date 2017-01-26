@@ -11,9 +11,8 @@ const PAUZA_PALJBE = 0.1;
 
 export class Avionce extends Igrac {
 
-  constructor(scena) {
-    super(scena, $.root + "slike/2d-odozgo/avionce.gif");
-    this.scena = scena;
+  constructor() {
+    super($.root + "slike/2d-odozgo/avionce.gif");
     this.prevelicaj(0.75);
     this.casovnik = new Casovnik();
     this.zvukMotora = new Zvuk($.root + "zvuci/engine.mp3");
