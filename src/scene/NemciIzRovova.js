@@ -25,8 +25,57 @@ let energija = 100
 /*** LOGIKA IGRE ***/
 
 const pozadina = new Pozadina($.root + "slike/teksture/suva-trava.jpg")
-const nishan = new Nishan()
 const ui = new UI(sablon)
+
+/*** EXPORT ***/
+
+export default class NemciIzRovova extends Scena {
+  constructor() {
+    super()
+    ucitajRekord()
+    this.praviSvabe(bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, procenatPojavljivanja: 0.003})
+    this.praviSvabe(daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.002})
+    const nishan = new Nishan()
+    this.dodajKlik(nishan)
+  }
+
+  update() {
+    this.cisti()
+    pozadina.update()
+    azurirajSvabe(bliziRovovi)
+    azurirajSvabe(daljiRovovi)
+    this.proveriKraj()
+  }
+
+  render() {
+    ui.render()
+  }
+
+  dodajKlik(nishan) {
+    document.onclick = () => {
+      // proverava rovove u kliknutom delu ekrana
+      let ciljaniRovovi = (nishan.y <= DALJI_ROVOVI_Y) ? daljiRovovi : bliziRovovi
+      proveriPogotke(ciljaniRovovi)
+    }
+  }
+
+  praviSvabe(rovovi, y, params) {
+    for (let i = 0; i < rovovi.length; i++) {
+      rovovi[i] = new Svabo(params.sirina, params.visina, params.procenatPojavljivanja)
+      let randomX = Math.random() * this.sirina
+      rovovi[i].polozaj(randomX, y)
+    }
+  }
+
+  proveriKraj() {
+    if (energija < 1) {
+      sacuvajRekord()
+      this.stop()
+      console.log("Play again...")
+      // document.location.href = ""
+    }
+  }
+}
 
 /*** FUNKCIJE ***/
 
@@ -61,53 +110,4 @@ function sablon() {
     Energija: ${energija} <br>
     Rekord: ${rekord}
   `
-}
-
-/*** EXPORT ***/
-
-export default class NemciIzRovova extends Scena {
-  constructor() {
-    super()
-    ucitajRekord()
-    this.praviSvabe(bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, procenatPojavljivanja: 0.003})
-    this.praviSvabe(daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.002})
-    this.dodajKlik()
-  }
-
-  update() {
-    this.cisti()
-    pozadina.update()
-    azurirajSvabe(bliziRovovi)
-    azurirajSvabe(daljiRovovi)
-    this.proveriKraj()
-  }
-
-  render() {
-    ui.render()
-  }
-
-  dodajKlik() {
-    document.onclick = () => {
-      // proverava rovove u kliknutom delu ekrana
-      let ciljaniRovovi = (nishan.y <= DALJI_ROVOVI_Y) ? daljiRovovi : bliziRovovi
-      proveriPogotke(ciljaniRovovi)
-    }
-  }
-
-  praviSvabe(rovovi, y, params) {
-    for (let i = 0; i < rovovi.length; i++) {
-      rovovi[i] = new Svabo(params.sirina, params.visina, params.procenatPojavljivanja)
-      let randomX = Math.random() * this.sirina
-      rovovi[i].polozaj(randomX, y)
-    }
-  }
-
-  proveriKraj() {
-    if (energija < 1) {
-      sacuvajRekord()
-      this.stop()
-      console.log("Play again...")
-      // document.location.href = ""
-    }
-  }
 }

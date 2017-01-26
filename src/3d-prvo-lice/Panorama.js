@@ -12,7 +12,6 @@ const IGNORISE_VISINU = true;
 const KISHA_PADA = true;
 
 export class Panorama {
-
   constructor(prvoLice, nebo, ...teksture) {
     this.platno = platno;
     this.podloga = platno.podloga;
@@ -114,5 +113,4 @@ export class Panorama {
       visina: zidVisina
     };
   }
-
-} // Panorama
+}

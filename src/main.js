@@ -16,5 +16,5 @@ import UbijOkupatora from './scene/UbijOkupatora'
 import Jasenovac from './scene/Jasenovac'
 import TenkOdozgoScena from './scene/TenkOdozgoScena'
 
-const trenutnaScena = new RanjenikPatrole()
+const trenutnaScena = new SavoDan()
 trenutnaScena.start()
