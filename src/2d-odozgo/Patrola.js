@@ -1,3 +1,5 @@
+// problem sto promena ugla vise ne znaci promenu pravca kretanja?
+
 import * as $ from '../konstante'
 import platno from '../io/platno'
 import {Predmet} from '../core/Predmet'
@@ -9,7 +11,7 @@ export class Patrola extends Predmet {
 
   constructor(slikaIzvor = $.root + "slike/2d-odozgo/nemci-patrola.gif") {
     super(null, slikaIzvor, 71, 78)
-    this.zvuk = new Zvuk($.root + "zvuci/halt.mp3", $.root + "zvuci/halt.ogg")
+    this.zvuk = new Zvuk($.root + "zvuci/halt.mp3")
     this.brzina = 10
     this.granicnik = $.KRUZI
     // this.postaviNasumicno()
@@ -17,7 +19,7 @@ export class Patrola extends Predmet {
 
   zuji() {
     if (this.brzina <= 0) return
-    var nasumicno = (Math.random() * Math.PI/2) - Math.PI/4
+    var nasumicno = Math.random() * Math.PI/2 - Math.PI/4
     this.ugao += nasumicno
   }
 

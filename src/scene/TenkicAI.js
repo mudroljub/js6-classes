@@ -1,5 +1,6 @@
-// ubaciti uništen tenk
+// srediti pokret i pucanje neprijatelju
 // ukloniti dvostruki interval
+// ubaciti uništen tenk
 
 import * as $ from '../konstante';
 import {UI} from '../core/UI';

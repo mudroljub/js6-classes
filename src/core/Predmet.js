@@ -1,277 +1,232 @@
-import * as _ from '../funkcije';
-import platno from '../io/platno';
-import mish from '../io/mish';
-import {Slika} from './Slika';
-import {proveriGranice} from '../akcije/proveriGranice';
+import * as _ from '../funkcije'
+import platno from '../io/platno'
+import mish from '../io/mish'
+import {Slika} from './Slika'
+import {proveriGranice} from '../akcije/proveriGranice'
 const podloga = platno.podloga
 
 export class Predmet extends Slika {
 
   constructor (scena, src, sirina, visina, x = 200, y = 200) {
-    super(src, sirina, visina);
-    this.platno = platno;
-    this.x = x;
-    this.y = y;
-    this.ziv = true;
-    this.vidljiv = true;
-    this.ugao = 0;
-    this.brzina = 0;
-    this.skalarX = 1;
-    this.skalarY = 1;
-    this.oznake = {};
+    super(src, sirina, visina)
+    this.platno = platno
+    this.x = x
+    this.y = y
+    this.ziv = true
+    this.vidljiv = true
+    this.ugao = 0
+    this.brzina = 0
+    this.skalarX = 1
+    this.skalarY = 1
+    this.oznake = {}
   }
 
   update() {
-    this.x += this.dx;
-    this.y += this.dy;
-    this.proveriGranice();
-    this.crta();
+    this.x += this.dx
+    this.y += this.dy
+    this.proveriGranice()
+    this.crta()
   }
 
   /* POLOZAJ */
 
-  set x(x) {
-    this._x = x;
-  }
-
-  get x() {
-    return this._x;
-  }
-
-  set y(y) {
-    this._y = y;
-  }
-
-  get y() {
-    return this._y;
-  }
-
   tlo(y) {
-    this.y = y - this.visina / 2;
+    this.y = y - this.visina / 2
   }
 
   polozaj(x, y) {
-    this.x = x;
-    this.y = y;
+    this.x = x
+    this.y = y
   }
 
   /* POLOZAJ RANDOM */
 
   postaviRandom() {
-    this.polozaj(Math.random() * platno.width, Math.random() * platno.height);
+    this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
   }
 
   postaviRandomUredno() { // ne viri sa platna
-    this.randomX();
-    this.randomY();
+    this.randomX()
+    this.randomY()
   }
 
   randomX(pocetnoX = this.sirina/2, zavrsnoX = platno.width - this.sirina/2) {
-    this.x = _.randomRange(pocetnoX, zavrsnoX);
+    this.x = _.randomRange(pocetnoX, zavrsnoX)
   }
 
   randomY(pocetnoY = this.visina/2, zavrsnoY = platno.height - this.visina/2) {
-    this.y = _.randomRange(pocetnoY, zavrsnoY);
+    this.y = _.randomRange(pocetnoY, zavrsnoY)
   }
 
   /* KRETANJE */
 
-  get dx() {
-    return this._dx;
+  azurirajSilu(ugao, jacina) {
+    this.dx = Math.cos(ugao) * jacina
+    this.dy = Math.sin(ugao) * jacina
   }
 
-  set dx(dx) {
-    this._dx = dx;
-  }
-
-  get dy() {
-    return this._dy;
-  }
-
-  set dy(dy) {
-    this._dy = dy;
-  }
-
-  predjiRastojanje(razmak) {
-    this.x += razmak * Math.cos(this.ugao);
-    this.y += razmak * Math.sin(this.ugao);
-  }
-
-  // mozda obrnuti redosled argumenata, ugao = 0 opcioni
-  dodajSilu(ugao, potisak) {
-    this.dx += potisak * Math.cos(ugao);
-    this.dy += potisak * Math.sin(ugao);
+  // obrnuti redosled argumenata, ugao opcioni
+  dodajSilu(ugao, jacina) {
+    this.dx += Math.cos(ugao) * jacina
+    this.dy += Math.sin(ugao) * jacina
   }
 
   get brzina() {
-    return Math.sqrt((this.dx * this.dx) + (this.dy * this.dy));
+    return Math.sqrt(this.dx * this.dx + this.dy * this.dy)
   }
 
-  set brzina(brzina) {
-    this.dx = Math.cos(this.ugao) * brzina;
-    this.dy = Math.sin(this.ugao) * brzina;
+  set brzina(novaBrzina) {
+    this.azurirajSilu(this.ugao, novaBrzina)
+  }
+
+  predjiRastojanje(razmak) {
+    this.x += razmak * Math.cos(this.ugao)
+    this.y += razmak * Math.sin(this.ugao)
   }
 
   stani() {
-    this.brzina = 0;
+    this.brzina = 0
   }
 
   /* UGLOVI */
 
   get ugao() {
-    return this._ugao;
+    return this._ugao
   }
 
-  set ugao(ugao) {
-    this._ugao = ugao % (Math.PI * 2);
+  set ugao(noviUgao) {
+    this._ugao = noviUgao % (Math.PI * 2)
+    this.azurirajSilu(this.ugao, this.brzina)
   }
 
   dajUgaoKa(predmet) {
-    let mojX = this.x + (this.sirina / 2);
-    let mojY = this.y + (this.visina / 2);
-    let tudjiX = predmet.x + (predmet.sirina / 2);
-    let tudjiY = predmet.y + (predmet.visina / 2);
-    let razlikaX = tudjiX - mojX;
-    let razlikaY = tudjiY - mojY;
-    return Math.atan2(razlikaY, razlikaX);
+    const mojX = this.x + this.sirina / 2
+    const mojY = this.y + this.visina / 2
+    const tudjX = predmet.x + predmet.sirina / 2
+    const tudjY = predmet.y + predmet.visina / 2
+    return Math.atan2(tudjY - mojY, tudjX - mojX)
   }
 
   /* VIDLJIVOST */
 
-  get vidljiv() {
-    return this._vidljiv;
-  }
-
-  set vidljiv(stanje) {
-    this._vidljiv = stanje;
-  }
-
   pokazi() {
-    this.vidljiv = true;
+    this.vidljiv = true
   }
 
   sakrij() {
-    this.vidljiv = false;
+    this.vidljiv = false
   }
 
   nestani() {
-    this.sakrij();
-    this.stani();
+    this.sakrij()
+    this.stani()
   }
 
   /* STANJE */
 
-  get ziv() {
-    return this._ziv;
-  }
-
-  set ziv(stanje) {
-    this._ziv = stanje;
-  }
-
   get mrtav() {
-    return !this.ziv;
+    return !this.ziv
   }
 
   umri() {
-    this.stani();
-    this.zameniSliku(this.slikaMrtav);
-    this.ziv = false;
+    this.stani()
+    this.zameniSliku(this.slikaMrtav)
+    this.ziv = false
   }
 
   /* GRANICE */
 
   get naEkranu() {
-    return (this.x >= 0 && this.x <= platno.width) && (this.y >= 0 && this.y <= platno.height);
+    return (this.x >= 0 && this.x <= platno.width) && (this.y >= 0 && this.y <= platno.height)
   }
 
   izasaoLevo() {
-    return this.x < -this.sirina / 2;
+    return this.x < -this.sirina / 2
   }
 
   vracaVodoravno (procenatVracanja = 1) {
-    if (this.izasaoLevo() && Math.random() < procenatVracanja) this.x = platno.width + this.sirina / 2;
+    if (this.izasaoLevo() && Math.random() < procenatVracanja) this.x = platno.width + this.sirina / 2
   }
 
   get granicnik() {
-    return this._granicnik;
+    return this._granicnik
   }
 
   set granicnik(action) {
-    this._granicnik = action;
+    this._granicnik = action
   }
 
   proveriGranice(prekoracenje) {
-    proveriGranice(this, prekoracenje);
+    proveriGranice(this, prekoracenje)
   }
 
   /* KOLIZIJA */
 
   get levo() {
-    return this.x - (this.sirina / 2);
+    return this.x - (this.sirina / 2)
   }
 
   get desno() {
-    return this.x + (this.sirina / 2);
+    return this.x + (this.sirina / 2)
   }
 
   get gore() {
-    return this.y - (this.visina / 2);
+    return this.y - (this.visina / 2)
   }
 
   get dole() {
-    return this.y + (this.visina / 2);
+    return this.y + (this.visina / 2)
   }
 
   sudara(predmet) {
-    if (!this.vidljiv || !predmet.vidljiv) return false;
-    return !(this.dole < predmet.gore || this.gore > predmet.dole || this.desno < predmet.levo || this.levo > predmet.desno);
+    if (!this.vidljiv || !predmet.vidljiv) return false
+    return !(this.dole < predmet.gore || this.gore > predmet.dole || this.desno < predmet.levo || this.levo > predmet.desno)
   }
 
   razmakDo(predmet) {
-    let razlikaX = this.x - predmet.x;
-    let razlikaY = this.y - predmet.y;
-    return Math.sqrt((razlikaX * razlikaX) + (razlikaY * razlikaY));
+    let razlikaX = this.x - predmet.x
+    let razlikaY = this.y - predmet.y
+    return Math.sqrt((razlikaX * razlikaX) + (razlikaY * razlikaY))
   }
 
   /* MISH */
 
   jeMishIznad() {
-    return mish.x > this.levo && mish.x < this.desno && mish.y > this.gore && mish.y < this.dole;
+    return mish.x > this.levo && mish.x < this.desno && mish.y > this.gore && mish.y < this.dole
   }
 
   jeMishStisnutIznad() {
-    if (mish.stisnut && this.jeMishIznad()) return true;
-    return false;
+    if (mish.stisnut && this.jeMishIznad()) return true
+    return false
   }
 
   pratiMisha() {
-    this.x = mish.x - platno.offsetLeft;
-    this.y = mish.y - platno.offsetTop;
+    this.x = mish.x - platno.offsetLeft
+    this.y = mish.y - platno.offsetTop
   }
 
   /* RENDER */
 
   crta() {
-    if (!this.vidljiv) return;
-    podloga.save();
-    podloga.translate(this.x, this.y);
-    podloga.rotate(this.ugao);
-    podloga.scale(this.skalarX, this.skalarY);
-    podloga.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina);
-    podloga.restore();``
+    if (!this.vidljiv) return
+    podloga.save()
+    podloga.translate(this.x, this.y)
+    podloga.rotate(this.ugao)
+    podloga.scale(this.skalarX, this.skalarY)
+    podloga.drawImage(this.slika, -this.sirina / 2, -this.visina / 2, this.sirina, this.visina)
+    podloga.restore()
   }
 
   /* DEBUG */
 
   log() {
-    let x = this.x.toFixed();
-    let y = this.y.toFixed();
-    let dx = this.dx.toFixed(2);
-    let dy = this.dy.toFixed(2);
-    let brzina = this.brzina.toFixed(2);
-    let ugao = this.ugao.toFixed(2);
-    console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`);
+    let x = this.x.toFixed()
+    let y = this.y.toFixed()
+    let dx = this.dx.toFixed(2)
+    let dy = this.dy.toFixed(2)
+    let brzina = this.brzina.toFixed(2)
+    let ugao = this.ugao.toFixed(2)
+    console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
   }
 
-} // Predmet
+}

@@ -1,3 +1,4 @@
+// srediti kretanje na osnovu ugla
 // staviti naznaku da ranjenik moze da izadje sa scene
 // iskoristiti za Bekstvo iz Jasenovca i Stradanje ranjenika na Sutjesci
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici

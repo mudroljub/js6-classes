@@ -1,3 +1,5 @@
+// problemi: kisha, nishan, sve ostaje na svakoj sceni. srediti init
+
 import Jadran from './scene/Jadran'
 import AvionPucaBocno from './scene/AvionPucaBocno'
 import Osvetnik1944 from './scene/Osvetnik1944'
@@ -12,7 +14,7 @@ import RanjenikPaljba from './scene/RanjenikPaljba'
 import NemciIzRovova from './scene/NemciIzRovova'
 import UbijOkupatora from './scene/UbijOkupatora'
 import Jasenovac from './scene/Jasenovac'
-import TenkOdozgo from './scene/TenkOdozgo'
+import TenkOdozgoScena from './scene/TenkOdozgoScena'
 
-const trenutnaScena = new Tenkici()
+const trenutnaScena = new RanjenikPatrole()
 trenutnaScena.start()

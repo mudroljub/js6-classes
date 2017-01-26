@@ -14,11 +14,7 @@ const tenk = new TenkIgracOdozgo();
 
 /*** EXPORT ***/
 
-export default class TenkOdozgo extends Scena {
-  constructor() {
-    super()
-  }
-
+export default class TenkOdozgoScena extends Scena {
   update() {
     pozadina.update();
     tenk.update();
