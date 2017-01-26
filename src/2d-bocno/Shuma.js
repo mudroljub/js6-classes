@@ -4,8 +4,8 @@ import platno from '../io/platno';
 
 export class Shuma extends Predmet {
 
-  constructor(scena, src = $.root + "slike/2d-bocno/priroda/shumarak.png", nivoTla = platno.visina) {
-    super(scena, src);
+  constructor(nivoTla = platno.visina, src = $.root + "slike/2d-bocno/priroda/shumarak.png") {
+    super(null, src);
     this.x = Math.random() * platno.sirina;
     this.tlo(nivoTla + 5);
   }

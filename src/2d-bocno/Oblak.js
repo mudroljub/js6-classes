@@ -5,8 +5,8 @@ import platno from '../io/platno';
 
 export class Oblak extends Predmet {
 
-  constructor(scena, sirina, visina, src = $.root + "slike/oblak.gif") {
-    super(scena, src, sirina, visina);
+  constructor(sirina, visina, src = $.root + "slike/oblak.gif") {
+    super(null, src, sirina, visina);
     this.polozaj(Math.random() * platno.sirina, _.randomRange(0, platno.visina - this.visina));
     this.dy = Math.random() * 2 - 1;  // random vertikalno kretanje
   }

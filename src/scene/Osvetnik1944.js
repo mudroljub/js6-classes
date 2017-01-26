@@ -13,8 +13,8 @@ import {Oblak} from '../2d-odozgo/Oblak'
 let poeni = 0
 let zivoti = 3
 const oblaci = []
-const BROJ_OBLAKA = 3
-const BRZINA_POZADINE = 10
+const brojOblaka = 3
+const brzinaPozadine = 10
 
 const naslov = "Osvetnik pete ofanzive"
 const sablon = () => {
@@ -26,15 +26,15 @@ const sablon = () => {
   `
 }
 
-const ostrvo = new Ostrvo(BRZINA_POZADINE)
+const ostrvo = new Ostrvo(brzinaPozadine)
 const avionce = new Avionce()
 const interfejs = new UI(sablon)
-const pozadina = new Okean(BRZINA_POZADINE, window.innerWidth)
+const pozadina = new Okean(brzinaPozadine, window.innerWidth)
 
 export default class Osvetnik1944 extends Scena {
   constructor() {
     super()
-    for (let i = 0; i < BROJ_OBLAKA; i++) oblaci[i] = new Oblak(this, BRZINA_POZADINE)
+    for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(this, brzinaPozadine)
     this.dodaj(pozadina, ostrvo, avionce, ...oblaci, interfejs)
   }
 
