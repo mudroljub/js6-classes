@@ -14,7 +14,7 @@ const zica = new Predmet(null, $.root + "slike/2d-bocno/stvari/bodljikava-zica.g
 
 /*** EXPORT ***/
 
-export default class Jasenovac extends Scena {
+export default class JasenovacScena extends Scena {
   constructor() {
     super()
     zica.polozaj(400, 100);

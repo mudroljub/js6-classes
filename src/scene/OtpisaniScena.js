@@ -23,7 +23,7 @@ const ui = new UI()
 
 /*** EXPORT ***/
 
-export default class UbijOkupatora extends Scena {
+export default class OtpisaniScena extends Scena {
   constructor() {
     super()
     new Nishan()
