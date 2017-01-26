@@ -9,15 +9,18 @@ import {TenkIgracOdozgo} from '../2d-odozgo/TenkIgracOdozgo';
 
 /*** INIT ***/
 
-const scena = new Scena(update);
-const pozadina = new Pozadina(scena, $.root + "slike/2d-odozgo/shumarak-pozadina.png");
-const tenk = new TenkIgracOdozgo(scena);
-
-function update() {
-  pozadina.update();
-  tenk.update();
-}
+const pozadina = new Pozadina($.root + "slike/2d-odozgo/shumarak-pozadina.png");
+const tenk = new TenkIgracOdozgo();
 
 /*** EXPORT ***/
 
-export default scena
+export default class TenkOdozgo extends Scena {
+  constructor() {
+    super()
+  }
+
+  update() {
+    pozadina.update();
+    tenk.update();
+  }
+}

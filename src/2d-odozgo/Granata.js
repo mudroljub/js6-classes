@@ -3,8 +3,8 @@ import * as $ from '../konstante';
 
 export class Granata extends Predmet {
 
-  constructor(scena, vlasnik, src = $.root + "slike/granata.gif") {
-    super(scena, src, 24, 6);
+  constructor(vlasnik, src = $.root + "slike/granata.gif") {
+    super(null, src, 24, 6);
     this.sakrij();
     this.vlasnik = vlasnik;
   }
