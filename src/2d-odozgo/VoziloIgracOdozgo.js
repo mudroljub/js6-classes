@@ -5,8 +5,8 @@ import {Granata} from './Granata';
 
 export class VoziloIgracOdozgo extends Igrac {
 
-  constructor(slika, sirina, visina) {
-    super(null, slika, sirina, visina);
+  constructor(src, sirina, visina) {
+    super(null, src, sirina, visina);
     this.potisak = 2;
     this.prohodnost = 0.85;
     this.granata = new Granata(this);

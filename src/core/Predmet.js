@@ -9,8 +9,6 @@ export class Predmet extends Slika {
 
   constructor (scena, src, sirina, visina, x = 200, y = 200) {
     super(src, sirina, visina);
-    // this.scena = scena;
-    // scena.dodaj(this)
     this.platno = platno;
     this.x = x;
     this.y = y;

@@ -1,7 +1,3 @@
-// popraviti loop
-// da prosledjivanje update funkcije sceni bude opciono
-// ukinuti zavisnost predmeta od scene?
-
 import Jadran from './scene/Jadran'
 import AvionPucaBocno from './scene/AvionPucaBocno'
 import Osvetnik1944 from './scene/Osvetnik1944'
@@ -18,5 +14,5 @@ import UbijOkupatora from './scene/UbijOkupatora'
 import Jasenovac from './scene/Jasenovac'
 import TenkOdozgo from './scene/TenkOdozgo'
 
-const trenutnaScena = new TenkOdozgo()
+const trenutnaScena = new Osvetnik1944()
 trenutnaScena.start()

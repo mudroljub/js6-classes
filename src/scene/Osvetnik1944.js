@@ -1,3 +1,4 @@
+// srediti oblake
 // ubaciti jednog neprijatelja i jednu stvar za hvatanje (paketić)
 // senku ispod aviona, kao u avion.png
 
@@ -15,35 +16,37 @@ let zivoti = 3
 const oblaci = []
 const BROJ_OBLAKA = 3
 const BRZINA_POZADINE = 10
-
 const naslov = "Osvetnik pete ofanzive"
-const interfejs = new UI()
+
+const praviUI = () => {
+  return `
+    <h1>${naslov}</h1>
+    Poeni: ${poeni}<br>
+    Životi: ${zivoti}<br>
+    Meci: ${avionce.preostaloMetaka()}
+  `
+}
+
 const ostrvo = new Ostrvo(BRZINA_POZADINE)
 const avionce = new Avionce()
+const interfejs = new UI(praviUI)
 
 export default class Osvetnik1944 extends Scena {
   constructor() {
     super()
     const pozadina = new Okean(this, BRZINA_POZADINE, window.innerWidth)
-    this.dodaj(avionce, pozadina, ostrvo)
+    this.dodaj(pozadina, ostrvo, avionce)
     praviOblake(this)
   }
 
   update() {
     super.update()
-    avionce.update()
     azurirajOblake()
     this.proveriSudare()
-    // interfejs.render(this.praviUI())
   }
 
-  praviUI() {
-    return `
-      <h1>${naslov}</h1>
-      Poeni: ${poeni}<br>
-      Životi: ${zivoti}<br>
-      Meci: ${avionce.preostaloMetaka()}
-    `
+  render() {
+    interfejs.render()
   }
 
   proveriSudare() {

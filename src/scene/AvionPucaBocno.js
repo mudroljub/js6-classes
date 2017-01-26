@@ -43,6 +43,7 @@ ruina.x = -ruina.sirina;
 export default class AvionPucaBocno extends Scena {
   constructor() {
     super()
+    this.nivoTla = nivoTla
     this.igrac = new AvionIgrac(this);
     // napraviti fabriku
     for (let i = 0; i < BROJ_OBLAKA; i++) oblaci[i] = new Oblak();
@@ -53,7 +54,7 @@ export default class AvionPucaBocno extends Scena {
   }
 
   update(){
-    super.update()
+    // super.update()
     this.proveriTipke()
     this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
     azuriraNiz(shume, 1)

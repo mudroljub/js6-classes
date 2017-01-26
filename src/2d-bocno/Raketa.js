@@ -4,7 +4,7 @@ import {Predmet} from '../core/Predmet';
 export class Raketa extends Predmet {
 
   constructor(vlasnik) {
-    super(vlasnik.scena, $.root + "slike/raketa.png", 30, 20);
+    super(null, $.root + "slike/raketa.png", 30, 20);
     this.vlasnik = vlasnik;
     this.pocetniUgao = this.vlasnik.ugao + 19;
     this.ispaljena = false;
@@ -54,7 +54,7 @@ export class Raketa extends Predmet {
   traziNajblizuMetu() {
     let minRazmak;
     let najblizaMeta;
-    this.scena.predmeti.map(predmet => {
+    this.vlasnik.scena.predmeti.map(predmet => {
       if (this.nijeValidnaMeta(predmet)) return;
 
       let razmak = this.razmakDo(predmet);
@@ -70,7 +70,7 @@ export class Raketa extends Predmet {
   }
 
   proveriSudare() {
-    this.scena.predmeti.map(predmet => {
+    this.vlasnik.scena.predmeti.map(predmet => {
       if (this.cilj in predmet.oznake && this.sudara(predmet)) {
         predmet.umri();
         this.nestani();

@@ -5,8 +5,8 @@ const JACINA_STRUJE = 0.1;
 
 export class CamacIgracOdozgo extends VoziloIgracOdozgo {
 
-  constructor(scena, src = $.root + "slike/2d-odozgo/camac.png", sirina = 100, visina = 50) {
-    super(scena, src, sirina, visina);
+  constructor(src = $.root + "slike/2d-odozgo/camac.png", sirina = 100, visina = 50) {
+    super(src, sirina, visina);
     this.potisak = 0.8;
   }
 

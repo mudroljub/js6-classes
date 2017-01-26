@@ -12,7 +12,8 @@ export class Scena {
   }
 
   dodaj(...premeti) {
-    this.predmeti.push(...premeti);
+    this.predmeti.push(...premeti)
+    // this.predmeti.map(predmet => predmet.scena = this)
   }
 
   /* VELIČINA */
