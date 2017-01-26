@@ -1,3 +1,5 @@
+// fukusirati kanvas
+
 import Jadran from './scene/Jadran'
 import AvionPucaBocno from './scene/AvionPucaBocno'
 import Osvetnik1944 from './scene/Osvetnik1944'

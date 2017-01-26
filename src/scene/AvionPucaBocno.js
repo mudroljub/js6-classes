@@ -8,7 +8,6 @@ import {Zgrada} from '../2d-bocno/Zgrada'
 import {Oblak} from '../2d-bocno/Oblak'
 import {Zbun} from '../2d-bocno/Zbun'
 import {Shuma} from '../2d-bocno/Shuma'
-import {vracaVodoravno} from '../akcije/proveriGranice'
 
 /*** KONFIG ***/
 
@@ -53,17 +52,10 @@ export default class AvionPucaBocno extends Scena {
   }
 
   update(){
-    // super.update()
+    super.update()
     this.proveriTipke()
-    this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
-    azuriraNiz(shume, 1)
-    aerodrom.update()
-    ruina.update()
-    this.igrac.update()
-    azuriraNiz(oblaci, 1)
+    // this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
     vozilo.patroliraj()
-    vozilo.update()
-    azuriraNiz(zbunovi, 1)
     this.proveriTlo()
     this.proveriSmrt()
   }
@@ -115,16 +107,5 @@ export default class AvionPucaBocno extends Scena {
 
   proveriTlo() {
     if (this.igrac.jePrizemljen() && dignutostScene === 0) this.zaustaviParalax()
-  }
-
-}
-
-/*** FUNKCIJE ***/
-
-// sve objekte iz niza refaktorisati u zgradu ili prolazno
-function azuriraNiz(niz, broj) {
-  for (let i = 0; i < niz.length; i++) {
-    niz[i].update()
-    vracaVodoravno(niz[i], broj)
   }
 }
