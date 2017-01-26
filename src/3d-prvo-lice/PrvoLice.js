@@ -141,4 +141,9 @@ export class PrvoLice {
     this.crtaKruzic(this.mapa.velicinaPolja);
   }
 
-} // PrvoLice
+  render() {
+    this.crtaPusku()
+    this.crtaRadar()
+  }
+
+}

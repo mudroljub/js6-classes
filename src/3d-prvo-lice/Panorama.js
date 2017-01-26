@@ -23,6 +23,7 @@ export class Panorama {
     this.dometSvetla = 5;
     this.svetlo = 0;
     this.pustiKishu();
+    this.trebaTlo = true // da crta tlo
   }
 
   update() {
@@ -40,14 +41,14 @@ export class Panorama {
     if (this.svetlo) this.grom.play();
   }
 
-  crtaPozadinu(samoNebo) {
-    this.crtaNebo(samoNebo)
-    if (samoNebo) this.crtaTlo();
+  crtaPozadinu() {
+    this.crtaNebo()
+    if (this.trebaTlo) this.crtaTlo();
   }
 
-  crtaNebo(samoNebo) {
-    let novaSirina = samoNebo ? this.nebo.sirina : this.nebo.sirina * (this.platno.height / this.nebo.visina) * 2;
-    let novaVisina = samoNebo ? this.platno.height / 2 : this.platno.height;
+  crtaNebo() {
+    let novaSirina = this.trebaTlo ? this.nebo.sirina : this.nebo.sirina * (this.platno.height / this.nebo.visina) * 2;
+    let novaVisina = this.trebaTlo ? this.platno.height / 2 : this.platno.height;
     let x = -(this.prvoLice.ugao / $.KRUZNICA) * novaSirina;
     this.podloga.save();
     this.podloga.drawImage(this.nebo.slika, x, 0, novaSirina, novaVisina);
@@ -82,6 +83,13 @@ export class Panorama {
       if (KISHA_PADA) this._crtaKishu(i, zrak[i], ugao, levo);
     }
   }
+
+  render() {
+    this.crtaPozadinu()
+    this.crtaZidove()
+  }
+
+  /* POMOCNE FUNKCIJE */
 
   _crtaZid(ovoPolje, ugao, levo) {
     let tekstura = this.teksture[ovoPolje.visina - 1] || this.teksture[0];  // visina odredjuje teksturu

@@ -14,27 +14,17 @@ const VELICINA_POLJA = 8
 
 const mapa = new Mapa(VELICINA_POLJA, modelMapa)
 const savo = new PrvoLice(mapa, 15.3, -1.2)
-const panorama = new Panorama(savo,
-  $.root + 'slike/panorame/noc.jpg',
-  $.root + 'slike/teksture/beton.jpg'
-)
 
 export default class SavoNoc extends Scena {
   constructor() {
     super()
     mapa.praviNasumicno(VELICINA_MAPE)
+    const panorama = new Panorama(savo,
+      $.root + 'slike/panorame/noc.jpg',
+      $.root + 'slike/teksture/beton.jpg'
+    )
     panorama.dometSvetla = 10
-  }
-
-  update() {
-    savo.update()
-    panorama.update()
-  }
-
-  render() {
-    panorama.crtaPozadinu(false)
-    panorama.crtaZidove()
-    savo.crtaPusku()
-    savo.crtaRadar()
+    panorama.trebaTlo = false
+    this.dodaj(panorama, savo)
   }
 }
