@@ -1,20 +1,25 @@
 // fukusirati kanvas
 
-import Jadran from './scene/Jadran'
-import AvionPucaBocno from './scene/AvionPucaBocno'
-import Osvetnik1944 from './scene/Osvetnik1944'
+import PomorskaScena from './scene/PomorskaScena'
+import FranjoKluzScena from './scene/FranjoKluzScena'
+import Scena1944 from './scene/Scena1944'
+
 import TenkicIde from './scene/TenkicIde'
-import Tenkici from './scene/Tenkici'
-import TenkicAI from './scene/TenkicAI'
-import BombasBunker from './scene/BombasBunker'
-import SavoDan from './scene/SavoDan'
-import SavoNoc from './scene/SavoNoc'
-import RanjenikPatrole from './scene/RanjenikPatrole'
-import RanjenikPaljba from './scene/RanjenikPaljba'
+import TenkiciScena from './scene/TenkiciScena'
+import TenkicAI from './scene/TenkicAI' // spojiti sa prethodnom
+
+import BombasScena from './scene/BombasScena'
+
+import SavoScena from './scene/SavoScena'
+import SavoNoc from './scene/SavoNoc' // spojiti sa prethodnom
+
+import RanjenikScena from './scene/RanjenikScena'
+import RanjenikPaljba from './scene/RanjenikPaljba' // spojiti sa prethodnom
+
 import NemciIzRovova from './scene/NemciIzRovova'
 import UbijOkupatora from './scene/UbijOkupatora'
 import Jasenovac from './scene/Jasenovac'
 import TenkOdozgoScena from './scene/TenkOdozgoScena'
 
-const trenutnaScena = new RanjenikPatrole()
+const trenutnaScena = new NemciIzRovova()
 trenutnaScena.start()

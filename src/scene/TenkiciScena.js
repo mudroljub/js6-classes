@@ -19,7 +19,7 @@ const tenk2 = new TenkNemacki(650, 450)
 const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg")
 const interfejs = new UI(sablon)
 
-export default class Tenkici extends Scena {
+export default class TenkiciScena extends Scena {
   constructor() {
     super()
     this.velicina(800, 500)

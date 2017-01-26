@@ -5,7 +5,7 @@
 import {Scena} from '../core/Scena';
 import {CamacIgracOdozgo} from '../2d-odozgo/CamacIgracOdozgo';
 
-export default class Jadran extends Scena {
+export default class PomorskaScena extends Scena {
   constructor() {
     super()
     this.bojaPozadine = "#000066";

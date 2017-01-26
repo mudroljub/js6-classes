@@ -19,7 +19,7 @@ const pozadina = new Pozadina($.root + "slike/2d-odozgo/shumarak-pozadina.png")
 const ranjenik = new Ranjenik()
 const patrola = new Patrola($.root + "slike/2d-odozgo/nemci-patrola.gif")
 
-export default class RanjenikPatrole extends Scena {
+export default class RanjenikScena extends Scena {
   constructor() {
     super()
     ranjenik.polozaj(this.sirina / 4, this.visina / 2)

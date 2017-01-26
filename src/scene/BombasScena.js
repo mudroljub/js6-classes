@@ -31,7 +31,7 @@ const bunker = new Bunker(112, 103);
 bunker.nemojPreko(bombas);
 
 
-export default class BombasBunker extends Scena {
+export default class BombasScena extends Scena {
   constructor() {
     super()
     this.dodaj(pozadina, bunker, bombas)

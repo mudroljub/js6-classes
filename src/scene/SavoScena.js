@@ -17,7 +17,7 @@ const VELICINA_POLJA = 15;
 const mapa = new Mapa(VELICINA_POLJA, modelMapa);
 const savo = new PrvoLice(mapa, 2, 1);
 
-export default class SavoDan extends Scena {
+export default class SavoScena extends Scena {
   constructor() {
     super()
     const panorama = new Panorama(

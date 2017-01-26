@@ -29,7 +29,7 @@ const sablon = () => {
 const ostrvo = new Ostrvo(brzinaPozadine)
 const igrac = new Avionce()
 
-export default class Osvetnik1944 extends Scena {
+export default class Scena1944 extends Scena {
   constructor() {
     super()
     const interfejs = new UI(sablon)

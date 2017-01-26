@@ -1,3 +1,5 @@
+// avion Potez 25
+
 import * as $ from '../konstante'
 import {tipke} from '../io/tipke'
 import platno from '../io/platno'
@@ -35,7 +37,7 @@ const vozilo = new Hummel(nivoTla)
 const aerodrom = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/aerodrom.png")
 const ruina = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/ruina.png")
 
-export default class AvionPucaBocno extends Scena {
+export default class FranjoKluzScena extends Scena {
   constructor() {
     super()
     this.nivoTla = nivoTla
