@@ -1,16 +1,16 @@
 import * as $ from '../konstante';
 import {Animiran} from '../core/Animiran';
+import platno from '../io/platno'
 
 export class Okupator extends Animiran {
 
-  constructor (scena) {
-    super (scena, $.root + "slike/sprajtovi/okupator-sprite.png", ["nagore", "nadole", "nalevo", "nadesno", "umire"], 5);
+  constructor () {
+    super ($.root + "slike/sprajtovi/okupator-sprite.png", ["nagore", "nadole", "nalevo", "nadesno", "umire"], 5);
     this.sirina = 50;
     this.visina = 180;
-    this.scena = scena;
     this.brzina = 4;
-    this.limitLevo = this.scena.sirina * 1/6;
-    this.limitDesno = this.scena.sirina * 5/6;
+    this.limitLevo = platno.sirina * 1/6;
+    this.limitDesno = platno.sirina * 5/6;
     this.polozaj(this.limitLevo, 450);
     this.duzinaAnimacije = 500;
   }

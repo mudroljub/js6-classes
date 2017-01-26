@@ -72,8 +72,8 @@ export default class AvionPucaBocno extends Scena {
 
   proveriTipke() {
     if (!this.igrac.ziv) return;
-    if (tipke.stisnute[$.D] && ubrzanostScene < MAX_UBRZANOST) this.ubrzavaPredmete($.TAU/2, POTISAK);
-    if (tipke.stisnute[$.A] && ubrzanostScene >= MIN_UBRZANOST) this.ubrzavaPredmete($.TAU/2, -POTISAK);
+    if (tipke.stisnute[$.D] && ubrzanostScene < MAX_UBRZANOST) this.ubrzavaPredmete($.KRUZNICA/2, POTISAK);
+    if (tipke.stisnute[$.A] && ubrzanostScene >= MIN_UBRZANOST) this.ubrzavaPredmete($.KRUZNICA/2, -POTISAK);
     if (tipke.stisnute[$.W] && dignutostScene - DIZAJ < MAX_DIGNUTOST) {
       if (this.igrac.y < this.visina * 3/4) this.dizePredmete(DIZAJ);
       if (ubrzanostScene === 0) this.pocniParalax(); // kada avion ponovo uzlece

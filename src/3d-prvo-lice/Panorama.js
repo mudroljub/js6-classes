@@ -49,7 +49,7 @@ export class Panorama {
   crtaNebo(samoNebo) {
     let novaSirina = samoNebo ? this.nebo.sirina : this.nebo.sirina * (this.platno.visina / this.nebo.visina) * 2;
     let novaVisina = samoNebo ? this.platno.visina / 2 : this.platno.visina;
-    let x = -(this.prvoLice.ugao / $.TAU) * novaSirina;
+    let x = -(this.prvoLice.ugao / $.KRUZNICA) * novaSirina;
     this.podloga.save();
     this.podloga.drawImage(this.nebo.slika, x, 0, novaSirina, novaVisina);
     if (x < (novaSirina - this.platno.sirina)) {

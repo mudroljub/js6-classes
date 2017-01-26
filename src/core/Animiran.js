@@ -1,11 +1,12 @@
 import {Casovnik} from './Casovnik';
 import {Predmet} from './Predmet';
+import platno from '../io/platno'
 
 export class Animiran extends Predmet {
 
-  constructor(scena, src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
-    super(scena, src);
-    this.podloga = scena.podloga;
+  constructor(src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
+    super(null, src);
+    this.podloga = platno.podloga;
     this.animacije = [];
     this.tekucaAnimacija = 0;
     this.duzinaAnimacije = 1000;
@@ -86,4 +87,4 @@ export class Animiran extends Predmet {
     this.podloga.restore();
   }
 
-} // Animiran
+}

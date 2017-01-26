@@ -42,7 +42,7 @@ export class Igrac extends Predmet {
     if (this.komandeNapredne) {
       this.ugao -= OKRET;
     } else {
-      this.dodajSilu($.TAU / 2, this.potisak);
+      this.dodajSilu($.KRUZNICA / 2, this.potisak);
     }
   }
 
@@ -55,12 +55,12 @@ export class Igrac extends Predmet {
   }
 
   nagore() {
-    let ugao = this.komandeNapredne ? this.ugao : -$.TAU / 4;
+    let ugao = this.komandeNapredne ? this.ugao : -$.KRUZNICA / 4;
     this.dodajSilu(ugao, this.potisak);
   }
 
   nadole() {
-    let ugao = this.komandeNapredne ? this.ugao : $.TAU / 4;
+    let ugao = this.komandeNapredne ? this.ugao : $.KRUZNICA / 4;
     let potisak = this.komandeNapredne ? (-this.potisak / 10) : this.potisak;
     this.dodajSilu(ugao, potisak);
   }

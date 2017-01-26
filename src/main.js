@@ -14,9 +14,9 @@ import SavoNoc from './scene/SavoNoc'
 import RanjenikPatrole from './scene/RanjenikPatrole'
 import RanjenikPaljba from './scene/RanjenikPaljba'
 import NemciIzRovova from './scene/NemciIzRovova'
-// import ubijOkupatora from './scene/ubij-okupatora'
-// import jasenovac from './scene/bekstvo-iz-jasenovca'
+import UbijOkupatora from './scene/UbijOkupatora'
+import Jasenovac from './scene/Jasenovac'
 // import tenkOdozgo from './scene/tenk-puca-odozgo'
 
-const trenutnaScena = new NemciIzRovova()
+const trenutnaScena = new Jasenovac()
 trenutnaScena.start()

@@ -53,7 +53,7 @@ export class PrvoLice {
   }
 
   okreni(brzina) {
-    this.ugao = (this.ugao + brzina + $.TAU) % ($.TAU);
+    this.ugao = (this.ugao + brzina + $.KRUZNICA) % ($.KRUZNICA);
   }
 
   bacaZrak(ugao) {
@@ -126,12 +126,12 @@ export class PrvoLice {
     // crta kruzic
     this.podloga.fillStyle = BOJA_KRUZICA;
     this.podloga.beginPath();
-    this.podloga.arc(x, y, VELICINA_KRUZICA, this.ugao, this.ugao + $.TAU);
+    this.podloga.arc(x, y, VELICINA_KRUZICA, this.ugao, this.ugao + $.KRUZNICA);
     this.podloga.fill();
     // crta svetlo
     this.podloga.fillStyle = BOJA_LAMPE;
     this.podloga.beginPath();
-    this.podloga.arc(x, y, VELICINA_KRUZICA, this.ugao + $.TAU, this.ugao + $.TAU);
+    this.podloga.arc(x, y, VELICINA_KRUZICA, this.ugao + $.KRUZNICA, this.ugao + $.KRUZNICA);
     this.podloga.arc(x, y, VELICINA_KRUZICA * 3, this.ugao - 0.15 * Math.PI, this.ugao + 0.15 * Math.PI);
     this.podloga.fill();
   } // crtaKruzic
