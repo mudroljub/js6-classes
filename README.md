@@ -15,19 +15,16 @@ npm start
 ```
 Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 
-P.S. izbacuje grešku ako je negde već pokrenut webpack-dev-server.
+P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## Uraditi:
-- veliki problem ucitavanje zeza
 - srediti ucitavač: učitavati slike u JS, podesiti webpack
-- dodati glavni meni
+- dodati glavni meni (procitati dir scene/ sa nodom?)
 - dodati fiziku
 - napraviti Kameru
 - redukovati css
 
 ### Faza 1: refaktor i sredjivanje
-- nivoe refaktorisati u core (u instancu core Nivo ili tako nešto)
-
 - Avionce: promeniti zvuk motora
 - spojiti ranjenike
 - preimenovati u ranjenici na sutjesci

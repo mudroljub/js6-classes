@@ -14,5 +14,5 @@ import UbijOkupatora from './scene/UbijOkupatora'
 import Jasenovac from './scene/Jasenovac'
 import TenkOdozgoScena from './scene/TenkOdozgoScena'
 
-const trenutnaScena = new Jasenovac()
+const trenutnaScena = new AvionPucaBocno()
 trenutnaScena.start()

@@ -26,6 +26,11 @@ export function kruziSire(predmet) {
   if (predmet.x < -prekoracenje) predmet.x = platno.width + prekoracenje;
 }
 
+export function vracaVodoravno (predmet, procenatVracanja) {
+  const procenat = procenatVracanja || predmet.procenatVracanja
+  if (predmet.izasaoLevo() && Math.random() < procenat) predmet.x = platno.width + predmet.sirina / 2
+}
+
 export function odbija(predmet) {
   if (izasaoGore(predmet) || izasaoDole(predmet)) predmet.ugao = 2 * Math.PI - predmet.ugao;
   if (izasaoLevo(predmet) || izasaoDesno(predmet)) predmet.ugao = Math.PI - predmet.ugao;

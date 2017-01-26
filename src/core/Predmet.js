@@ -144,10 +144,6 @@ export class Predmet extends Slika {
     return this.x < -this.sirina / 2
   }
 
-  vracaVodoravno (procenatVracanja = 1) {
-    if (this.izasaoLevo() && Math.random() < procenatVracanja) this.x = platno.width + this.sirina / 2
-  }
-
   get granicnik() {
     return this._granicnik
   }
