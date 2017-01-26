@@ -22,20 +22,20 @@ const sablon = () => {
     <h1>${naslov}</h1>
     Poeni: ${poeni}<br>
     Životi: ${zivoti}<br>
-    Meci: ${avionce.preostaloMetaka()}
+    Meci: ${igrac.preostaloMetaka()}
   `
 }
 
 const ostrvo = new Ostrvo(brzinaPozadine)
-const avionce = new Avionce()
-const interfejs = new UI(sablon)
-const pozadina = new Okean(brzinaPozadine, window.innerWidth)
+const igrac = new Avionce()
 
 export default class Osvetnik1944 extends Scena {
   constructor() {
     super()
+    const interfejs = new UI(sablon)
+    const pozadina = new Okean(brzinaPozadine, this.platno.width)
     for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(this, brzinaPozadine)
-    this.dodaj(pozadina, ostrvo, avionce, ...oblaci, interfejs)
+    this.dodaj(pozadina, ostrvo, igrac, ...oblaci, interfejs)
   }
 
   update() {
@@ -44,12 +44,12 @@ export default class Osvetnik1944 extends Scena {
   }
 
   proveriSudare() {
-    if (avionce.sudara(ostrvo)) {
+    if (igrac.sudara(ostrvo)) {
       ostrvo.reset()
       zivoti--
     }
     oblaci.map(oblak => {
-      if (avionce.sudara(oblak)) {
+      if (igrac.sudara(oblak)) {
         oblak.reset()
         poeni++
       }

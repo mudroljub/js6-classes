@@ -7,8 +7,8 @@ import {vracaVodoravno} from '../akcije/proveriGranice'
 export class Zbun extends Predmet {
   constructor(nivoTla = platno.height, src = $.root + "slike/2d-bocno/priroda/zbun.png") {
     super (null, src)
-    this.randomDoTla(nivoTla)
     this.procenatVracanja = 1
+    this.randomDoTla(nivoTla)
   }
 
   randomDoTla(nivoTla) {
