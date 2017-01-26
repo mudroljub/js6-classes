@@ -13,7 +13,7 @@ import {Shuma} from '../2d-bocno/Shuma';
 
 /*** KONFIG ***/
 
-const nivoTla = platno.visina
+const nivoTla = platno.height
 const zbunovi = [];
 const oblaci = [];
 const shume = [];

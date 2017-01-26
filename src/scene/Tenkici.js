@@ -55,8 +55,8 @@ function proveriPogodak(granata, tenk, pomak) {
 }
 
 function reset() {
-  let x1 = (Math.random() * platno.sirina / 2)
-  let x2 = (Math.random() * platno.sirina / 2) + platno.sirina / 2
+  let x1 = (Math.random() * platno.width / 2)
+  let x2 = (Math.random() * platno.width / 2) + platno.width / 2
   tenk1.polozaj(x1, 450)
   tenk2.polozaj(x2, 450)
   tenk1.energija = tenk2.energija = 100

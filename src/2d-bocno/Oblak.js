@@ -7,7 +7,7 @@ export class Oblak extends Predmet {
 
   constructor(sirina, visina, src = $.root + "slike/oblak.gif") {
     super(null, src, sirina, visina);
-    this.polozaj(Math.random() * platno.sirina, _.randomRange(0, platno.visina - this.visina));
+    this.polozaj(Math.random() * platno.width, _.randomRange(0, platno.height - this.visina));
     this.dy = Math.random() * 2 - 1;  // random vertikalno kretanje
   }
 
@@ -17,8 +17,8 @@ export class Oblak extends Predmet {
   }
 
   proveriGranice() {
-    if (this.y < -this.platno.visina) this.dy = -this.dy;  // dozvoljena visina dve scene
-    if (this.y > this.platno.visina - this.visina) this.dy = -this.dy;
+    if (this.y < -this.platno.height) this.dy = -this.dy;  // dozvoljena visina dve scene
+    if (this.y > this.platno.height - this.visina) this.dy = -this.dy;
   }
 
 }

@@ -109,13 +109,13 @@ export class PrvoLice {
   } // proveriTipke
 
   crtaPusku() {
-    let skalar = (this.platno.sirina + this.platno.visina) / 1200;
+    let skalar = (this.platno.width + this.platno.height) / 1200;
     let skaliranaSirina = this.oruzje.sirina * skalar;
     let skaliranaVisina = this.oruzje.visina * skalar;
     let odstupanjeX = (Math.sin(predjeno) * MRDANJE_PUSKE * 0.33) + MRDANJE_PUSKE * 0.33;
     let odstupanjeY = this.drmanje * (Math.cos(predjeno) * MRDANJE_PUSKE) + MRDANJE_PUSKE;
-    let puskaX = this.platno.sirina / 2 - skaliranaSirina / 2 + odstupanjeX;
-    let puskaY = this.platno.visina - skaliranaVisina + odstupanjeY;
+    let puskaX = this.platno.width / 2 - skaliranaSirina / 2 + odstupanjeX;
+    let puskaY = this.platno.height - skaliranaVisina + odstupanjeY;
     // this.crtaPlamen(puskaX + skaliranaSirina/2.4, puskaY - skaliranaVisina/10);
     this.podloga.drawImage(this.oruzje.slika, puskaX, puskaY, skaliranaSirina, skaliranaVisina);
   } // crtaPusku

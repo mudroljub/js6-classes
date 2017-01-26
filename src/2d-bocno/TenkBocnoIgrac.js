@@ -84,8 +84,8 @@ export class TenkBocnoIgrac extends Igrac {
       this.brzina = Math.random() * 10 - 5;
       this.ugaoKretanja = 180;
     }
-    if (this.x >= platno.sirina - 10) {
-      this.x = platno.sirina - 10;
+    if (this.x >= platno.width - 10) {
+      this.x = platno.width - 10;
     }
     if (this.x <= 450) {
       this.brzina = Math.random() * 10 - 5;

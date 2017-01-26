@@ -18,7 +18,7 @@ const BROJ_ZBUNOVA = 10
 const PARALAX_1 = -5
 const zbunovi = []
 const oblaci = []
-const nivoTla = platno.visina - 100
+const nivoTla = platno.height - 100
 
 const tenk = new TenkPartizanski(100, nivoTla)
 const planina = new Planina(nivoTla)
@@ -48,8 +48,8 @@ export default class TenkicIde extends Scena {
     this.crtaNeboZemlju(nivoTla)
     planina.update()
     shumarak.update()
-    shumarak.proveriGranice(platno.sirina / 2)
-    planina.proveriGranice(platno.sirina + 200)
+    shumarak.proveriGranice(platno.width / 2)
+    planina.proveriGranice(platno.width + 200)
     azurirajOblake()
     tenk.update()
     azurirajZbunje()

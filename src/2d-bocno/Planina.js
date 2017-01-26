@@ -6,7 +6,7 @@ export class Planina extends Predmet {
 
   constructor(nivoTla, src = $.root + "slike/2d-bocno/planine.png") {
     super (null, src);
-    this.x = Math.random() * platno.sirina;
+    this.x = Math.random() * platno.width;
     this.tlo(nivoTla + 3);
     this.granicnik = $.KRUZI
   }

@@ -126,12 +126,12 @@ function azuriraDelice(vremRazlika) {
       delicSlike.vx /= AMORTIZER_SUDARA;
       delicSlike.vx *= -1;
     }
-    if (delicSlike.y < 0 || delicSlike.y > platno.visina - 10) {
+    if (delicSlike.y < 0 || delicSlike.y > platno.height - 10) {
       delicSlike.vy /= AMORTIZER_SUDARA;
       delicSlike.vy *= -1;
     }
-    if (delicSlike.y > platno.visina - 10) {
-      delicSlike.y = platno.visina - 10;
+    if (delicSlike.y > platno.height - 10) {
+      delicSlike.y = platno.height - 10;
     }
     if (delicSlike.y < 0) {
       delicSlike.y = 2;

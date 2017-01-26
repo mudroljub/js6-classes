@@ -35,8 +35,8 @@ export class Patrola extends Predmet {
   }
 
   postaviNasumicno() {
-    var randomX = Math.random() * platno.sirina
-    var randomY = Math.random() * platno.visina
+    var randomX = Math.random() * platno.width
+    var randomY = Math.random() * platno.height
     this.polozaj(randomX, randomY)
   }
 

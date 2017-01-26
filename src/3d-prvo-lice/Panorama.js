@@ -19,7 +19,7 @@ export class Panorama {
     this.prvoLice = prvoLice;
     this.nebo = new Slika(nebo);
     this.teksture = teksture.map((tekstura) => new Slika(tekstura));
-    this.sirinaGrida = this.platno.sirina / REZOLUCIJA;
+    this.sirinaGrida = this.platno.width / REZOLUCIJA;
     this.grom = new Audio($.root + 'zvuci/grom.mp3');
     this.dometSvetla = 5;
     this.svetlo = 0;
@@ -47,12 +47,12 @@ export class Panorama {
   }
 
   crtaNebo(samoNebo) {
-    let novaSirina = samoNebo ? this.nebo.sirina : this.nebo.sirina * (this.platno.visina / this.nebo.visina) * 2;
-    let novaVisina = samoNebo ? this.platno.visina / 2 : this.platno.visina;
+    let novaSirina = samoNebo ? this.nebo.sirina : this.nebo.sirina * (this.platno.height / this.nebo.visina) * 2;
+    let novaVisina = samoNebo ? this.platno.height / 2 : this.platno.height;
     let x = -(this.prvoLice.ugao / $.KRUZNICA) * novaSirina;
     this.podloga.save();
     this.podloga.drawImage(this.nebo.slika, x, 0, novaSirina, novaVisina);
-    if (x < (novaSirina - this.platno.sirina)) {
+    if (x < (novaSirina - this.platno.width)) {
       this.podloga.drawImage(this.nebo.slika, x + novaSirina, 0, novaSirina, novaVisina);
     }
     this.podloga.restore();
@@ -60,7 +60,7 @@ export class Panorama {
 
   crtaTlo(boja = BOJA_TLA) {
     this.podloga.fillStyle = boja;
-    this.podloga.fillRect(0, this.platno.visina/2, this.platno.sirina, this.platno.visina);
+    this.podloga.fillRect(0, this.platno.height/2, this.platno.width, this.platno.height);
   }
 
   crtaZidove() {
@@ -107,8 +107,8 @@ export class Panorama {
   _racunaVisinu(visinaPolja, ugao, daljina) {
     if (IGNORISE_VISINU) visinaPolja = 1;
     let z = daljina * Math.cos(ugao);
-    let zidVisina = this.platno.visina * visinaPolja / z;
-    let dole = this.platno.visina / 2 * (1 + (1 / z));
+    let zidVisina = this.platno.height * visinaPolja / z;
+    let dole = this.platno.height / 2 * (1 + (1 / z));
     return {
       gore: dole - zidVisina,
       visina: zidVisina

@@ -9,8 +9,8 @@ export class Okupator extends Animiran {
     this.sirina = 50;
     this.visina = 180;
     this.brzina = 4;
-    this.limitLevo = platno.sirina * 1/6;
-    this.limitDesno = platno.sirina * 5/6;
+    this.limitLevo = platno.width * 1/6;
+    this.limitDesno = platno.width * 5/6;
     this.polozaj(this.limitLevo, 450);
     this.duzinaAnimacije = 500;
   }

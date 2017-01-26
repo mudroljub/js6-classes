@@ -21,7 +21,7 @@ export class Avionce extends Igrac {
     this.trenutniMetak = 0;
     this.brzina = 0;
     this.ugao = $.KRUZNICA * 3/ 4;
-    this.polozaj(platno.sirina / 2, platno.visina - this.visina);
+    this.polozaj(platno.width / 2, platno.height - this.visina);
     this.praviMetke();
     this.granicnik = $.OGRANICI;
   }
