@@ -2,8 +2,8 @@ import * as $ from '../konstante';
 import {Predmet} from '../core/Predmet';
 
 export class Okean extends Predmet {
-  constructor(scena, brzinaPozadine = 10, sirina = 800, visina = 1440) {
-    super(scena, $.root + "slike/teksture/okean.gif", sirina, visina);
+  constructor(brzinaPozadine = 10, sirina = 800, visina = 1440) {
+    super(null, $.root + "slike/teksture/okean.gif", sirina, visina);
     this.dx = 0;
     this.dy = brzinaPozadine;
     this.polozaj(sirina/2, 0);

@@ -1,24 +1,23 @@
-// srediti oblake
 // ubaciti jednog neprijatelja i jednu stvar za hvatanje (paketić)
 // senku ispod aviona, kao u avion.png
 
-import {UI} from '../core/UI';
-import {Scena} from '../core/Scena';
-import {Avionce} from '../2d-odozgo/Avionce';
-import {Okean} from '../2d-odozgo/Okean';
-import {Ostrvo} from '../2d-odozgo/Ostrvo';
-import {Oblak} from '../2d-odozgo/Oblak';
+import {UI} from '../core/UI'
+import {Scena} from '../core/Scena'
+import {Avionce} from '../2d-odozgo/Avionce'
+import {Okean} from '../2d-odozgo/Okean'
+import {Ostrvo} from '../2d-odozgo/Ostrvo'
+import {Oblak} from '../2d-odozgo/Oblak'
 
 /*** KONFIG ***/
 
-let poeni = 0;
+let poeni = 0
 let zivoti = 3
 const oblaci = []
 const BROJ_OBLAKA = 3
 const BRZINA_POZADINE = 10
-const naslov = "Osvetnik pete ofanzive"
 
-const praviUI = () => {
+const naslov = "Osvetnik pete ofanzive"
+const sablon = () => {
   return `
     <h1>${naslov}</h1>
     Poeni: ${poeni}<br>
@@ -29,24 +28,19 @@ const praviUI = () => {
 
 const ostrvo = new Ostrvo(BRZINA_POZADINE)
 const avionce = new Avionce()
-const interfejs = new UI(praviUI)
+const interfejs = new UI(sablon)
+const pozadina = new Okean(BRZINA_POZADINE, window.innerWidth)
 
 export default class Osvetnik1944 extends Scena {
   constructor() {
     super()
-    const pozadina = new Okean(this, BRZINA_POZADINE, window.innerWidth)
-    this.dodaj(pozadina, ostrvo, avionce)
-    praviOblake(this)
+    for (let i = 0; i < BROJ_OBLAKA; i++) oblaci[i] = new Oblak(this, BRZINA_POZADINE)
+    this.dodaj(pozadina, ostrvo, avionce, ...oblaci, interfejs)
   }
 
   update() {
     super.update()
-    azurirajOblake()
     this.proveriSudare()
-  }
-
-  render() {
-    interfejs.render()
   }
 
   proveriSudare() {
@@ -61,14 +55,4 @@ export default class Osvetnik1944 extends Scena {
       }
     })
   }
-}
-
-/*** FUNKCIJE ***/
-
-function praviOblake(scena) {
-  for (var i = 0; i < BROJ_OBLAKA; i++) oblaci[i] = new Oblak(scena, BRZINA_POZADINE)
-}
-
-function azurirajOblake() {
-  for (var i = 0; i < BROJ_OBLAKA; i++) oblaci[i].update()
 }

@@ -13,25 +13,24 @@ export class Scena {
 
   dodaj(...premeti) {
     this.predmeti.push(...premeti)
-    // this.predmeti.map(predmet => predmet.scena = this)
   }
 
   /* VELIČINA */
 
   set sirina(sirina) {
-    this.platno.width = sirina;
+    platno.width = sirina;
   }
 
   get sirina() {
-    return this.platno.width;
+    return platno.width;
   }
 
   set visina(visina) {
-    this.platno.height = visina;
+    platno.height = visina;
   }
 
   get visina() {
-    return this.platno.height;
+    return platno.height;
   }
 
   velicina(sirina, visina) {
@@ -79,7 +78,7 @@ export class Scena {
   /* POZADINA */
 
   set bojaPozadine(boja) {
-    this.platno.style.backgroundColor = boja;
+    platno.style.backgroundColor = boja;
     podloga.fillStyle = boja;
   }
 
@@ -115,11 +114,11 @@ export class Scena {
   /* MISH */
 
   sakrijKursor() {
-    this.platno.style.cursor = "none";
+    platno.style.cursor = "none";
   }
 
   pokaziKursor() {
-    this.platno.style.cursor = "default";
+    platno.style.cursor = "default";
   }
 
 } // Scena
