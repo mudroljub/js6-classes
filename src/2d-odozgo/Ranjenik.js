@@ -21,11 +21,11 @@ export class Ranjenik extends Igrac {
   }
 
   nagore() {
-    this.predjiRastojanje(this.korak);
+    this.pomeri(this.korak);
   }
 
   nadole() {
-    this.predjiRastojanje(-this.korak/5);
+    this.pomeri(-this.korak/5);
   }
 
 }

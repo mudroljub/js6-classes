@@ -58,14 +58,14 @@ export class Predmet extends Slika {
 
   /* KRETANJE */
 
-  azurirajSilu(ugao, jacina) {
-    this.dx = Math.cos(ugao) * jacina
-    this.dy = Math.sin(ugao) * jacina
+  azurirajSilu(jacina = this.brzina, ugao = this.ugao) {
+    this.dx = jacina * Math.cos(ugao)
+    this.dy = jacina * Math.sin(ugao)
   }
 
   dodajSilu(jacina, ugao = this.ugao) {
-    this.dx += Math.cos(ugao) * jacina
-    this.dy += Math.sin(ugao) * jacina
+    this.dx += jacina * Math.cos(ugao)
+    this.dy += jacina * Math.sin(ugao)
   }
 
   get brzina() {
@@ -73,10 +73,10 @@ export class Predmet extends Slika {
   }
 
   set brzina(novaBrzina) {
-    this.azurirajSilu(this.ugao, novaBrzina)
+    this.azurirajSilu(novaBrzina, this.ugao)
   }
 
-  predjiRastojanje(razmak) {
+  pomeri(razmak) {
     this.x += razmak * Math.cos(this.ugao)
     this.y += razmak * Math.sin(this.ugao)
   }
@@ -93,10 +93,10 @@ export class Predmet extends Slika {
 
   set ugao(noviUgao) {
     this._ugao = noviUgao % (Math.PI * 2)
-    this.azurirajSilu(this.ugao, this.brzina)
+    this.azurirajSilu()
   }
 
-  dajUgaoKa(predmet) {
+  ugaoKa(predmet) {
     const mojX = this.x + this.sirina / 2
     const mojY = this.y + this.visina / 2
     const tudjX = predmet.x + predmet.sirina / 2
@@ -135,10 +135,6 @@ export class Predmet extends Slika {
 
   get naEkranu() {
     return (this.x >= 0 && this.x <= platno.width) && (this.y >= 0 && this.y <= platno.height)
-  }
-
-  izasaoLevo() {
-    return this.x < -this.sirina / 2
   }
 
   get granicnik() {

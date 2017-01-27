@@ -34,7 +34,7 @@ export function vracaVodoravno (predmet, procenatVracanja) {
 export function odbija(predmet) {
   if (izasaoGore(predmet) || izasaoDole(predmet)) predmet.ugao = 2 * Math.PI - predmet.ugao;
   if (izasaoLevo(predmet) || izasaoDesno(predmet)) predmet.ugao = Math.PI - predmet.ugao;
-  if (izasaoIgde(predmet)) predmet.predjiRastojanje(5);
+  if (izasaoIgde(predmet)) predmet.pomeri(5);
 }
 
 export function stani(predmet) {

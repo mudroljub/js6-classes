@@ -48,7 +48,7 @@ export class Raketa extends Predmet {
   }
 
   nisani(predmet) {
-    this.ugao = this.dajUgaoKa(predmet);
+    this.ugao = this.ugaoKa(predmet);
   }
 
   traziNajblizuMetu() {
