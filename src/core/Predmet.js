@@ -173,15 +173,6 @@ export class Predmet extends Slika {
 
   /* MISH */
 
-  jeMishIznad() {
-    return mish.x > this.levo && mish.x < this.desno && mish.y > this.gore && mish.y < this.dole
-  }
-
-  jeMishStisnutIznad() {
-    if (mish.stisnut && this.jeMishIznad()) return true
-    return false
-  }
-
   pratiMisha() {
     this.x = mish.x - platno.offsetLeft
     this.y = mish.y - platno.offsetTop

@@ -81,13 +81,19 @@ export default class NemciIzRovova extends Scena {
 
 function proveriPogotke(rovovi) {
   for (let i = 0; i < rovovi.length; i++) {
-    if (rovovi[i].jePogodjen()) pogoci++
+    if (rovovi[i].jePogodjen()) {
+      rovovi[i].padni()
+      pogoci++
+    }
   }
 }
 
 function azurirajSvabe(rovovi) {
   for (let i = 0; i < rovovi.length; i++) {
-    if (rovovi[i].jePucao()) energija--
+    if (rovovi[i].jeSpreman()) {
+      rovovi[i].puca()
+      energija--
+    }
     rovovi[i].update()
   }
 }
