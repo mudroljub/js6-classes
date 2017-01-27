@@ -9,6 +9,7 @@ export class UI {
   }
 
   render() {
+    // TODO: uvek prijavljuje da je razlicito!
     if (this.element.innerHTML !== this.praviSablon()) this.element.innerHTML = this.praviSablon()
   }
 

@@ -12,6 +12,9 @@
     "dev": "webpack-dev-server --inline --hot",
     "build": "webpack -p"
   },
+  "dependencies": {
+    "ui-guide-1941": "^1.0.0"
+  },
   "devDependencies": {
     "babel-core": "^5.0.0",
     "babel-loader": "^5.0.0",

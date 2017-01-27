@@ -1,8 +1,9 @@
-// mitraljez puca iz bunkera, prepreke su zakloni
+// napraviti css ui i uvek njega koristiti
 // sukcesivno se povećava broj prepreka i težina igre
   // svaki nivo novi random raspored, igrač igra dok ne izgubi
 // minimalno rastojanje bombaša i bunkera?
 // vremenski ograniceno?
+// mitraljez puca iz bunkera, prepreke su zakloni
 
 import * as $ from '../konstante'
 import {Scena} from '../core/Scena'
@@ -20,10 +21,11 @@ const BROJ_PREPREKA = 10
 const prepreke = []
 let nivo = 1
 let vremeIgre
+let prikaziMeni = true
 
 /*** INIT ***/
 
-const ui = new UI(praviUI)
+const ui = new UI(sablon)
 const vreme = new Vreme()
 const pozadina = new Pozadina($.root + "slike/teksture/beton.gif")
 const bombas = new Bombas($.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55)
@@ -80,26 +82,32 @@ export default class BombasScena extends Scena {
   }
 
   zavrsiIgru(poruka) {
-    let dugme = `<a class="izbor">Igraj opet</a><a href="#" class="izbor">Vrati me u priču</a>`
-    console.log(poruka, dugme)
+    prikaziMeni = true
+    console.log(poruka)
     this.stop()
   }
 }
 
 /*** POMOĆNE FUNKCIJE ***/
 
-function praviUI() {
-  return `
-    <h1>Bitka za Krupanj 1941.</h1>
-    <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
-    <div class="tabela">
-      Nivo: ${nivo} <br>
-      Vreme: ${Math.floor(vremeIgre)} <br>
-      Prepreke: ${BROJ_PREPREKA}
+function sablon() {
+  const izborCss = prikaziMeni ? 'block' : 'none'
+  const prozorce = `
+    <div class='prozorce pointer ${izborCss}'>
+      <a>Igraj opet</a></br>
+      <a>Glavni meni</a>
     </div>
-  `;
-}
-
-function reset() {
-  // nekako resetovati
+  `
+  return `
+    <section class='centar'>
+      <h1>Bitka za Krupanj 1941.</h1>
+      <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
+      <div class="tabela">
+        Nivo: ${nivo} <br>
+        Vreme: ${Math.floor(vremeIgre)} <br>
+        Prepreke: ${BROJ_PREPREKA}
+      </div>
+    </section>
+    ${prozorce}
+  `
 }
