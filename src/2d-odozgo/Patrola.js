@@ -13,7 +13,7 @@ export class Patrola extends Predmet {
     super(slikaIzvor, 71, 78)
     this.zvuk = new Zvuk($.root + "zvuci/halt.mp3")
     this.brzina = 10
-    this.granicnik = $.KRUZI
+    this.granice = $.KRUZI
     // this.postaviNasumicno()
   }
 

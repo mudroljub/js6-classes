@@ -1,7 +1,7 @@
 import * as $ from '../konstante'
 import {Igrac} from '../core/Igrac'
 import {Granata} from './Granata'
-import {odbij} from '../akcije/proveriGranice'
+import {odbij} from '../akcije/granice'
 
 export class VoziloIgracOdozgo extends Igrac {
 
@@ -12,7 +12,7 @@ export class VoziloIgracOdozgo extends Igrac {
     this.granata = new Granata(this)
     this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE)
     this.komandeNapredne = true
-    this.granicnik = odbij
+    this.granice = odbij
   }
 
   update() {

@@ -2,7 +2,7 @@ import * as _ from '../funkcije'
 import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
 import {Slika} from './Slika'
-import {nestani} from '../akcije/proveriGranice'
+import {nestani} from '../akcije/granice'
 
 export class Predmet extends Slika {
 
@@ -17,7 +17,7 @@ export class Predmet extends Slika {
     this.skalarX = 1
     this.skalarY = 1
     this.oznake = {}
-    this.granicnik = nestani
+    this.granice = nestani
   }
 
   update() {
@@ -139,7 +139,7 @@ export class Predmet extends Slika {
   }
 
   proveriGranice() {
-    this.granicnik(this)
+    this.granice(this)
   }
 
   /* KOLIZIJA */

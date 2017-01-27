@@ -2,7 +2,7 @@ import * as $ from '../konstante'
 import * as _ from '../funkcije'
 import {Predmet} from '../core/Predmet'
 import platno from '../io/platno'
-import {vracaVodoravno} from '../akcije/proveriGranice'
+import {vracaVodoravno} from '../akcije/granice'
 
 export class Oblak extends Predmet {
 
