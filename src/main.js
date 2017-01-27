@@ -24,5 +24,5 @@ import SavoNoc from './scene/SavoNoc'
 import RanjenikScena from './scene/RanjenikScena'
 import RanjenikPaljba from './scene/RanjenikPaljba'
 
-const trenutnaScena = new OtpisaniScena()
+const trenutnaScena = new FranjoKluzScena()
 trenutnaScena.start()

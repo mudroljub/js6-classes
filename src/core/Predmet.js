@@ -3,6 +3,7 @@ import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
 import {Slika} from './Slika'
 import {nestani} from '../akcije/granice'
+import {sudar} from '../akcije/sudari'
 
 export class Predmet extends Slika {
 
@@ -144,25 +145,9 @@ export class Predmet extends Slika {
 
   /* KOLIZIJA */
 
-  get levo() {
-    return this.x - (this.sirina / 2)
-  }
-
-  get desno() {
-    return this.x + (this.sirina / 2)
-  }
-
-  get gore() {
-    return this.y - (this.visina / 2)
-  }
-
-  get dole() {
-    return this.y + (this.visina / 2)
-  }
-
   sudara(predmet) {
     if (!this.vidljiv || !predmet.vidljiv) return false
-    return !(this.dole < predmet.gore || this.gore > predmet.dole || this.desno < predmet.levo || this.levo > predmet.desno)
+    return sudar(this, predmet)
   }
 
   razmakDo(predmet) {

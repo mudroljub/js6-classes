@@ -1,3 +1,5 @@
+import {unutar} from '../akcije/sudari'
+
 const mish = {
   stisnut: false,
 
@@ -11,7 +13,7 @@ const mish = {
   }(),
 
   iznad(predmet) {
-    return mish.x > predmet.levo && mish.x < predmet.desno && mish.y > predmet.gore && mish.y < predmet.dole
+    return unutar(mish, predmet)
   },
 
   stisnutIznad(predmet) {
