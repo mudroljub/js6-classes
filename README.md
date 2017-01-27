@@ -4,6 +4,8 @@
 
 Male igrice o Nemcima i partizanima.
 
+Razvojna verzija je ovde: https://mudroljub.github.io/igrica-partizani/
+
 ## Instalacija
 
 Prvo instaliraj [node.js](https://nodejs.org), noviju verziju. Nakon toga kloniraj repo i instaliraj zavisnosti:

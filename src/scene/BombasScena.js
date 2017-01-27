@@ -101,7 +101,7 @@ function sablon() {
     </div>
   `
   return `
-    <section class='centar'>
+    <main class='centar'>
       <h1>Bitka za Krupanj 1941.</h1>
       <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
       <div class="tabela">
@@ -109,7 +109,7 @@ function sablon() {
         Vreme: ${Math.floor(vremeIgre)} <br>
         Prepreke: ${BROJ_PREPREKA}
       </div>
-    </section>
+    </main>
     ${prozorce}
   `
 }
