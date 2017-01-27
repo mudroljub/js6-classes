@@ -3,103 +3,102 @@
 // napraviti niz granata, da puca zaredom
 // popraviti granatu, da menja ugaoCevi sukladno gravitaciji
 
-import * as $ from '../konstante';
-import * as _ from '../funkcije';
-import {Predmet} from '../core/Predmet';
-import {Igrac} from '../core/Igrac';
+import * as $ from '../konstante'
+import * as _ from '../funkcije'
+import {Predmet} from '../core/Predmet'
+import {Igrac} from '../core/Igrac'
 import platno from '../io/platno'
 
 export class TenkBocnoIgrac extends Igrac {
 
-  constructor (nivoTla, src, jelNadesno, sirina, visina) {
-    super(src, sirina, visina);
-    this.x = 100;
-    this.y = nivoTla;
-    this.okrenutNadesno = jelNadesno;
-    this.energija = 100;
-    this.brzina = 0;
-    this.granicnik = $.OGRANICI;
-    if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK);
-    if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M);
+  constructor (src, jelNadesno, sirina, visina) {
+    super(src, sirina, visina)
+    this.x = 100
+    this.okrenutNadesno = jelNadesno
+    this.energija = 100
+    this.brzina = 0
+    this.granicnik = $.OGRANICI
+    if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
+    if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
   }
 
   update() {
-    this.cev.polozaj(this.x + 1, this.y - 9);
-    this.cev.update();
-    super.update();
-    this.praviGravitaciju();
-    this.granata.update();
+    this.cev.polozaj(this.x + 1, this.y - 9)
+    this.cev.update()
+    super.update()
+    this.praviGravitaciju()
+    this.granata.update()
   }
 
   postaviCev(cevSrc, sirina, visina) {
-    this.cev = new Predmet(null, cevSrc, sirina, visina);
-    this.cev.brzina = 0;
-    this.cev.granicnik = $.NASTAVI;
-    this.podesiUgaoCevi();
-    this.postaviGranatu();
-    this.ograniciCev();
+    this.cev = new Predmet(null, cevSrc, sirina, visina)
+    this.cev.brzina = 0
+    this.cev.granicnik = $.NASTAVI
+    this.podesiUgaoCevi()
+    this.postaviGranatu()
+    this.ograniciCev()
   }
 
   podesiUgaoCevi() {
-    let ugaoCevi = this.okrenutNadesno ? -_.uRadijane(10) : _.uRadijane(10);
-    this.cev.ugao = ugaoCevi;
-    this.pomerajCevi = this.okrenutNadesno ? -_.uRadijane(1) : _.uRadijane(1);
-    let maxDonjiPomak = this.okrenutNadesno ? _.uRadijane(15) : _.uRadijane(10);
-    let maxGornjiPomak = this.okrenutNadesno ? _.uRadijane(10) : _.uRadijane(15);
-    this.donjiLimitCevi = ugaoCevi - maxDonjiPomak;
-    this.gornjiLimitCevi = ugaoCevi + maxGornjiPomak;
+    let ugaoCevi = this.okrenutNadesno ? -_.uRadijane(10) : _.uRadijane(10)
+    this.cev.ugao = ugaoCevi
+    this.pomerajCevi = this.okrenutNadesno ? -_.uRadijane(1) : _.uRadijane(1)
+    let maxDonjiPomak = this.okrenutNadesno ? _.uRadijane(15) : _.uRadijane(10)
+    let maxGornjiPomak = this.okrenutNadesno ? _.uRadijane(10) : _.uRadijane(15)
+    this.donjiLimitCevi = ugaoCevi - maxDonjiPomak
+    this.gornjiLimitCevi = ugaoCevi + maxGornjiPomak
   }
 
   postaviGranatu() {
-    this.granata = new Predmet(null, $.root + "slike/granata.gif", 12, 3);
-    this.granata.sakrij();
-    this.granata.granicnik = $.NESTANI;
+    this.granata = new Predmet(null, $.root + "slike/granata.gif", 12, 3)
+    this.granata.sakrij()
+    this.granata.granicnik = $.NESTANI
   }
 
   praviGravitaciju(gravitacija = 0.3) {
-    this.granata.dodajSilu(_.uRadijane(90), gravitacija);
+    this.granata.dodajSilu(_.uRadijane(90), gravitacija)
   }
 
   ograniciCev() {
-    if (this.cev.ugao < this.donjiLimitCevi) this.cev.ugao = this.donjiLimitCevi;
-    if (this.cev.ugao > this.gornjiLimitCevi) this.cev.ugao = this.gornjiLimitCevi;
+    if (this.cev.ugao < this.donjiLimitCevi) this.cev.ugao = this.donjiLimitCevi
+    if (this.cev.ugao > this.gornjiLimitCevi) this.cev.ugao = this.gornjiLimitCevi
   }
 
   nagore() {
-    this.cev.ugao += this.pomerajCevi;
+    this.cev.ugao += this.pomerajCevi
   }
 
   nadole() {
-    this.cev.ugao -= this.pomerajCevi;
+    this.cev.ugao -= this.pomerajCevi
   }
 
   reset() {
-    this.polozaj(Math.random() * 400, 450);
-    this.energija = 100;
+    this.polozaj(Math.random() * 400, 450)
+    this.energija = 100
   }
 
   mrdaNasumicno() {
-    this.brzina = Math.random() * 10 - 5;
+    this.brzina = Math.random() * 10 - 5
     if (this.x >= 600) {
-      this.brzina = Math.random() * 10 - 5;
-      this.ugaoKretanja = 180;
+      this.brzina = Math.random() * 10 - 5
+      this.ugaoKretanja = 180
     }
     if (this.x >= platno.width - 10) {
-      this.x = platno.width - 10;
+      this.x = platno.width - 10
     }
     if (this.x <= 450) {
-      this.brzina = Math.random() * 10 - 5;
-      this.ugaoKretanja = 0;
+      this.brzina = Math.random() * 10 - 5
+      this.ugaoKretanja = 0
     }
   }
 
   puca () {
-    let ugaoCevi = this.okrenutNadesno ? 0 : 180;
-    this.granata.ugaoKretanja = this.cev.ugao - ugaoCevi;
-    this.granata.ugao = this.cev.ugao - ugaoCevi;
-    this.granata.polozaj(this.cev.x, this.cev.y);
-    this.granata.brzina = 20;
-    this.granata.pokazi();
+    let ugaoCevi = this.okrenutNadesno ? 0 : 180
+    this.granata.ugaoKretanja = this.cev.ugao - ugaoCevi
+    this.granata.ugao = this.cev.ugao - ugaoCevi
+    this.granata.polozaj(this.cev.x, this.cev.y)
+    this.granata.brzina = 20
+    this.granata.pokazi()
   }
 
 }
