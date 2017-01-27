@@ -1,10 +1,8 @@
-import platno from '../io/platno'
-const podloga = platno.podloga
+import {platno, podloga} from '../io/platno'
 
 export class Scena {
 
   constructor() {
-    this.platno = platno
     this.predmeti = []
     this.nivoTla = this.visina
     this.loopID = null

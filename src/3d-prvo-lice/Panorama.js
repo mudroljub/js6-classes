@@ -1,5 +1,5 @@
 import * as $ from '../konstante';
-import platno from '../io/platno'
+import {platno, podloga} from '../io/platno'
 import {Slika} from '../core/Slika.js';
 
 const BOJA_TLA = '#701206';
@@ -13,12 +13,10 @@ const KISHA_PADA = true;
 
 export class Panorama {
   constructor(prvoLice, nebo, ...teksture) {
-    this.platno = platno;
-    this.podloga = platno.podloga;
     this.prvoLice = prvoLice;
     this.nebo = new Slika(nebo);
     this.teksture = teksture.map((tekstura) => new Slika(tekstura));
-    this.sirinaGrida = this.platno.width / REZOLUCIJA;
+    this.sirinaGrida = platno.width / REZOLUCIJA;
     this.grom = new Audio($.root + 'zvuci/grom.mp3');
     this.dometSvetla = 5;
     this.svetlo = 0;
@@ -47,31 +45,31 @@ export class Panorama {
   }
 
   crtaNebo() {
-    let novaSirina = this.trebaTlo ? this.nebo.sirina : this.nebo.sirina * (this.platno.height / this.nebo.visina) * 2;
-    let novaVisina = this.trebaTlo ? this.platno.height / 2 : this.platno.height;
+    let novaSirina = this.trebaTlo ? this.nebo.sirina : this.nebo.sirina * (platno.height / this.nebo.visina) * 2;
+    let novaVisina = this.trebaTlo ? platno.height / 2 : platno.height;
     let x = -(this.prvoLice.ugao / $.KRUZNICA) * novaSirina;
-    this.podloga.save();
-    this.podloga.drawImage(this.nebo.slika, x, 0, novaSirina, novaVisina);
-    if (x < (novaSirina - this.platno.width)) {
-      this.podloga.drawImage(this.nebo.slika, x + novaSirina, 0, novaSirina, novaVisina);
+    podloga.save();
+    podloga.drawImage(this.nebo.slika, x, 0, novaSirina, novaVisina);
+    if (x < (novaSirina - platno.width)) {
+      podloga.drawImage(this.nebo.slika, x + novaSirina, 0, novaSirina, novaVisina);
     }
-    this.podloga.restore();
+    podloga.restore();
   }
 
   crtaTlo(boja = BOJA_TLA) {
-    this.podloga.fillStyle = boja;
-    this.podloga.fillRect(0, this.platno.height/2, this.platno.width, this.platno.height);
+    podloga.fillStyle = boja;
+    podloga.fillRect(0, platno.height/2, platno.width, platno.height);
   }
 
   crtaZidove() {
-    this.podloga.save();
+    podloga.save();
     for (let ovajGrid = 0; ovajGrid < REZOLUCIJA; ovajGrid++) {
       let x = ovajGrid / REZOLUCIJA - 0.5;
       let ugao = Math.atan2(x, ZIZNA_DALJINA);
       let zrak = this.prvoLice.bacaZrak(ugao);
       this._crtaGrid(ovajGrid, zrak, ugao);
     }
-    this.podloga.restore();
+    podloga.restore();
   }
 
   _crtaGrid(ovajGrid, zrak, ugao) {
@@ -96,26 +94,26 @@ export class Panorama {
     let teksturaX = Math.floor(tekstura.sirina * ovoPolje.offset);
     let sirinaGrida = Math.ceil(this.sirinaGrida);
     let zid = this._racunaVisinu(ovoPolje.visina, ugao, ovoPolje.daljina);
-    this.podloga.globalAlpha = 1;
-    this.podloga.drawImage(tekstura.slika, teksturaX, 0, 1, tekstura.visina, levo, zid.gore, sirinaGrida, zid.visina);
-    this.podloga.fillStyle = SENKA_ZIDA;
-    this.podloga.globalAlpha = Math.max((ovoPolje.daljina + ovoPolje.sencenje) / this.dometSvetla - this.svetlo, 0);
-    this.podloga.fillRect(levo, zid.gore, sirinaGrida, zid.visina);
+    podloga.globalAlpha = 1;
+    podloga.drawImage(tekstura.slika, teksturaX, 0, 1, tekstura.visina, levo, zid.gore, sirinaGrida, zid.visina);
+    podloga.fillStyle = SENKA_ZIDA;
+    podloga.globalAlpha = Math.max((ovoPolje.daljina + ovoPolje.sencenje) / this.dometSvetla - this.svetlo, 0);
+    podloga.fillRect(levo, zid.gore, sirinaGrida, zid.visina);
   }
 
   _crtaKishu(i, ovoPolje, ugao, levo) {
     let kapiKishe = Math.pow(Math.random(), 3) * i;
     let kisha = (kapiKishe > 0) && this._racunaVisinu(0.1, ugao, ovoPolje.daljina);
-    this.podloga.fillStyle = BOJA_KISHE;
-    this.podloga.globalAlpha = 0.15;
-    while (--kapiKishe > 0) this.podloga.fillRect(levo, Math.random() * kisha.gore, 1, kisha.visina);
+    podloga.fillStyle = BOJA_KISHE;
+    podloga.globalAlpha = 0.15;
+    while (--kapiKishe > 0) podloga.fillRect(levo, Math.random() * kisha.gore, 1, kisha.visina);
   }
 
   _racunaVisinu(visinaPolja, ugao, daljina) {
     if (IGNORISE_VISINU) visinaPolja = 1;
     let z = daljina * Math.cos(ugao);
-    let zidVisina = this.platno.height * visinaPolja / z;
-    let dole = this.platno.height / 2 * (1 + (1 / z));
+    let zidVisina = platno.height * visinaPolja / z;
+    let dole = platno.height / 2 * (1 + (1 / z));
     return {
       gore: dole - zidVisina,
       visina: zidVisina

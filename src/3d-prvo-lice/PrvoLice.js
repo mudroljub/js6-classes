@@ -1,5 +1,5 @@
 import * as $ from '../konstante'
-import platno from '../io/platno'
+import {platno, podloga} from '../io/platno'
 import {tipke} from '../io/tipke'
 import {Slika} from '../core/Slika.js';
 
@@ -14,8 +14,6 @@ const BOJA_LAMPE = '#ff0';
 export class PrvoLice {
 
   constructor(mapa, x, y, ugao = 0) {
-    this.platno = platno;
-    this.podloga = platno.podloga;
     this.x = x;
     this.y = y;
     this.ugao = ugao;
@@ -49,7 +47,7 @@ export class PrvoLice {
   crtaPlamen(x, y) {
     if (!this.drmanje) return;
     let plamen = new Slika($.root + 'slike/mali-plam.png', 300, 200);
-    this.podloga.drawImage(plamen.slika, x, y);
+    podloga.drawImage(plamen.slika, x, y);
   }
 
   okreni(brzina) {
@@ -109,31 +107,31 @@ export class PrvoLice {
   } // proveriTipke
 
   crtaPusku() {
-    let skalar = (this.platno.width + this.platno.height) / 1200;
+    let skalar = (platno.width + platno.height) / 1200;
     let skaliranaSirina = this.oruzje.sirina * skalar;
     let skaliranaVisina = this.oruzje.visina * skalar;
     let odstupanjeX = (Math.sin(predjeno) * MRDANJE_PUSKE * 0.33) + MRDANJE_PUSKE * 0.33;
     let odstupanjeY = this.drmanje * (Math.cos(predjeno) * MRDANJE_PUSKE) + MRDANJE_PUSKE;
-    let puskaX = this.platno.width / 2 - skaliranaSirina / 2 + odstupanjeX;
-    let puskaY = this.platno.height - skaliranaVisina + odstupanjeY;
+    let puskaX = platno.width / 2 - skaliranaSirina / 2 + odstupanjeX;
+    let puskaY = platno.height - skaliranaVisina + odstupanjeY;
     // this.crtaPlamen(puskaX + skaliranaSirina/2.4, puskaY - skaliranaVisina/10);
-    this.podloga.drawImage(this.oruzje.slika, puskaX, puskaY, skaliranaSirina, skaliranaVisina);
+    podloga.drawImage(this.oruzje.slika, puskaX, puskaY, skaliranaSirina, skaliranaVisina);
   } // crtaPusku
 
   crtaKruzic(velicinaPolja) {
     let x = Math.floor(this.x * velicinaPolja);
     let y = Math.floor(this.y * velicinaPolja);
     // crta kruzic
-    this.podloga.fillStyle = BOJA_KRUZICA;
-    this.podloga.beginPath();
-    this.podloga.arc(x, y, VELICINA_KRUZICA, this.ugao, this.ugao + $.KRUZNICA);
-    this.podloga.fill();
+    podloga.fillStyle = BOJA_KRUZICA;
+    podloga.beginPath();
+    podloga.arc(x, y, VELICINA_KRUZICA, this.ugao, this.ugao + $.KRUZNICA);
+    podloga.fill();
     // crta svetlo
-    this.podloga.fillStyle = BOJA_LAMPE;
-    this.podloga.beginPath();
-    this.podloga.arc(x, y, VELICINA_KRUZICA, this.ugao + $.KRUZNICA, this.ugao + $.KRUZNICA);
-    this.podloga.arc(x, y, VELICINA_KRUZICA * 3, this.ugao - 0.15 * Math.PI, this.ugao + 0.15 * Math.PI);
-    this.podloga.fill();
+    podloga.fillStyle = BOJA_LAMPE;
+    podloga.beginPath();
+    podloga.arc(x, y, VELICINA_KRUZICA, this.ugao + $.KRUZNICA, this.ugao + $.KRUZNICA);
+    podloga.arc(x, y, VELICINA_KRUZICA * 3, this.ugao - 0.15 * Math.PI, this.ugao + 0.15 * Math.PI);
+    podloga.fill();
   } // crtaKruzic
 
   crtaRadar(){

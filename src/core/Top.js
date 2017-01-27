@@ -1,6 +1,6 @@
 import * as $ from '../konstante';
 import {tipke} from '../io/tipke';
-import platno from '../io/platno'
+import {platno, podloga} from '../io/platno'
 import {Slika} from './Slika';
 
 const MIN_UGAO = 0;
@@ -10,7 +10,6 @@ const MIN_BRZINA = 20;
 export class Top {
 
   constructor(x = platno.width / 8, y = platno.height / 2) {
-    this.podloga = platno.podloga;
     this.x = x;
     this.y = y;
     this.ugao = 20;
@@ -84,21 +83,21 @@ export class Top {
   /* RENDER */
 
   crtaPostolje() {
-    this.podloga.drawImage(this.postolje.slika, this.x, this.y);
+    podloga.drawImage(this.postolje.slika, this.x, this.y);
   }
 
   crtaCev(){
-    this.podloga.save();
-    this.podloga.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2);
-    this.podloga.rotate(-this.ugao * Math.PI / 180);
-    this.podloga.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2);
-    this.podloga.restore();
+    podloga.save();
+    podloga.translate(this.cev.x + this.cev.sirina / 4, this.cev.y + this.cev.visina / 2);
+    podloga.rotate(-this.ugao * Math.PI / 180);
+    podloga.drawImage(this.cev.slika, -this.cev.sirina / 4, -this.cev.visina / 2);
+    podloga.restore();
   }
 
   crtaProjektil() {
-    this.podloga.fillStyle = "black";
-    this.podloga.beginPath();
-    this.podloga.arc(this.projektil.x, this.projektil.y, 5, 0, Math.PI * 2);
-    this.podloga.fill();
+    podloga.fillStyle = "black";
+    podloga.beginPath();
+    podloga.arc(this.projektil.x, this.projektil.y, 5, 0, Math.PI * 2);
+    podloga.fill();
   }
 }

@@ -1,12 +1,11 @@
 import {Casovnik} from './Casovnik';
 import {Predmet} from './Predmet';
-import platno from '../io/platno'
+import {podloga} from '../io/platno'
 
 export class Animiran extends Predmet {
 
   constructor(src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
     super(src);
-    this.podloga = platno.podloga;
     this.animacije = [];
     this.tekucaAnimacija = 0;
     this.duzinaAnimacije = 1000;
@@ -75,16 +74,16 @@ export class Animiran extends Predmet {
     let slikaX = trenutnaKolona * tekuca.sirinaKadra;
     let slikaY = trenutniRed * tekuca.visinaKadra;
 
-    this.podloga.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra);
+    podloga.drawImage(this.slika, slikaX, slikaY, tekuca.sirinaKadra, tekuca.visinaKadra, 0 - (tekuca.sirinaKadra / 2), 0 - (tekuca.visinaKadra / 2), tekuca.sirinaKadra, tekuca.visinaKadra);
   }
 
   crta() {
     if (!this.vidljiv) return;
-    this.podloga.save();
-    this.podloga.translate(this.x, this.y);
-    this.podloga.rotate(this._ugaoSlike);
+    podloga.save();
+    podloga.translate(this.x, this.y);
+    podloga.rotate(this._ugaoSlike);
     this.crtaKadar();
-    this.podloga.restore();
+    podloga.restore();
   }
 
 }

@@ -1,15 +1,13 @@
 import * as _ from '../funkcije'
-import platno from '../io/platno'
+import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
 import {Slika} from './Slika'
 import {proveriGranice} from '../akcije/proveriGranice'
-const podloga = platno.podloga
 
 export class Predmet extends Slika {
 
   constructor (src, sirina, visina, x = 200, y = 200) {
     super(src, sirina, visina)
-    this.platno = platno
     this.x = x
     this.y = y
     this.ziv = true
