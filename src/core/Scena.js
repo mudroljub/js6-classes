@@ -2,6 +2,7 @@ import platno from '../io/platno'
 const podloga = platno.podloga
 
 export class Scena {
+
   constructor() {
     this.platno = platno
     this.predmeti = []
@@ -79,7 +80,9 @@ export class Scena {
     podloga.clearRect(0, 0, this.sirina, this.visina)
   }
 
-  crtaNebo(nivoTla = this.nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
+  /* CRTANJE */
+
+  crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
     this.bojaPozadine = bojaNeba
     if (bojaNebaPreliv) {
       let preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla)

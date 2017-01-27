@@ -24,5 +24,5 @@ import TenkOdozgoScena from './scene/TenkOdozgoScena'
 import MinobacacScena from './scene/MinobacacScena'
 import TopScena from './scene/TopScena'
 
-const trenutnaScena = new FranjoKluzScena()
+const trenutnaScena = new TenkicIde()
 trenutnaScena.start()
