@@ -1,7 +1,7 @@
 import * as $ from '../konstante';
 import {Igrac} from '../core/Igrac';
 import {Zvuk} from '../core/Zvuk';
-import {Casovnik} from '../core/Casovnik';
+import {Vreme} from '../core/Vreme';
 import {Metak} from '../2d-odozgo/Metak';
 import platno from '../io/platno'
 
@@ -14,7 +14,7 @@ export class Avionce extends Igrac {
   constructor() {
     super($.root + "slike/2d-odozgo/avionce.gif");
     this.prevelicaj(0.75);
-    this.casovnik = new Casovnik();
+    this.vreme = new Vreme();
     this.zvukMotora = new Zvuk($.root + "zvuci/engine.mp3");
     this.meci = [];
     this.trenutniMetak = 0;
@@ -37,7 +37,7 @@ export class Avionce extends Igrac {
   }
 
   puca() {
-    let protekloVreme = this.casovnik.dajProtekleSekunde();
+    let protekloVreme = this.vreme.dajProtekleSekunde();
     let cevNijeSpremna = protekloVreme <= PAUZA_PALJBE;
     let nemaMunicije = this.trenutniMetak >= BROJ_METAKA - 2;
     if (cevNijeSpremna || nemaMunicije) return;
@@ -46,7 +46,7 @@ export class Avionce extends Igrac {
     this.meci[this.trenutniMetak + 1].puca(-SIRINA_PALJBE);
     this.meci[this.trenutniMetak + 2].puca(SIRINA_PALJBE);
     this.trenutniMetak += 3;
-    this.casovnik.reset();
+    this.vreme.reset();
   }
 
   praviMetke() {

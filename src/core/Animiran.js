@@ -1,4 +1,4 @@
-import {Casovnik} from './Casovnik';
+import {Vreme} from './Vreme';
 import {Predmet} from './Predmet';
 import {podloga} from '../io/platno'
 
@@ -10,7 +10,7 @@ export class Animiran extends Predmet {
     this.tekucaAnimacija = 0;
     this.duzinaAnimacije = 1000;
     this.protekloAnimacije = 0;
-    this.casovnik = new Casovnik();
+    this.vreme = new Vreme();
     this.praviAnimacije(imenaAnimacija, slikaPoAnimaciji);
   }
 
@@ -35,7 +35,7 @@ export class Animiran extends Predmet {
 
   reset() {
     this.protekloAnimacije = 0;
-    this.casovnik.reset();
+    this.vreme.reset();
   }
 
   postaviAnimaciju(ime) {
@@ -63,7 +63,7 @@ export class Animiran extends Predmet {
 
   crtaKadar() {
     let tekuca = this.animacije[this.tekucaAnimacija];
-    let duzinaFrejma = this.casovnik.dajVremenskiRazmak();
+    let duzinaFrejma = this.vreme.dajVremenskiRazmak();
     let nijeZavrsena = this.protekloAnimacije + duzinaFrejma < this.duzinaAnimacije;
     if (tekuca.ponavlja || nijeZavrsena) this.protekloAnimacije += duzinaFrejma;
 

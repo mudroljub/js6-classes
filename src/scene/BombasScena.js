@@ -6,7 +6,7 @@
 
 import * as $ from '../konstante';
 import {Scena} from '../core/Scena';
-import {Casovnik} from '../core/Casovnik';
+import {Vreme} from '../core/Vreme';
 import {Pozadina} from '../core/Pozadina';
 import {UI} from '../core/UI';
 import {Bombas} from '../2d-bocno/Bombas';
@@ -19,12 +19,12 @@ const ZADATOVREME = 50;
 const BROJ_PREPREKA = 10;
 const prepreke = [];
 let nivo = 1;
-let vreme;
+let vremeIgre;
 
 /*** INIT ***/
 
 const ui = new UI(praviUI)
-const brojac = new Casovnik();
+const vreme = new Vreme();
 const pozadina = new Pozadina($.root + "slike/teksture/beton.gif");
 const bombas = new Bombas($.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55);
 const bunker = new Bunker(112, 103);
@@ -64,9 +64,9 @@ export default class BombasScena extends Scena {
   }
 
   proveriVreme() {
-    vreme = brojac.dajProtekleSekunde();
-    if (vreme > ZADATOVREME) {
-      this.zavrsiIgru('Tvoje vreme je isteklo. Igra je završena!');
+    vremeIgre = vreme.dajProtekleSekunde();
+    if (vremeIgre > ZADATOVREME) {
+      this.zavrsiIgru('Tvoje vremeIgre je isteklo. Igra je završena!');
     }
   }
 
@@ -94,7 +94,7 @@ function praviUI() {
     <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
     <div class="tabela">
       Nivo: ${nivo} <br>
-      Vreme: ${Math.floor(vreme)} <br>
+      Vreme: ${Math.floor(vremeIgre)} <br>
       Prepreke: ${BROJ_PREPREKA}
     </div>
   `;

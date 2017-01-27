@@ -1,6 +1,6 @@
 import * as $ from '../konstante';
 import {Predmet} from '../core/Predmet';
-import {Casovnik} from '../core/Casovnik';
+import {Vreme} from '../core/Vreme';
 
 const VREME_NISANJENJA = 3;
 
@@ -13,7 +13,7 @@ export class Svabo extends Predmet {
     this.slikaDole = $.root + "slike/2d-prvo-lice/rov-prazan.gif";
     this.PROCENAT_POJAVLJIVANJA = PROCENAT_POJAVLJIVANJA;
     this.VREME_NISANJENJA = VREME_NISANJENJA; //koliko sekundi stoji pre nego zapuca
-    this.casovnik = new Casovnik();
+    this.vreme = new Vreme();
   } // constructor
 
   update() {
@@ -29,7 +29,7 @@ export class Svabo extends Predmet {
     this.stoji = stanje;
     let slika = stanje ? this.slikaGore : this.slikaDole;
     this.zameniSliku(slika);
-    if (stanje) this.casovnik.reset(); // startuje tajmer
+    if (stanje) this.vreme.reset(); // startuje tajmer
   } // ustani
 
   jePogodjen() {
@@ -41,7 +41,7 @@ export class Svabo extends Predmet {
 
   jePucao() {
     if (!this.stoji) return false;
-    let duzinaOstanka = this.casovnik.dajProtekleSekunde();
+    let duzinaOstanka = this.vreme.dajProtekleSekunde();
     if (duzinaOstanka <= this.VREME_NISANJENJA / 2) return false;
     this.slika.src = $.root + "slike/2d-prvo-lice/nemac-rov-puca.gif";
     if (duzinaOstanka > this.VREME_NISANJENJA) return true;
