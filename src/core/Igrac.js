@@ -7,7 +7,7 @@ const OKRET = 0.087;
 export class Igrac extends Predmet {
 
   constructor(src, sirina, visina) {
-    super(null, src, sirina, visina);
+    super(src, sirina, visina);
     this.oznake.igrac = true; // naslednik moze delete this.oznake.igrac da ukine tipke
     this.potisak = 0.5;
     this.prohodnost = 0.9;

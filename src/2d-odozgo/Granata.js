@@ -4,7 +4,7 @@ import * as $ from '../konstante';
 export class Granata extends Predmet {
 
   constructor(vlasnik, src = $.root + "slike/granata.gif") {
-    super(null, src, 24, 6);
+    super(src, 24, 6);
     this.sakrij();
     this.vlasnik = vlasnik;
   }

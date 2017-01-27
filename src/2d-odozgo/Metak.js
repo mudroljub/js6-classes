@@ -4,7 +4,7 @@ import * as $ from '../konstante';
 export class Metak extends Predmet {
 
   constructor(vlasnik) {
-    super(null, $.root + "slike/granata.gif")
+    super($.root + "slike/granata.gif")
     this.prevelicaj(0.5);
     this.vlasnik = vlasnik;
     this.ugao = this.vlasnik.ugao;

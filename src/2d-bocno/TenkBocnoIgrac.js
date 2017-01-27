@@ -31,7 +31,7 @@ export class TenkBocnoIgrac extends Igrac {
   }
 
   postaviCev(cevSrc, sirina, visina) {
-    this.cev = new Predmet(null, cevSrc, sirina, visina)
+    this.cev = new Predmet(cevSrc, sirina, visina)
     this.cev.brzina = 0
     this.cev.granicnik = $.NASTAVI
     this.podesiUgaoCevi()
@@ -50,7 +50,7 @@ export class TenkBocnoIgrac extends Igrac {
   }
 
   postaviGranatu() {
-    this.granata = new Predmet(null, $.root + "slike/granata.gif", 12, 3)
+    this.granata = new Predmet($.root + "slike/granata.gif", 12, 3)
     this.granata.sakrij()
     this.granata.granicnik = $.NESTANI
   }

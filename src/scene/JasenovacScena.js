@@ -10,7 +10,7 @@ import {TenkOdozgo} from '../2d-odozgo/TenkOdozgo';
 
 const pozadina = new Pozadina($.root + "slike/teksture/beton.gif");
 const tenk = new TenkOdozgo(100, 200);
-const zica = new Predmet(null, $.root + "slike/2d-bocno/stvari/bodljikava-zica.gif");
+const zica = new Predmet($.root + "slike/2d-bocno/stvari/bodljikava-zica.gif");
 
 /*** EXPORT ***/
 

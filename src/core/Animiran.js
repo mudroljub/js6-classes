@@ -5,7 +5,7 @@ import platno from '../io/platno'
 export class Animiran extends Predmet {
 
   constructor(src, imenaAnimacija, slikaPoAnimaciji) { // broj ili niz brojeva ako su nejednake
-    super(null, src);
+    super(src);
     this.podloga = platno.podloga;
     this.animacije = [];
     this.tekucaAnimacija = 0;

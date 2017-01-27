@@ -3,7 +3,7 @@ import {Predmet} from '../core/Predmet'
 
 export class Oblak extends Predmet {
   constructor(brzina) {
-    super(null, $.root + "slike/oblak.gif", 150, 100)
+    super($.root + "slike/oblak.gif", 150, 100)
     this.brzina = brzina
     this.reset()
   }

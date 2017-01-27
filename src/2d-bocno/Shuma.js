@@ -6,7 +6,7 @@ import {vracaVodoravno} from '../akcije/proveriGranice'
 export class Shuma extends Predmet {
 
   constructor(nivoTla = platno.height, src = $.root + "slike/2d-bocno/priroda/shumarak.png") {
-    super(null, src)
+    super(src)
     this.procenatVracanja = 1
     this.x = Math.random() * platno.width
     this.tlo(nivoTla + 5)

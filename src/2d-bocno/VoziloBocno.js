@@ -4,7 +4,7 @@ import {Predmet} from '../core/Predmet';
 export class VoziloBocno extends Predmet {
 
   constructor(nivoTla, src, sirina, visina) {
-    super(null, src, sirina, visina);
+    super(src, sirina, visina);
     this.dodajSilu(this.ugao, 3);
     this.x = 100;
     this.y = nivoTla - this.visina / 2;

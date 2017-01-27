@@ -7,7 +7,7 @@ import {vracaVodoravno} from '../akcije/proveriGranice'
 export class Oblak extends Predmet {
 
   constructor(sirina, visina, src = $.root + "slike/oblak.gif") {
-    super(null, src, sirina, visina)
+    super(src, sirina, visina)
     this.polozaj(Math.random() * platno.width, _.randomRange(0, platno.height - this.visina))
     this.dy = Math.random() * 2 - 1  // random vertikalno kretanje
     this.procenatVracanja = 1

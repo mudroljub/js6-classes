@@ -7,7 +7,7 @@ const VREME_NISANJENJA = 3;
 export class Svabo extends Predmet {
 
   constructor (sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.003) {
-    super (null, $.root + "slike/2d-prvo-lice/rov-prazan.gif", sirina, visina);
+    super ($.root + "slike/2d-prvo-lice/rov-prazan.gif", sirina, visina);
     this.stoji = false;
     this.slikaGore = $.root + "slike/2d-prvo-lice/nemac-rov.gif";
     this.slikaDole = $.root + "slike/2d-prvo-lice/rov-prazan.gif";

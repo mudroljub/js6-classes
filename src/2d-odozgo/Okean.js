@@ -4,7 +4,7 @@ import {Predmet} from '../core/Predmet'
 export class Okean extends Predmet {
 
   constructor(brzinaPozadine = 10, sirina = window.innerWidth, visina = 1440) {
-    super(null, $.root + "slike/teksture/okean.gif", sirina, visina)
+    super($.root + "slike/teksture/okean.gif", sirina, visina)
     this.dx = 0
     this.dy = brzinaPozadine
     this.polozaj(sirina/2, 0)

@@ -5,7 +5,7 @@ import platno from '../io/platno'
 export class Ostrvo extends Predmet {
 
   constructor(brzina) {
-    super(null, $.root + "slike/2d-odozgo/ostrvo.gif", 100, 100);
+    super($.root + "slike/2d-odozgo/ostrvo.gif", 100, 100);
     this.reset(brzina);
   }
 

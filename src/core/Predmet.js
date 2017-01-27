@@ -7,7 +7,7 @@ const podloga = platno.podloga
 
 export class Predmet extends Slika {
 
-  constructor (scena, src, sirina, visina, x = 200, y = 200) {
+  constructor (src, sirina, visina, x = 200, y = 200) {
     super(src, sirina, visina)
     this.platno = platno
     this.x = x

@@ -10,7 +10,7 @@ let trenutnoVikanje = 0
 export class Patrola extends Predmet {
 
   constructor(slikaIzvor = $.root + "slike/2d-odozgo/nemci-patrola.gif") {
-    super(null, slikaIzvor, 71, 78)
+    super(slikaIzvor, 71, 78)
     this.zvuk = new Zvuk($.root + "zvuci/halt.mp3")
     this.brzina = 10
     this.granicnik = $.KRUZI

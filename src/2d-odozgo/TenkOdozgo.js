@@ -6,7 +6,7 @@ const SILA = 1
 
 export class TenkOdozgo extends Predmet {
   constructor(x = 100, y = 200) {
-    super(null, $.root + "slike/2d-odozgo/tenk-rdjavi.gif", 168, 70)
+    super($.root + "slike/2d-odozgo/tenk-rdjavi.gif", 168, 70)
     this.x = x
     this.y = y
     this.tenkMp3 = new Zvuk($.root + "zvuci/zvuk-tenka.mp3")
