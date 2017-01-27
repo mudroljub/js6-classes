@@ -78,7 +78,7 @@ export class Scena {
     podloga.clearRect(0, 0, this.sirina, this.visina)
   }
 
-  /* CRTANJE */
+  /* CRTANJE (prebaciti na pozadinu) */
 
   crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
     podloga.fillStyle = bojaNeba

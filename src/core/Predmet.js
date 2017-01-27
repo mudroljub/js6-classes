@@ -1,4 +1,4 @@
-import * as _ from '../funkcije'
+import * as _ from '../akcije/utils'
 import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
 import {Slika} from './Slika'
@@ -186,5 +186,4 @@ export class Predmet extends Slika {
     let ugao = this.ugao.toFixed(2)
     console.log(`x: ${x}, y: ${y}, dx: ${dx}, dy: ${dy}, brzina: ${brzina}, ugao: ${ugao}, ziv: ${this.ziv}`)
   }
-
 }

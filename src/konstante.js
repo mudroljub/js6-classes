@@ -2,15 +2,6 @@ export const root = '/';
 export const KRUZNICA = Math.PI * 2;
 export const MOBILNI = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
 
-// granice
-export const KRUZI = 0,
-  ODBIJA = 1,
-  STANI = 3,
-  NESTANI = 4,
-  NASTAVI = 5,
-  OGRANICI = 6,
-  KRUZI_SHIRE = 7;
-
 // tipke
 export const A = 65,
   B = 66,
