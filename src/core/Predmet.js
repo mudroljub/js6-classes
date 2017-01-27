@@ -17,6 +17,7 @@ export class Predmet extends Slika {
     this.skalarX = 1
     this.skalarY = 1
     this.oznake = {}
+    this.granicnik = nestani
   }
 
   update() {
@@ -137,16 +138,8 @@ export class Predmet extends Slika {
     return (this.x >= 0 && this.x <= platno.width) && (this.y >= 0 && this.y <= platno.height)
   }
 
-  get granicnik() {
-    return this._granicnik
-  }
-
-  set granicnik(action) {
-    this._granicnik = action
-  }
-
   proveriGranice() {
-    nestani(this)
+    this.granicnik(this)
   }
 
   /* KOLIZIJA */

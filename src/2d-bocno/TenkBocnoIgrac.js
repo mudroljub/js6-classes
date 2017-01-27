@@ -8,6 +8,7 @@ import * as _ from '../funkcije'
 import {Predmet} from '../core/Predmet'
 import {Igrac} from '../core/Igrac'
 import platno from '../io/platno'
+import {ogranici, nastavi} from '../akcije/proveriGranice'
 
 export class TenkBocnoIgrac extends Igrac {
 
@@ -17,7 +18,7 @@ export class TenkBocnoIgrac extends Igrac {
     this.okrenutNadesno = jelNadesno
     this.energija = 100
     this.brzina = 0
-    this.granicnik = $.OGRANICI
+    this.granicnik = ogranici
     if (this.okrenutNadesno) this.podesiTipke($.A, $.D, $.W, $.S, $.RAZMAK)
     if (!this.okrenutNadesno) this.podesiTipke($.LEVO, $.DESNO, $.GORE, $.DOLE, $.M)
   }
@@ -33,7 +34,7 @@ export class TenkBocnoIgrac extends Igrac {
   postaviCev(cevSrc, sirina, visina) {
     this.cev = new Predmet(cevSrc, sirina, visina)
     this.cev.brzina = 0
-    this.cev.granicnik = $.NASTAVI
+    this.cev.granicnik = nastavi
     this.podesiUgaoCevi()
     this.postaviGranatu()
     this.ograniciCev()

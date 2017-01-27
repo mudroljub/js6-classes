@@ -4,6 +4,7 @@ import {Zvuk} from '../core/Zvuk';
 import {Vreme} from '../core/Vreme';
 import {Metak} from '../2d-odozgo/Metak';
 import platno from '../io/platno'
+import {ogranici} from '../akcije/proveriGranice'
 
 const BROJ_METAKA = 999;
 const SIRINA_PALJBE = 13;
@@ -22,7 +23,7 @@ export class Avionce extends Igrac {
     this.ugao = $.KRUZNICA * 3/ 4;
     this.polozaj(platno.width / 2, platno.height - this.visina);
     this.praviMetke();
-    this.granicnik = $.OGRANICI;
+    this.granicnik = ogranici
   }
 
   update() {

@@ -1,6 +1,7 @@
 import * as $ from '../konstante'
 import {Predmet} from '../core/Predmet'
 import platno from '../io/platno'
+import {kruzi} from '../akcije/proveriGranice'
 
 export class Planina extends Predmet {
 
@@ -8,7 +9,7 @@ export class Planina extends Predmet {
     super (src);
     this.x = Math.random() * platno.width;
     this.tlo(nivoTla + 3);
-    this.granicnik = $.KRUZI
+    this.granicnik = kruzi
   }
 
 }

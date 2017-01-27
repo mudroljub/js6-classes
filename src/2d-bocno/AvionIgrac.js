@@ -2,6 +2,7 @@ import * as $ from '../konstante'
 import {tipke} from '../io/tipke'
 import {Igrac} from '../core/Igrac'
 import {Raketa} from './Raketa'
+import {ogranici} from '../akcije/proveriGranice'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066
@@ -13,7 +14,7 @@ export class AvionIgrac extends Igrac {
     super(src, sirina, visina)
     this.scena = scena
     this.brzina = 0
-    this.granicnik = $.OGRANICI
+    this.granicnik = ogranici
     this.nivoTla = scena.nivoTla
     this.oznake.igrac = true
     this.raketa = new Raketa(this)
