@@ -7,7 +7,7 @@ const izasaoDole = predmet => predmet.y > platno.height
 const izasaoGore = predmet => predmet.y < 0
 const izasaoDesno = predmet => predmet.x > platno.width
 const izasaoLevo = predmet => predmet.x < 0
-const izasaoLevoSkroz = predmet => predmet.x + predmet.sirina / 2 < 0
+const izasaoLevoSkroz = predmet => predmet.x < -predmet.sirina / 2
 const izasaoDesnoSkroz = predmet => predmet.x > platno.width + predmet.sirina / 2
 const izasaoIgde = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
 
@@ -28,7 +28,7 @@ export function kruziSire(predmet) {
 
 export function vracaVodoravno (predmet, procenatVracanja) {
   const procenat = procenatVracanja || predmet.procenatVracanja
-  if (predmet.izasaoLevo() && Math.random() < procenat) predmet.x = platno.width + predmet.sirina / 2
+  if (izasaoLevoSkroz(predmet) && Math.random() < procenat) predmet.x = platno.width + predmet.sirina / 2
 }
 
 export function odbija(predmet) {
