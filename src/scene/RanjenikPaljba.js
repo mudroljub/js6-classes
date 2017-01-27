@@ -13,7 +13,7 @@ const RITAM_PALJBE = 1500
 const ZADATO_VREME = 60
 let plotuni = []
 let ovajPlotun = 0
-let protekloVreme = 0
+let vremeIgre = 0
 let protekleMilisekunde = 0
 let pocetakPaljbe = 500
 
@@ -28,38 +28,36 @@ const ui = new UI(sablon)
 
 function pali() {
   if (protekleMilisekunde < pocetakPaljbe || ovajPlotun >= BROJ_PLOTUNA) return
-  plotuni[ovajPlotun] = new Paljba()
+  plotuni.push(new Paljba())
   if (ranjenik.sudara(plotuni[ovajPlotun])) ranjenik.pogodjen += 1
   pocetakPaljbe += RITAM_PALJBE
   ovajPlotun++
 }
 
 function sablon() {
-  return `Pogoci: ${ranjenik.pogodjen}. Vreme: ${Math.floor(protekloVreme)}`
+  return `
+    Pogoci: ${ranjenik.pogodjen}
+    Vreme: ${Math.floor(vremeIgre)}
+  `
 }
 
 export default class RanjenikPaljba extends Scena {
-
   constructor() {
     super()
+    this.dodaj(pozadina, ranjenik, ui)
   }
 
   update() {
-    this.cisti()
-    pozadina.update()
-    this.azurirajVreme()
+    super.update()
     pali()
-    for (let i = 0; i < plotuni.length; i++) {
-      plotuni[i].update()
-    }
-    ranjenik.update()
-    ui.render()
+    plotuni.map(plotun => plotun.update())
+    this.proveriVreme()
   }
 
-  azurirajVreme() {
+  proveriVreme() {
     protekleMilisekunde = vreme.dajProtekleMilisekunde()
-    protekloVreme = vreme.dajProtekleSekunde()
-    if (protekloVreme > ZADATO_VREME) {
+    vremeIgre = vreme.dajProtekleSekunde()
+    if (vremeIgre > ZADATO_VREME) {
       this.stop()
       // javi game over
     }
