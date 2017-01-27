@@ -20,8 +20,9 @@ const ZADATOVREME = 50
 const BROJ_PREPREKA = 10
 const prepreke = []
 let nivo = 1
-let vremeIgre
-let prikaziMeni = true
+let vremeIgre = 0
+let prikaziMeni = false
+let poruka = ''
 
 /*** INIT ***/
 
@@ -81,9 +82,9 @@ export default class BombasScena extends Scena {
     }
   }
 
-  zavrsiIgru(poruka) {
+  zavrsiIgru(text) {
+    poruka = text
     prikaziMeni = true
-    console.log(poruka)
     this.stop()
   }
 }
@@ -93,9 +94,10 @@ export default class BombasScena extends Scena {
 function sablon() {
   const izborCss = prikaziMeni ? 'block' : 'none'
   const prozorce = `
-    <div class='prozorce pointer ${izborCss}'>
-      <a>Igraj opet</a></br>
-      <a>Glavni meni</a>
+    <div class='prozorce centar ${izborCss}'>
+      <p>${poruka}</p>
+      <a class='pointer'>Igraj opet</a></br>
+      <a class='pointer'>Glavni meni</a>
     </div>
   `
   return `
