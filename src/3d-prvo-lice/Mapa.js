@@ -6,7 +6,6 @@ const BOJE = ['#fff', '#444', '#701206', '#000'];
 export class Mapa {
 
   constructor(velicinaPolja = 30, polja = mapa) {
-    this.podloga = podloga;
     this.polja = polja;
     this.velicinaPolja = velicinaPolja;
     this.visina = polja.length * velicinaPolja;
@@ -41,8 +40,8 @@ export class Mapa {
     for (var i = 0; i < this.polja.length; i++) {
         for (var j = 0; j < this.polja[i].length; j++) {
           let visina = this.polja[i][j];
-          this.podloga.fillStyle = BOJE[visina];
-          this.podloga.fillRect(j * this.velicinaPolja, i * this.velicinaPolja, this.velicinaPolja, this.velicinaPolja);
+          podloga.fillStyle = BOJE[visina];
+          podloga.fillRect(j * this.velicinaPolja, i * this.velicinaPolja, this.velicinaPolja, this.velicinaPolja);
         }
     }
   } // crta

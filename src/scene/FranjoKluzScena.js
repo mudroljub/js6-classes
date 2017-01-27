@@ -93,14 +93,14 @@ export default class FranjoKluzScena extends Scena {
     ubrzanostScene = 0
   }
 
-  ubrzavaPredmete(ugao, ubrzanje) {
-    igrac.sviOstali(predmet => predmet.dodajSilu(ugao, ubrzanje))
-    ubrzanostScene += ubrzanje
+  ubrzavaPredmete(ugao, pomak) {
+    igrac.sviOstali(predmet => predmet.dodajSilu(pomak, ugao))
+    ubrzanostScene += pomak
   }
 
-  dizePredmete(pomeraj) {
-    igrac.sviOstali(predmet => predmet.y += pomeraj)
-    dignutostScene += pomeraj
+  dizePredmete(pomak) {
+    igrac.sviOstali(predmet => predmet.y += pomak)
+    dignutostScene += pomak
   }
 
   proveriSmrt() {

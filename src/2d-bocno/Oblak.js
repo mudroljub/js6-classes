@@ -19,8 +19,8 @@ export class Oblak extends Predmet {
   }
 
   proveriGranice() {
-    if (this.y < -this.platno.height) this.dy = -this.dy  // dozvoljena visina dve scene
-    if (this.y > this.platno.height - this.visina) this.dy = -this.dy
+    if (this.y < -platno.height) this.dy = -this.dy  // dozvoljena visina dve scene
+    if (this.y > platno.height - this.visina) this.dy = -this.dy
     vracaVodoravno(this)
   }
 }

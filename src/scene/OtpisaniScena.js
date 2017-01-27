@@ -4,6 +4,7 @@ import {Scena} from '../core/Scena'
 import {Pozadina} from '../core/Pozadina'
 import {Nishan} from '../core/Nishan'
 import {Okupator} from '../2d-prvo-lice/Okupator'
+import platno from '../io/platno'
 
 /*** KONFIG ***/
 
@@ -28,7 +29,7 @@ export default class OtpisaniScena extends Scena {
     super()
     new Nishan()
     ui.dodaj(interfejs)
-    this.platno.addEventListener('click', () => strazar.proveriPogodak())
+    platno.addEventListener('click', () => strazar.proveriPogodak())
   }
 
   update() {

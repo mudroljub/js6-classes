@@ -56,7 +56,7 @@ export class TenkBocnoIgrac extends Igrac {
   }
 
   praviGravitaciju(gravitacija = 0.3) {
-    this.granata.dodajSilu(_.uRadijane(90), gravitacija)
+    this.granata.dodajSilu(gravitacija, _.uRadijane(90))
   }
 
   ograniciCev() {

@@ -7,6 +7,7 @@ import {Avionce} from '../2d-odozgo/Avionce'
 import {Okean} from '../2d-odozgo/Okean'
 import {Ostrvo} from '../2d-odozgo/Ostrvo'
 import {Oblak} from '../2d-odozgo/Oblak'
+import platno from '../io/platno'
 
 /*** KONFIG ***/
 
@@ -33,7 +34,7 @@ export default class Scena1944 extends Scena {
   constructor() {
     super()
     const interfejs = new UI(sablon)
-    const pozadina = new Okean(brzinaPozadine, this.platno.width)
+    const pozadina = new Okean(brzinaPozadine, platno.width)
     for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(brzinaPozadine)
     this.dodaj(pozadina, ostrvo, igrac, ...oblaci, interfejs)
   }

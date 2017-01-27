@@ -5,7 +5,7 @@ export class VoziloBocno extends Predmet {
 
   constructor(nivoTla, src, sirina, visina) {
     super(src, sirina, visina);
-    this.dodajSilu(this.ugao, 3);
+    this.dodajSilu(3);
     this.x = 100;
     this.y = nivoTla - this.visina / 2;
   }

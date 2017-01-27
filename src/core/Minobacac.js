@@ -1,5 +1,8 @@
+// odvojiti projektil
+
 import * as $ from '../konstante'
 import {tipke} from '../io/tipke'
+import {podloga} from '../io/platno'
 import {Kvadrat} from './Kvadrat'
 
 const GRAVITACIJA = 0.9;
@@ -23,12 +26,12 @@ export class Minobacac extends Kvadrat {
   }
 
   crta() {
-    this.podloga.save();
-    this.podloga.translate(this.x, this.y);
-    this.podloga.rotate(-this.ugao);
-    this.podloga.translate(-this.x, -this.y);
+    podloga.save();
+    podloga.translate(this.x, this.y);
+    podloga.rotate(-this.ugao);
+    podloga.translate(-this.x, -this.y);
     super.crta();
-    this.podloga.restore();
+    podloga.restore();
   }
 
   dodajUgao(y) {
@@ -73,7 +76,6 @@ export class Minobacac extends Kvadrat {
 class Djule {
   constructor(minobacac, poluprec, boja="rgb(250,0,0)") {
     this.minobacac = minobacac;
-    this.podloga = minobacac.podloga;
     this.poluprec = poluprec;
     this.boja = boja;
     this.ispaljeno = false;
@@ -105,10 +107,10 @@ class Djule {
   }
 
   crta() {
-    this.podloga.fillStyle = this.boja;
-    this.podloga.beginPath();
-    this.podloga.arc(this.x, this.y, this.poluprec, 0, Math.PI * 2, true);
-    this.podloga.fill();
+    podloga.fillStyle = this.boja;
+    podloga.beginPath();
+    podloga.arc(this.x, this.y, this.poluprec, 0, Math.PI * 2, true);
+    podloga.fill();
   }
 
   sudara(predmet) {

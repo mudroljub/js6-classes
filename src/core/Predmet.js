@@ -63,8 +63,7 @@ export class Predmet extends Slika {
     this.dy = Math.sin(ugao) * jacina
   }
 
-  // obrnuti redosled argumenata, ugao opcioni
-  dodajSilu(ugao, jacina) {
+  dodajSilu(jacina, ugao = this.ugao) {
     this.dx += Math.cos(ugao) * jacina
     this.dy += Math.sin(ugao) * jacina
   }
