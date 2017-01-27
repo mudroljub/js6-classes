@@ -1,15 +1,15 @@
-const platno = document.createElement('canvas')
+const platno = document.getElementById('platno') || document.createElement('canvas')
 const podloga = platno.getContext('2d')
 
-platno.width = document.body.clientWidth || 800
-platno.height = document.body.clientHeight || 600
-platno.style.backgroundColor = 'lightgray'
-platno.id = 'platno'
-
-// window.onload = () => {
+if (!document.getElementById('platno')) {
   document.body.appendChild(platno)
-  platno.focus()
-// }
+  platno.id = 'platno'
+}
+
+platno.height = window.innerHeight || 600 // mora prvo visina
+platno.width = document.body.clientWidth || 800
+platno.style.backgroundColor = 'lightgray'
+platno.focus()
 
 export {platno, podloga}
 export default platno

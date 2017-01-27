@@ -2,22 +2,18 @@
 * @param praviSablon: funkcija koja vraca sablon
 */
 export class UI {
-  constructor(praviSablon = () => ``) {
-    this.element = document.createElement('section')
 
-    // ili da js apenduje drukcim redosledom
-    // ili redosled kontejnera u htmlu
-    document.body.appendChild(this.element)
+  constructor(praviSablon, id) {
     this.praviSablon = praviSablon
+    this.element = document.getElementById(id) || document.createElement('div')
+    if (!document.getElementById(id)) {
+      document.body.appendChild(this.element)
+      this.element.id = id
+    }
   }
 
   render() {
     // BUG: uvek razlicito!
     if (this.element.innerHTML !== this.praviSablon()) this.element.innerHTML = this.praviSablon()
-  }
-
-  // ukloniti
-  dodaj(sablon) {
-    this.element.innerHTML = sablon
   }
 }

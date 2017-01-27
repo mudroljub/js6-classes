@@ -26,7 +26,7 @@ let poruka = ''
 
 /*** INIT ***/
 
-const ui = new UI(sablon)
+const ui = new UI(sablon, 'ui')
 const vreme = new Vreme()
 const pozadina = new Pozadina($.root + "slike/teksture/beton.gif")
 const bombas = new Bombas($.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55)
