@@ -1,3 +1,5 @@
+![](screen.png)
+
 # Igrica partizani
 
 Male igrice o Nemcima i partizanima.
