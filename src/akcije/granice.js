@@ -21,8 +21,8 @@ export function kruzi(predmet, procenat = 1) {
 }
 
 export function kruziSire(predmet) {
-  const prekoracenje = platno.width
-  if (predmet.x < -prekoracenje) predmet.x = platno.width + prekoracenje
+  const sirina = platno.width
+  if (predmet.x < -sirina) predmet.x = platno.width + sirina
 }
 
 export function vracaVodoravno (predmet, procenatVracanja) {

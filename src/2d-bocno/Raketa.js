@@ -56,7 +56,7 @@ export class Raketa extends Predmet {
     this.vlasnik.scena.predmeti.map(predmet => {
       if (this.nijeValidnaMeta(predmet)) return
 
-      let razmak = this.razmakDo(predmet)
+      const razmak = this.razmakDo(predmet)
       if (!minRazmak) minRazmak = razmak
       if (!najblizaMeta) najblizaMeta = predmet
       if (razmak < minRazmak) minRazmak = razmak

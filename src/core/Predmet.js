@@ -1,7 +1,7 @@
-import * as _ from '../akcije/utils'
+import {Slika} from './Slika'
 import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
-import {Slika} from './Slika'
+import {randomRange} from '../akcije/utils'
 import {nestani} from '../akcije/granice'
 import {sudar} from '../akcije/sudari'
 
@@ -45,17 +45,17 @@ export class Predmet extends Slika {
     this.polozaj(Math.random() * platno.width, Math.random() * platno.height)
   }
 
-  postaviRandomUredno() { // ne viri sa platna
-    this.randomX()
-    this.randomY()
-  }
-
   randomX(pocetnoX = this.sirina/2, zavrsnoX = platno.width - this.sirina/2) {
-    this.x = _.randomRange(pocetnoX, zavrsnoX)
+    this.x = randomRange(pocetnoX, zavrsnoX)
   }
 
   randomY(pocetnoY = this.visina/2, zavrsnoY = platno.height - this.visina/2) {
-    this.y = _.randomRange(pocetnoY, zavrsnoY)
+    this.y = randomRange(pocetnoY, zavrsnoY)
+  }
+
+  postaviRandomUredno() { // ne viri sa platna
+    this.randomX()
+    this.randomY()
   }
 
   /* KRETANJE */
@@ -135,10 +135,6 @@ export class Predmet extends Slika {
 
   /* GRANICE */
 
-  get naEkranu() {
-    return (this.x >= 0 && this.x <= platno.width) && (this.y >= 0 && this.y <= platno.height)
-  }
-
   proveriGranice() {
     this.granice(this)
   }
@@ -151,8 +147,8 @@ export class Predmet extends Slika {
   }
 
   razmakDo(predmet) {
-    let razlikaX = this.x - predmet.x
-    let razlikaY = this.y - predmet.y
+    const razlikaX = this.x - predmet.x
+    const razlikaY = this.y - predmet.y
     return Math.sqrt((razlikaX * razlikaX) + (razlikaY * razlikaY))
   }
 
