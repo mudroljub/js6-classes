@@ -6,5 +6,6 @@ platno.podloga = platno.getContext('2d')
 platno.style.backgroundColor = 'lightgray'
 platno.id = 'platno'
 document.body.appendChild(platno)
+platno.focus()
 
 export default platno

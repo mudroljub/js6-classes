@@ -1,5 +1,6 @@
 import * as $ from '../konstante';
 import {tipke} from '../io/tipke';
+import platno from '../io/platno'
 import {Slika} from './Slika';
 
 const MIN_UGAO = 0;
@@ -8,9 +9,8 @@ const MIN_BRZINA = 20;
 
 export class Top {
 
-  constructor(scena, x = 0, y = 160) {
-    this.scena = scena;
-    this.podloga = scena.podloga;
+  constructor(x = platno.width / 8, y = platno.height / 2) {
+    this.podloga = platno.podloga;
     this.x = x;
     this.y = y;
     this.ugao = 20;
@@ -48,7 +48,7 @@ export class Top {
   azuriraProjektil() {
     if (!this.projektil.ispaljen) this.pozicioniraProjektil();
     if (this.projektil.ispaljen) this.letiProjektil();
-    let jeVanEkrana = this.projektil.x > this.scena.sirina || this.projektil.y > this.scena.visina;
+    let jeVanEkrana = this.projektil.x > platno.width || this.projektil.y > platno.height;
     if (jeVanEkrana) this.puni();
   }
 
@@ -101,5 +101,4 @@ export class Top {
     this.podloga.arc(this.projektil.x, this.projektil.y, 5, 0, Math.PI * 2);
     this.podloga.fill();
   }
-
-} // Top
+}

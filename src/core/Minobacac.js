@@ -9,9 +9,8 @@ const DJULE_POLUPRECNIK = 10;
 
 export class Minobacac extends Kvadrat {
 
-  constructor(scena, x, y, sirina, visina, boja="rgb(40,40,0)") {
-    super(scena, x, y, sirina, visina, boja)
-    this.podloga = scena.podloga;
+  constructor(x, y, sirina, visina, boja="rgb(40,40,0)") {
+    super(x, y, sirina, visina, boja)
     this.ugao = 0.5;
     this.brzina = 20;
     this.djule = new Djule(this, DJULE_POLUPRECNIK);
@@ -67,9 +66,8 @@ export class Minobacac extends Kvadrat {
     if (tipke.stisnute[$.LEVO]) this.dodajBrzinu(-POMERAJ_BRZINE);
     if (tipke.stisnute[$.DESNO]) this.dodajBrzinu(POMERAJ_BRZINE);
     if (this.brzina <= 0) this.brzina = 0;
-  } // proveriTipke
-
-} // Minobacac
+  }
+}
 
 
 class Djule {
@@ -111,11 +109,10 @@ class Djule {
     this.podloga.beginPath();
     this.podloga.arc(this.x, this.y, this.poluprec, 0, Math.PI * 2, true);
     this.podloga.fill();
-  } // crta
+  }
 
   sudara(predmet) {
     return (this.x >= predmet.x) && (this.x <= (predmet.x + predmet.sirina)) &&
       (this.y >= predmet.y) && (this.y <= (predmet.y + predmet.visina));
   }
-
-} // Djule
+}
