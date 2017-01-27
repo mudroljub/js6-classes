@@ -12,5 +12,4 @@ export class Nishan {
     if (this.pucanj.currentTime !== 0) this.pucanj.currentTime = 0;
     this.pucanj.play();
   }
-
 }

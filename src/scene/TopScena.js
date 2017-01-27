@@ -1,6 +1,6 @@
 import {Scena} from '../core/Scena'
-import {Top} from '../core/Top'
 import {UI} from '../core/UI'
+import {Top} from '../2d-bocno/Top'
 
 // top je rezervisano
 let haubica

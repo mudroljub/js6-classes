@@ -1,7 +1,7 @@
 import * as $ from '../konstante'
 import {tipke} from '../io/tipke'
 import {podloga} from '../io/platno'
-import {Kvadrat} from './Kvadrat'
+import {Kvadrat} from '../core/Kvadrat'
 import Projektil from './Projektil'
 
 const POMERAJ_UGLA = 0.008

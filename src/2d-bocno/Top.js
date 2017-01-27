@@ -1,7 +1,7 @@
 import * as $ from '../konstante';
 import {tipke} from '../io/tipke';
 import {platno, podloga} from '../io/platno'
-import {Slika} from './Slika';
+import {Slika} from '../core/Slika';
 
 const MIN_UGAO = 0;
 const MAX_UGAO = 65;
