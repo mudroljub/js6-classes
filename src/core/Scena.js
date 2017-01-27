@@ -68,7 +68,7 @@ export class Scena {
   /* POZADINA */
 
   set bojaPozadine(boja) {
-    platno.style.backgroundColor = boja
+    // platno.style.backgroundColor = boja
     podloga.fillStyle = boja
   }
 
@@ -83,19 +83,19 @@ export class Scena {
   /* CRTANJE */
 
   crtaNebo(nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
-    this.bojaPozadine = bojaNeba
+    podloga.fillStyle = bojaNeba
     if (bojaNebaPreliv) {
       let preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla)
       preliv.addColorStop(0, bojaNeba)
       preliv.addColorStop(1, bojaNebaPreliv)
-      this.bojaPozadine = preliv
+      podloga.fillStyle = preliv
     }
-    podloga.fillRect(0, 0, this.sirina, nivoTla)
+    podloga.fillRect(0, 0, platno.width, nivoTla)
   }
 
   crtaZemlju(nivoTla, bojaZemlje = "#00b011") {
-    this.bojaPozadine = bojaZemlje
-    podloga.fillRect(0, nivoTla, this.sirina, this.visina)
+    podloga.fillStyle = bojaZemlje
+    podloga.fillRect(0, nivoTla, platno.width, platno.height)
   }
 
   crtaNeboZemlju(nivoTla, bojaNeba = "lightblue", bojaZemlje = "green", bojaNebaPreliv = 'blue') {
