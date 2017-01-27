@@ -33,15 +33,18 @@ const MAX_DIGNUTOST = 5555
 let ubrzanostScene = 0
 let dignutostScene = 0
 
+/*** INIT ***/
+
 const vozilo = new Hummel(nivoTla)
 const aerodrom = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/aerodrom.png")
 const ruina = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/ruina.png")
+let igrac
 
 export default class FranjoKluzScena extends Scena {
   constructor() {
     super()
     this.nivoTla = nivoTla
-    this.igrac = new AvionIgrac(this)
+    igrac = new AvionIgrac(this)
     ruina.x = -ruina.sirina
     ruina.procenatVracanja = 0.01
     aerodrom.procenatVracanja = 0.001
@@ -49,29 +52,29 @@ export default class FranjoKluzScena extends Scena {
     for (let i = 0; i < BROJ_OBLAKA; i++) oblaci[i] = new Oblak()
     for (let i = 0; i < BROJ_ZBUNOVA; i++) zbunovi[i] = new Zbun()
     for (let i = 0; i < BROJ_SHUME; i++) shume[i] = new Shuma()
-    this.dodaj(this.igrac, vozilo, aerodrom, ruina, ...oblaci, ...zbunovi, ...shume)
+    this.dodaj(igrac, vozilo, aerodrom, ruina, ...oblaci, ...zbunovi, ...shume)
     this.pocniParalax()
   }
 
   update(){
+    this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
     super.update()
     this.proveriTipke()
-    // this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
     vozilo.patroliraj()
     this.proveriTlo()
     this.proveriSmrt()
   }
 
   proveriTipke() {
-    if (!this.igrac.ziv) return
+    if (!igrac.ziv) return
     if (tipke.stisnute[$.D] && ubrzanostScene < MAX_UBRZANOST) this.ubrzavaPredmete($.KRUZNICA/2, POTISAK)
     if (tipke.stisnute[$.A] && ubrzanostScene >= MIN_UBRZANOST) this.ubrzavaPredmete($.KRUZNICA/2, -POTISAK)
     if (tipke.stisnute[$.W] && dignutostScene - DIZAJ < MAX_DIGNUTOST) {
-      if (this.igrac.y < this.visina * 3/4) this.dizePredmete(DIZAJ)
+      if (igrac.y < this.visina * 3/4) this.dizePredmete(DIZAJ)
       if (ubrzanostScene === 0) this.pocniParalax() // kada avion ponovo uzlece
     }
     if (tipke.stisnute[$.S] && dignutostScene - DIZAJ >= 0) {
-      if (this.igrac.y > this.visina / 4) this.dizePredmete(-DIZAJ)
+      if (igrac.y > this.visina / 4) this.dizePredmete(-DIZAJ)
     }
   }
 
@@ -84,30 +87,30 @@ export default class FranjoKluzScena extends Scena {
   }
 
   zaustaviParalax() {
-    this.sviOstali(predmet => {
+    igrac.sviOstali(predmet => {
       if (!("neprijatelj" in predmet.oznake)) predmet.dx *= 0.9
     })
     ubrzanostScene = 0
   }
 
   ubrzavaPredmete(ugao, ubrzanje) {
-    this.sviOstali(predmet => predmet.dodajSilu(ugao, ubrzanje))
+    igrac.sviOstali(predmet => predmet.dodajSilu(ugao, ubrzanje))
     ubrzanostScene += ubrzanje
   }
 
   dizePredmete(pomeraj) {
-    this.sviOstali(predmet => predmet.y += pomeraj)
+    igrac.sviOstali(predmet => predmet.y += pomeraj)
     dignutostScene += pomeraj
   }
 
   proveriSmrt() {
-    this.sviOstali(predmet => {
+    igrac.sviOstali(predmet => {
       if (predmet.mrtav) predmet.dx = PARALAX_1 - ubrzanostScene
     })
-    if (this.igrac.mrtav && dignutostScene > 0) this.dizePredmete(-DIZAJ)
+    if (igrac.mrtav && dignutostScene > 0) this.dizePredmete(-DIZAJ)
   }
 
   proveriTlo() {
-    if (this.igrac.jePrizemljen() && dignutostScene === 0) this.zaustaviParalax()
+    if (igrac.jePrizemljen() && dignutostScene === 0) this.zaustaviParalax()
   }
 }

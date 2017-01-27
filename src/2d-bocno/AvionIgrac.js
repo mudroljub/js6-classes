@@ -88,8 +88,15 @@ export class AvionIgrac extends Igrac {
     //
   }
 
+  sviOstali(callback) {
+    for (let predmet of this.scena.predmeti) {
+      if ("igrac" in predmet.oznake || "raketa" in predmet.oznake) continue
+      callback(predmet)
+    }
+  }
+
   proveriSudare() {
-    this.scena.sviOstali(predmet => {
+    this.sviOstali(predmet => {
       if ("neprijatelj" in predmet.oznake && this.sudara(predmet)) {
         this.umri()
         predmet.umri()

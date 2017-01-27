@@ -2,10 +2,8 @@ import platno from '../io/platno'
 const podloga = platno.podloga
 
 export class Scena {
-
   constructor() {
     this.platno = platno;
-    this.touchable = 'createTouch' in document;
     this.predmeti = [];
     this.nivoTla = this.visina;
     this.loopID = null
@@ -38,7 +36,7 @@ export class Scena {
     this.visina = visina;
   }
 
-  /* GLAVNI LOOP */
+  /* PETLJA */
 
   update() {
     this.predmeti.map(predmet => 'update' in predmet && predmet.update())
@@ -64,15 +62,6 @@ export class Scena {
     if (!this.loopID) return
     window.cancelAnimationFrame(this.loopID)
     this.loopID = null
-  }
-
-  /* PREDMETI SCENE */
-
-  sviOstali(uradiNesto) {
-    for (let predmet of this.predmeti) {
-      if ("igrac" in predmet.oznake || "raketa" in predmet.oznake) continue;
-      uradiNesto(predmet);
-    }
   }
 
   /* POZADINA */
@@ -120,5 +109,4 @@ export class Scena {
   pokaziKursor() {
     platno.style.cursor = "default";
   }
-
-} // Scena
+}
