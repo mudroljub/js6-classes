@@ -13,4 +13,4 @@ export class Nishan {
     this.pucanj.play();
   }
 
-} // Nishan
+}

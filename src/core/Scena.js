@@ -3,9 +3,9 @@ const podloga = platno.podloga
 
 export class Scena {
   constructor() {
-    this.platno = platno;
-    this.predmeti = [];
-    this.nivoTla = this.visina;
+    this.platno = platno
+    this.predmeti = []
+    this.nivoTla = this.visina
     this.loopID = null
   }
 
@@ -16,24 +16,24 @@ export class Scena {
   /* VELIČINA */
 
   set sirina(sirina) {
-    platno.width = sirina;
+    platno.width = sirina
   }
 
   get sirina() {
-    return platno.width;
+    return platno.width
   }
 
   set visina(visina) {
-    platno.height = visina;
+    platno.height = visina
   }
 
   get visina() {
-    return platno.height;
+    return platno.height
   }
 
   velicina(sirina, visina) {
-    this.sirina = sirina;
-    this.visina = visina;
+    this.sirina = sirina
+    this.visina = visina
   }
 
   /* PETLJA */
@@ -67,46 +67,36 @@ export class Scena {
   /* POZADINA */
 
   set bojaPozadine(boja) {
-    platno.style.backgroundColor = boja;
-    podloga.fillStyle = boja;
+    platno.style.backgroundColor = boja
+    podloga.fillStyle = boja
   }
 
   get bojaPozadine() {
-    return podloga.fillStyle;
+    return podloga.fillStyle
   }
 
   cisti() {
-    podloga.clearRect(0, 0, this.sirina, this.visina);
+    podloga.clearRect(0, 0, this.sirina, this.visina)
   }
 
   crtaNebo(nivoTla = this.nivoTla, bojaNeba = 'blue', bojaNebaPreliv = 'lightblue', pocetakPreliva = 0) {
-    this.bojaPozadine = bojaNeba;
+    this.bojaPozadine = bojaNeba
     if (bojaNebaPreliv) {
-      let preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla);
-      preliv.addColorStop(0, bojaNeba);
-      preliv.addColorStop(1, bojaNebaPreliv);
-      this.bojaPozadine = preliv;
+      let preliv = podloga.createLinearGradient(0, pocetakPreliva, 0, nivoTla)
+      preliv.addColorStop(0, bojaNeba)
+      preliv.addColorStop(1, bojaNebaPreliv)
+      this.bojaPozadine = preliv
     }
-    podloga.fillRect(0, 0, this.sirina, nivoTla);
+    podloga.fillRect(0, 0, this.sirina, nivoTla)
   }
 
   crtaZemlju(nivoTla, bojaZemlje = "#00b011") {
-    this.bojaPozadine = bojaZemlje;
-    podloga.fillRect(0, nivoTla, this.sirina, this.visina);
+    this.bojaPozadine = bojaZemlje
+    podloga.fillRect(0, nivoTla, this.sirina, this.visina)
   }
 
   crtaNeboZemlju(nivoTla, bojaNeba = "lightblue", bojaZemlje = "green", bojaNebaPreliv = 'blue') {
     this.crtaNebo(nivoTla, bojaNeba, bojaNebaPreliv)
     this.crtaZemlju(nivoTla, bojaZemlje)
-  }
-
-  /* MISH */
-
-  sakrijKursor() {
-    platno.style.cursor = "none";
-  }
-
-  pokaziKursor() {
-    platno.style.cursor = "default";
   }
 }
