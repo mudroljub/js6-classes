@@ -17,9 +17,6 @@ export class Ostrvo extends Predmet {
   }
 
   proveriGranice() {
-    if (this.y > platno.height) {
-      this.reset();
-    }
+    if (this.y > platno.height) this.reset()
   }
-
 }

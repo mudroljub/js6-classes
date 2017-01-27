@@ -11,7 +11,7 @@ const izasaoLevoSkroz = predmet => predmet.x < -predmet.sirina / 2
 const izasaoDesnoSkroz = predmet => predmet.x > platno.width + predmet.sirina / 2
 const izasaoIgde = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
 
-/* GLAVNE FUNKCIJE */
+/* GRANICNE FUNKCIJE */
 
 export function kruzi(predmet, procenat = 1) {
   if (Math.random() > procenat) return;

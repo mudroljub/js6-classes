@@ -52,7 +52,6 @@ export class TenkBocnoIgrac extends Igrac {
   postaviGranatu() {
     this.granata = new Predmet($.root + "slike/granata.gif", 12, 3)
     this.granata.sakrij()
-    this.granata.granicnik = $.NESTANI
   }
 
   praviGravitaciju(gravitacija = 0.3) {

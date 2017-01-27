@@ -12,7 +12,6 @@ export class Granata extends Predmet {
   puca() {
     this.pokazi();
     this.brzina = 20;
-    this.granicnik = $.NESTANI;
     this.polozaj(this.vlasnik.x, this.vlasnik.y);
     this.ugao = this.vlasnik.ugao;
   }

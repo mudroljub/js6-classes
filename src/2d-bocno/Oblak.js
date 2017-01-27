@@ -9,13 +9,8 @@ export class Oblak extends Predmet {
   constructor(sirina, visina, src = $.root + "slike/oblak.gif") {
     super(src, sirina, visina)
     this.polozaj(Math.random() * platno.width, _.randomRange(0, platno.height - this.visina))
-    this.dy = Math.random() * 2 - 1  // random vertikalno kretanje
+    this.dy = Math.random() * 2 - 1
     this.procenatVracanja = 1
-  }
-
-  update() {
-    super.update()
-    this.proveriGranice()
   }
 
   proveriGranice() {
