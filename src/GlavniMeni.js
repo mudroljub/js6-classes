@@ -29,8 +29,7 @@ export default class GlavniMeni {
   }
 
   menjajScenu(ruta) {
-    console.log('aktivnaScena:', aktivnaScena)
-    if(aktivnaScena) aktivnaScena.stop()
+    if (aktivnaScena) aktivnaScena.stop()
     aktivnaScena = rute[ruta] ? new rute[ruta]() : this
     aktivnaScena.start()
   }

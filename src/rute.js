@@ -40,6 +40,7 @@ const scene = [
   RanjenikScena
 ]
 const rute = {}
+
 scene.map(scena => rute[toUrl(scena.naziv)] = scena)
 
 export default rute
