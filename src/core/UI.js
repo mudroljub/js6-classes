@@ -1,10 +1,11 @@
 /*
-* @param praviSablon: funkcija koja vraca sablon
+* @param sablon: funkcija koja vraca sablon
 */
 export class UI {
 
-  constructor(praviSablon, id) {
-    this.praviSablon = praviSablon
+  constructor(sablon, id) {
+    this.upamcen = ''
+    this.sablon = sablon
     this.element = document.getElementById(id) || document.createElement('div')
     if (!document.getElementById(id)) {
       document.body.appendChild(this.element)
@@ -13,8 +14,10 @@ export class UI {
   }
 
   render() {
-    // BUG: uvek razlicito!
-    if (this.element.innerHTML !== this.praviSablon()) this.element.innerHTML = this.praviSablon()
+    if (this.upamcen !== this.sablon()) {
+      this.element.innerHTML = this.sablon()
+      this.upamcen = this.sablon()
+    }
   }
 
   clear() {

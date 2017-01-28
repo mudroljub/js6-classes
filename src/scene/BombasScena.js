@@ -26,6 +26,29 @@ let poruka = ''
 
 /*** INIT ***/
 
+const sablon = () => {
+  const izborCss = prikaziMeni ? 'block' : 'none'
+  const prozorce = `
+    <div class='prozorce centar ${izborCss}'>
+      <p>${poruka}</p>
+      <a class='pointer'>Igraj opet</a></br>
+      <a class='pointer'>Glavni meni</a>
+    </div>
+  `
+  return `
+    <main class='centar'>
+      <h1>${BombasScena.naziv}</h1>
+      <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
+      <div class="tabela">
+        Nivo: ${nivo} <br>
+        Vreme: ${Math.floor(vremeIgre)} <br>
+        Prepreke: ${BROJ_PREPREKA}
+      </div>
+    </main>
+    ${prozorce}
+  `
+}
+
 const ui = new UI(sablon, 'ui')
 const vreme = new Vreme()
 const pozadina = new Pozadina($.root + "slike/teksture/beton.gif")
@@ -91,29 +114,4 @@ export default class BombasScena extends Scena {
     prikaziMeni = true
     this.stop()
   }
-}
-
-/*** POMOĆNE FUNKCIJE ***/
-
-function sablon() {
-  const izborCss = prikaziMeni ? 'block' : 'none'
-  const prozorce = `
-    <div class='prozorce centar ${izborCss}'>
-      <p>${poruka}</p>
-      <a class='pointer'>Igraj opet</a></br>
-      <a class='pointer'>Glavni meni</a>
-    </div>
-  `
-  return `
-    <main class='centar'>
-      <h1>${BombasScena.naziv}</h1>
-      <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
-      <div class="tabela">
-        Nivo: ${nivo} <br>
-        Vreme: ${Math.floor(vremeIgre)} <br>
-        Prepreke: ${BROJ_PREPREKA}
-      </div>
-    </main>
-    ${prozorce}
-  `
 }

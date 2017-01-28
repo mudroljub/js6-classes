@@ -25,7 +25,7 @@ export default class GlavniMeni {
     window.addEventListener('load', this.ucitajScenu.bind(this))
     window.addEventListener('hashchange', this.ucitajScenu.bind(this))
     document.addEventListener('click', this.pustiScenu.bind(this))
-    this.meni.render()
+    if (!getRoute()) this.meni.render()
   }
 
   menjajScenu(ruta) {
