@@ -16,4 +16,8 @@ export class UI {
     // BUG: uvek razlicito!
     if (this.element.innerHTML !== this.praviSablon()) this.element.innerHTML = this.praviSablon()
   }
+
+  clear() {
+    this.element.innerHTML = ''
+  }
 }
