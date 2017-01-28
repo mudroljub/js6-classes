@@ -1,7 +1,7 @@
 import {Slika} from './Slika'
 import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
-import {randomRange} from '../akcije/utils'
+import {randomRange} from '../utils'
 import {nestani} from '../akcije/granice'
 import {sudar} from '../akcije/sudari'
 

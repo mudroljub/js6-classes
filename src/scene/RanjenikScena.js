@@ -26,6 +26,10 @@ export default class RanjenikScena extends Scena {
     patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
   }
 
+  static get naziv() {
+    return "Ranjenik na Sutjesci"
+  }
+
   update() {
     this.cisti()
     patrola.zuji()

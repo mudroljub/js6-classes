@@ -40,6 +40,10 @@ export default class BombasScena extends Scena {
     this.praviPrepreke()
   }
 
+  static get naziv() {
+    return "Bitka za Krupanj 1941."
+  }
+
   update() {
     super.update()
     // bombas.pratiMisha()
@@ -102,7 +106,7 @@ function sablon() {
   `
   return `
     <main class='centar'>
-      <h1>Bitka za Krupanj 1941.</h1>
+      <h1>${BombasScena.naziv}</h1>
       <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
       <div class="tabela">
         Nivo: ${nivo} <br>

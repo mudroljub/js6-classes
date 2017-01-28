@@ -20,6 +20,10 @@ export default class JasenovacScena extends Scena {
     zica.polozaj(400, 100);
   }
 
+  static get naziv() {
+    return "Bekstvo iz Jasenovca"
+  }
+
   update() {
     this.cisti();
     pozadina.update();

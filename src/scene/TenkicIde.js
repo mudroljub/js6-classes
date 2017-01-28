@@ -23,7 +23,7 @@ const nivoTla = platno.height - 100
 const tenk = new TenkPartizanski(100, nivoTla)
 const planina = new Planina(nivoTla)
 const shumarak = new Shuma(nivoTla)
-const interfejs = new UI(sablon)
+const ui = new UI(sablon)
 
 shumarak.dx = PARALAX_1
 planina.dx = PARALAX_1
@@ -38,10 +38,15 @@ for (let i = 0; i < BROJ_OBLAKA; i++) {
   oblaci[i].dx = PARALAX_1
 }
 
+
 export default class TenkicIde extends Scena {
   constructor() {
     super()
     this.nivoTla = nivoTla
+  }
+
+  static get naziv() {
+    return "Tenk ide"
   }
 
   update() {
@@ -56,7 +61,7 @@ export default class TenkicIde extends Scena {
   }
 
   render() {
-    interfejs.render()
+    ui.render()
   }
 }
 

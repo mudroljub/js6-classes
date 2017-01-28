@@ -26,6 +26,10 @@ export default class TenkiciScena extends Scena {
     this.dodaj()
   }
 
+  static get naziv() {
+    return "Tenkići"
+  }
+
   update() {
     pozadina.update()
     tenk2.proveriTipke()

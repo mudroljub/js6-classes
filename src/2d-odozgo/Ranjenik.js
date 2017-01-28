@@ -1,5 +1,5 @@
 import * as $ from '../konstante';
-import * as _ from '../akcije/utils';
+import * as _ from '../utils';
 import {Igrac} from '../core/Igrac';
 
 const OKRET = _.uRadijane(2);

@@ -11,7 +11,7 @@ import platno from '../io/platno'
 
 const sablon = () => `
 <main class='centar'>
-  <h1>Ubij okupatora!</h1>
+  <h1>${OtpisaniScena.naziv}</h1>
   <p>Oslobođenje se bliži</p>
 </main>
 `
@@ -30,6 +30,10 @@ export default class OtpisaniScena extends Scena {
     new Zvuk("../../zvuci/otpisani.mp3").play()
     this.dodaj(new UI(sablon))
     platno.addEventListener('click', () => strazar.proveriPogodak())
+  }
+
+  static get naziv() {
+    return "Ubij okupatora!"
   }
 
   update() {

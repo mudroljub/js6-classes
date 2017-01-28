@@ -39,6 +39,10 @@ export default class NemciIzRovova extends Scena {
     this.dodajKlik(nishan)
   }
 
+  static get naziv() {
+    return "Nemci iz rovova"
+  }
+
   update() {
     this.cisti()
     pozadina.update()

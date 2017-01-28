@@ -1,4 +1,4 @@
-import unidecode from 'unidecode'
+import {toUrl} from './utils'
 import {UI} from './core/UI'
 import BombasScena from './scene/BombasScena'
 import NemciIzRovova from './scene/NemciIzRovova'
@@ -26,49 +26,65 @@ import SavoNoc from './scene/SavoNoc'
 import RanjenikScena from './scene/RanjenikScena'
 import RanjenikPaljba from './scene/RanjenikPaljba'
 
-const on = (e, fn) => document.addEventListener(e, fn)
+/* HELPERS */
 
-const scene = {
-  "Bombaš": BombasScena,
-  "Nemci iz rovova": NemciIzRovova,
-  "Avijacija 1942": FranjoKluzScena,
-  "Bekstvo iz Jasenovca": JasenovacScena,
-  "Partizanska mornarica": PomorskaScena,
-  "Ubij okupatora": OtpisaniScena,
-  "Avijacija 1944": Scena1944,
-  "Tenk ide": TenkicIde,
-  "Tenkići": TenkiciScena,
-  "Savo mitraljezac": SavoScena,
-  "Ranjenik na Sutjesci": RanjenikScena
-}
+const on = (e, fn) => document.addEventListener(e, fn)
+const setRoute = ruta => window.location.hash = ruta
+const getRoute = () => window.location.hash.slice(1)
+
+/* KONFIG */
+
+const scene = [
+  BombasScena,
+  NemciIzRovova,
+  FranjoKluzScena,
+  JasenovacScena,
+  PomorskaScena,
+  OtpisaniScena,
+  Scena1944,
+  TenkicIde,
+  TenkiciScena,
+  SavoScena,
+  RanjenikScena
+]
+
+/* INIT */
+
+const rute = {}
+let trenutnaScena = null
+
+scene.map(scena => rute[toUrl(scena.naziv)] = scena)
 
 const sablon = () => {
-  let meni = ``
-  Object.keys(scene).map(naziv => {
-    meni += `<button value='${naziv}' class='full'>${naziv}</button><br>`
+  let dugmici = ``
+  Object.keys(rute).map(ruta => {
+    dugmici += `<button value='${ruta}' class='full'>${rute[ruta].naziv}</button>`
   })
   return `
     <h1>Glavni meni</h1>
-    ${meni}
+    ${dugmici}
   `
 }
 
-new UI(sablon, 'ui').render()
+const meni = new UI(sablon, 'ui')
 
-// let trenutnaScena = null
+/* EVENTS */
+
+function pustiScenu() {
+  const ruta = getRoute()
+  if (rute[ruta]) new rute[ruta]().start()
+  else meni.render()
+}
 
 on('click', e => {
-  const naziv = e.target.value
-  const izabranaScena = new scene[naziv]()
-  const ruta = unidecode(naziv).replace(/\s+/g, '-').toLowerCase()
-  console.log(ruta)
-  // window.location.hash = scene[naziv] ? scena : ''
-  // trenutnaScena.stop()
-  // trenutnaScena = izabranaScena
-  // trenutnaScena.start()
-  // window.scroll(0, 0)
+  const ruta = e.target.value
+  // let izabranaScena = scene[scena] || meni
+  const izabranaScena = new rute[ruta]()
+  setRoute(ruta)
+  if (trenutnaScena) trenutnaScena.stop()
+  trenutnaScena = izabranaScena
+  trenutnaScena.start()
 })
 
-
-// const trenutnaScena = new scene.BombasScena()
-// trenutnaScena.start()
+window.addEventListener('load', pustiScenu)
+window.addEventListener('hashchange', pustiScenu)

@@ -12,4 +12,8 @@ export default class PomorskaScena extends Scena {
     const camac = new CamacIgracOdozgo();
     this.dodaj(camac)
   }
+
+  static get naziv() {
+    return "Partizanska mornarica"
+  }
 }

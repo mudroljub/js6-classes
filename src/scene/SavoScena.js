@@ -30,4 +30,8 @@ export default class SavoScena extends Scena {
     panorama.dometSvetla = 10
     this.dodaj(panorama, savo)
   }
+
+  static get naziv() {
+    return "Savo mitraljezac"
+  }
 }

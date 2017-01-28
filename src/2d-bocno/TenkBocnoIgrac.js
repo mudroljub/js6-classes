@@ -4,7 +4,7 @@
 // popraviti granatu, da menja ugaoCevi sukladno gravitaciji
 
 import * as $ from '../konstante'
-import * as _ from '../akcije/utils'
+import * as _ from '../utils'
 import {Predmet} from '../core/Predmet'
 import {Igrac} from '../core/Igrac'
 import platno from '../io/platno'

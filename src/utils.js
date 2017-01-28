@@ -1,3 +1,5 @@
+import unidecode from 'unidecode'
+
 export function dajSliku(src) {
   const slika = new Image()
   slika.src = src
@@ -14,4 +16,8 @@ export function uStepene(uRadijane) {
 
 export function randomRange(min, max) {
   return Math.random() * (max - min) + min
+}
+
+export function toUrl(naziv) {
+  return unidecode(naziv).replace(/\s+/g, '-').toLowerCase()
 }

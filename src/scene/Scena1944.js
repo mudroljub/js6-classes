@@ -17,10 +17,9 @@ const oblaci = []
 const brojOblaka = 3
 const brzinaPozadine = 10
 
-const naslov = "Osvetnik pete ofanzive"
 const sablon = () => {
   return `
-    <h1>${naslov}</h1>
+    <h1>${Scena1944.naziv}</h1>
     Poeni: ${poeni}<br>
     Životi: ${zivoti}<br>
     Meci: ${igrac.preostaloMetaka()}
@@ -37,6 +36,10 @@ export default class Scena1944 extends Scena {
     const pozadina = new Okean(brzinaPozadine, platno.width)
     for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(brzinaPozadine)
     this.dodaj(pozadina, ostrvo, igrac, ...oblaci, interfejs)
+  }
+
+  static get naziv() {
+    return "Osvetnik pete ofanzive"
   }
 
   update() {

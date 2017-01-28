@@ -56,6 +56,10 @@ export default class FranjoKluzScena extends Scena {
     this.pocniParalax()
   }
 
+  static get naziv() {
+    return "Franjo Kluz"
+  }
+
   update(){
     this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
     super.update()
