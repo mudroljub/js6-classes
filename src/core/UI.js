@@ -12,10 +12,6 @@ export class UI {
     }
   }
 
-  start() {
-    this.element.innerHTML = this.praviSablon()
-  }
-
   render() {
     // BUG: uvek razlicito!
     if (this.element.innerHTML !== this.praviSablon()) this.element.innerHTML = this.praviSablon()
