@@ -3,7 +3,7 @@
 */
 export class UI {
 
-  constructor(sablon, id) {
+  constructor(sablon, id = 'ui') {
     this.upamcen = ''
     this.sablon = sablon
     this.element = document.getElementById(id) || document.createElement('div')

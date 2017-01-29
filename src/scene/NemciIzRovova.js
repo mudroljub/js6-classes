@@ -1,5 +1,3 @@
-// srediti Nishan, više nema x i y, koristiti koordinate miša i this.jeMishIznad za koliziju
-// gornje rovove ne pogađa
 // logove u regularne poruke
 // da se ubrzava
 // animirati švabu kako se dize i pada

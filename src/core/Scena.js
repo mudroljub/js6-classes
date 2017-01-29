@@ -66,7 +66,7 @@ export class Scena {
   end() {
     this.stop()
     this.cisti()
-    if (this.ui) this.ui.clear()
+    this.predmeti = []
   }
 
   /* POZADINA */
