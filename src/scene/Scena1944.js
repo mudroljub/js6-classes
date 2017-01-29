@@ -1,8 +1,8 @@
 // ubaciti jednog neprijatelja i jednu stvar za hvatanje (paketić)
 // senku ispod aviona, kao u avion.png
 
-import {UI} from '../core/UI'
-import {Scena} from '../core/Scena'
+import UI from '../core/UI'
+import Scena from '../core/Scena'
 import {Avionce} from '../2d-odozgo/Avionce'
 import {Okean} from '../2d-odozgo/Okean'
 import {Ostrvo} from '../2d-odozgo/Ostrvo'

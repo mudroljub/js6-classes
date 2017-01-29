@@ -1,4 +1,4 @@
-export class Slika {
+export default class Slika {
 
   constructor(src, sirina, visina) {
     this.slika = new Image();

@@ -1,7 +1,7 @@
 /*
 * @param sablon: funkcija koja vraca sablon
 */
-export class UI {
+export default class UI {
 
   constructor(sablon, id = 'ui') {
     this.upamcen = ''

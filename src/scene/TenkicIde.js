@@ -2,8 +2,8 @@
 // predmeti ne kruze
 // tenkovi, bunkeri, vojnici...
 
-import {UI} from '../core/UI'
-import {Scena} from '../core/Scena'
+import UI from '../core/UI'
+import Scena from '../core/Scena'
 import {TenkPartizanski} from '../2d-bocno/TenkPartizanski'
 import {Zbun} from '../2d-bocno/Zbun'
 import {Shuma} from '../2d-bocno/Shuma'

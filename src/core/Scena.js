@@ -1,6 +1,6 @@
 import {platno, podloga} from '../io/platno'
 
-export class Scena {
+export default class Scena {
 
   constructor() {
     this.predmeti = []

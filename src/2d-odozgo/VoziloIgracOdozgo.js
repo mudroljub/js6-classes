@@ -1,5 +1,5 @@
 import * as $ from '../konstante'
-import {Igrac} from '../core/Igrac'
+import Igrac from '../core/Igrac'
 import {Granata} from './Granata'
 import {odbij} from '../akcije/granice'
 

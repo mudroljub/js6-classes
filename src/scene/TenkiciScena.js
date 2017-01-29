@@ -6,8 +6,8 @@
 
 import {root} from '../konstante'
 import platno from '../io/platno'
-import {UI} from '../core/UI'
-import {Scena} from '../core/Scena'
+import UI from '../core/UI'
+import Scena from '../core/Scena'
 import {Pozadina} from '../core/Pozadina'
 import {TenkPartizanski} from '../2d-bocno/TenkPartizanski'
 import {TenkNemacki} from '../2d-bocno/TenkNemacki'

@@ -1,5 +1,5 @@
 import {root, KRUZNICA} from '../konstante'
-import {Predmet} from '../core/Predmet'
+import Predmet from '../core/Predmet'
 
 const SILA = 1
 

@@ -1,11 +1,11 @@
-import {Slika} from './Slika'
+import Slika from './Slika'
 import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
 import {randomRange} from '../utils'
 import {nestani} from '../akcije/granice'
 import {sudar} from '../akcije/sudari'
 
-export class Predmet extends Slika {
+export default class Predmet extends Slika {
 
   constructor (src, sirina, visina, x = 200, y = 200) {
     super(src, sirina, visina)

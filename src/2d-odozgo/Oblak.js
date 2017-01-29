@@ -1,5 +1,5 @@
 import {root} from '../konstante'
-import {Predmet} from '../core/Predmet'
+import Predmet from '../core/Predmet'
 import platno from '../io/platno'
 
 export class Oblak extends Predmet {

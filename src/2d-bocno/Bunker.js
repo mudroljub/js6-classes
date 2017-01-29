@@ -1,4 +1,4 @@
-import {Predmet} from '../core/Predmet';
+import Predmet from '../core/Predmet';
 import {root} from '../konstante';
 
 export class Bunker extends Predmet {

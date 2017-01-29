@@ -6,10 +6,10 @@
 // mitraljez puca iz bunkera, prepreke su zakloni
 
 import {root} from '../konstante'
-import {Scena} from '../core/Scena'
-import {Vreme} from '../core/Vreme'
+import Scena from '../core/Scena'
+import Vreme from '../core/Vreme'
 import {Pozadina} from '../core/Pozadina'
-import {UI} from '../core/UI'
+import UI from '../core/UI'
 import {Bombas} from '../2d-bocno/Bombas'
 import {Bunker} from '../2d-bocno/Bunker'
 import {Prepreka} from '../2d-bocno/Prepreka'

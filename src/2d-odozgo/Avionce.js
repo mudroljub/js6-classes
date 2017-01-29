@@ -1,6 +1,6 @@
 import {root, KRUZNICA} from '../konstante'
-import {Igrac} from '../core/Igrac'
-import {Vreme} from '../core/Vreme'
+import Igrac from '../core/Igrac'
+import Vreme from '../core/Vreme'
 import {Metak} from '../2d-odozgo/Metak'
 import platno from '../io/platno'
 import {ogranici} from '../akcije/granice'

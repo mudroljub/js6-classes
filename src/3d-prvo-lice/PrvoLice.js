@@ -1,7 +1,7 @@
 import * as $ from '../konstante'
 import {platno, podloga} from '../io/platno'
-import {tipke} from '../io/tipke'
-import {Slika} from '../core/Slika.js';
+import tipke from '../io/tipke'
+import Slika from '../core/Slika.js';
 
 let predjeno = 0;
 export const BRZINA = 0.3;

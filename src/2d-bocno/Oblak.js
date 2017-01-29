@@ -1,6 +1,6 @@
 import {root} from '../konstante'
 import * as _ from '../utils'
-import {Predmet} from '../core/Predmet'
+import Predmet from '../core/Predmet'
 import platno from '../io/platno'
 import {vracaVodoravno} from '../akcije/granice'
 

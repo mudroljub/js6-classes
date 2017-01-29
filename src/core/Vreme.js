@@ -1,4 +1,4 @@
-export class Vreme {
+export default class Vreme {
 
   constructor() {
     this.reset()

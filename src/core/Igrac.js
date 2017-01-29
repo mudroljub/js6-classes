@@ -1,10 +1,10 @@
 import * as $ from '../konstante'
-import {tipke} from '../io/tipke'
-import {Predmet} from './Predmet'
+import tipke from '../io/tipke'
+import Predmet from './Predmet'
 
 const OKRET = 0.087
 
-export class Igrac extends Predmet {
+export default class Igrac extends Predmet {
 
   constructor(src, sirina, visina) {
     super(src, sirina, visina)

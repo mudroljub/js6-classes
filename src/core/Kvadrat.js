@@ -1,6 +1,6 @@
 import {podloga} from '../io/platno'
 
-export class Kvadrat {
+export default class Kvadrat {
 
   constructor(x, y, sirina, visina, boja) {
     this.x = x

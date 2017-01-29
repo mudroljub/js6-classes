@@ -1,6 +1,6 @@
 import {root} from '../konstante'
 import {kruzi} from '../akcije/granice'
-import {Predmet} from '../core/Predmet'
+import Predmet from '../core/Predmet'
 
 let brojac = 0
 
