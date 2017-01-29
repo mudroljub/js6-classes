@@ -2,32 +2,31 @@
 // ukloniti dvostruki interval
 // ubaciti uništen tenk
 
-import * as $ from '../konstante';
-import {UI} from '../core/UI';
-import {Scena} from '../core/Scena';
-import {Pozadina} from '../core/Pozadina';
-import {TenkPartizanski} from '../2d-bocno/TenkPartizanski';
-import {TenkNemacki} from '../2d-bocno/TenkNemacki';
+import * as $ from '../konstante'
+import {UI} from '../core/UI'
+import {Scena} from '../core/Scena'
+import {Pozadina} from '../core/Pozadina'
+import {TenkPartizanski} from '../2d-bocno/TenkPartizanski'
+import {TenkNemacki} from '../2d-bocno/TenkNemacki'
 
 /*** INIT ***/
 
-const tenk1 = new TenkPartizanski(100, 450);
-const tenk2 = new TenkNemacki();
-const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg");
-const interfejs = new UI(sablon);
-
-window.setInterval(() => tenk2.puca(), 3000);
+const tenk1 = new TenkPartizanski(100, 450)
+const tenk2 = new TenkNemacki()
+const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg")
+const interfejs = new UI(sablon)
 
 export default class TenkicAI extends Scena {
   constructor() {
     super()
     this.velicina(800, 500)
+    window.setInterval(() => tenk2.puca(), 3000)
     this.dodaj(pozadina, tenk1, tenk2, interfejs)
   }
 
   update() {
     super.update()
-    tenk2.mrdaNasumicno();
+    tenk2.mrdaNasumicno()
     proveriPogodak(tenk1.granata, tenk2, 2)
     proveriPogodak(tenk2.granata, tenk1, -2)
   }
@@ -37,22 +36,22 @@ export default class TenkicAI extends Scena {
 
 function proveriPogodak(granata, tenk, pomak) {
   if (granata.sudara(tenk)) {
-    tenk.energija -= Math.round(Math.random() * 100);
-    granata.nestani();
-    tenk.x += pomak;
+    tenk.energija -= Math.round(Math.random() * 100)
+    granata.nestani()
+    tenk.x += pomak
     if (tenk.energija <= 0) {
-      tenk.energija = 0;
-      reset();
+      tenk.energija = 0
+      reset()
     }
   }
 }
 
 function reset() {
   // da piše jel izgubio il pobedio i nudi opet
-  tenk1.polozaj(Math.random() * 300, 450);
-  tenk2.polozaj(Math.random() * 300 + 500, 450);
-  tenk1.energija = 100;
-  tenk2.energija = 100;
+  tenk1.polozaj(Math.random() * 300, 450)
+  tenk2.polozaj(Math.random() * 300 + 500, 450)
+  tenk1.energija = 100
+  tenk2.energija = 100
 }
 
 function sablon() {
@@ -78,5 +77,5 @@ function sablon() {
     <div class="komande bg-poluprovidno energija2">${tenk2.energija}</div>
     <progress class="komande poluprovidno progres1" value="${tenk1.energija}" max="100"></progress>
     <progress class="komande poluprovidno progres2" value="${tenk2.energija}" max="100"></progress>
-  `;
+  `
 }
