@@ -1,4 +1,3 @@
-// da patrola malo drzi pravac
 // da kaze halt
 // staviti naznaku da ranjenik moze da izadje sa scene
 // iskoristiti za Bekstvo iz Jasenovca i Stradanje ranjenika na Sutjesci

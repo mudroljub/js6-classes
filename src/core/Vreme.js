@@ -20,7 +20,7 @@ export class Vreme {
     return this.proteklo / 1000
   }
 
-  get razmak() {
+  get korak() {
     const prosloUpamceno = this.upamceno
     this.upamceno = this.trenutno
     return this.upamceno - prosloUpamceno

@@ -1,7 +1,6 @@
 import {root} from '../konstante'
 import {UI} from '../core/UI'
 import {Scena} from '../core/Scena'
-import {Zvuk} from '../core/Zvuk'
 import {Pozadina} from '../core/Pozadina'
 import {Okupator} from '../2d-prvo-lice/Okupator'
 import platno from '../io/platno'
@@ -31,7 +30,7 @@ export default class OtpisaniScena extends Scena {
   constructor() {
     super()
     mish.dodajNishan()
-    this.zvuk = new Zvuk(root + "zvuci/otpisani.mp3")
+    this.zvuk = new Audio(root + "zvuci/otpisani.mp3")
     this.zvuk.play()
     this.dodaj(new UI(sablon))
     platno.addEventListener('click', () => strazar.proveriPogodak())
@@ -46,6 +45,6 @@ export default class OtpisaniScena extends Scena {
   end() {
     super.end()
     mish.ukloniNishan()
-    this.zvuk.stop()
+    this.zvuk.pause()
   }
 }

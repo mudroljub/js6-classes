@@ -1,6 +1,5 @@
 import {root, KRUZNICA} from '../konstante'
 import {Igrac} from '../core/Igrac'
-import {Zvuk} from '../core/Zvuk'
 import {Vreme} from '../core/Vreme'
 import {Metak} from '../2d-odozgo/Metak'
 import platno from '../io/platno'
@@ -16,7 +15,7 @@ export class Avionce extends Igrac {
     super(root + "slike/2d-odozgo/avionce.gif")
     this.prevelicaj(0.75)
     this.vreme = new Vreme()
-    this.zvukMotora = new Zvuk(root + "zvuci/engine.mp3")
+    this.zvukMotora = new Audio(root + "zvuci/engine.mp3")
     this.meci = []
     this.trenutniMetak = 0
     this.brzina = 0
