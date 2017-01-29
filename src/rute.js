@@ -30,7 +30,7 @@ const scene = [
   BombasScena,
   NemciIzRovova,
   FranjoKluzScena,
-  JasenovacScena,
+  // JasenovacScena,
   CamacScena,
   OtpisaniScena,
   Scena1944,
