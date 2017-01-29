@@ -7,7 +7,7 @@ import {root} from '../konstante'
 import mish from '../io/mish'
 import UI from '../core/UI'
 import Scena from '../core/Scena'
-import {Pozadina} from '../core/Pozadina'
+import Pozadina from '../core/Pozadina'
 import {Svabo} from '../2d-prvo-lice/Svabo'
 
 /*** KONFIG ***/

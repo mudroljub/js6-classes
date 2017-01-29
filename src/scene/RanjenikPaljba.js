@@ -2,8 +2,8 @@ import {root} from '../konstante'
 import Scena from '../core/Scena'
 import Vreme from '../core/Vreme'
 import UI from '../core/UI'
-import {Ranjenik} from '../2d-odozgo/Ranjenik'
-import {Pozadina} from '../core/Pozadina'
+import Ranjenik from '../2d-odozgo/Ranjenik'
+import Pozadina from '../core/Pozadina'
 import {Paljba} from '../2d-odozgo/Paljba'
 
 /*** KONFIG ***/

@@ -2,7 +2,6 @@ import Slika from './Slika'
 import {platno, podloga} from '../io/platno'
 import mish from '../io/mish'
 import {randomRange} from '../utils'
-import {nestani} from '../akcije/granice'
 import {sudar} from '../akcije/sudari'
 
 export default class Predmet extends Slika {
@@ -18,7 +17,6 @@ export default class Predmet extends Slika {
     this.skalarX = 1
     this.skalarY = 1
     this.oznake = {}
-    this.granice = nestani
   }
 
   update() {
@@ -136,7 +134,7 @@ export default class Predmet extends Slika {
   /* GRANICE */
 
   proveriGranice() {
-    this.granice(this)
+    if (this.granice) this.granice(this)
   }
 
   /* KOLIZIJA */

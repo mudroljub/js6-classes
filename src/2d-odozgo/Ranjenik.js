@@ -3,7 +3,7 @@ import Igrac from '../core/Igrac'
 
 const OKRET = 0.035
 
-export class Ranjenik extends Igrac {
+export default class Ranjenik extends Igrac {
 
   constructor() {
     super (root + "slike/2d-odozgo/ranjeni-partizan.png", 70, 30)

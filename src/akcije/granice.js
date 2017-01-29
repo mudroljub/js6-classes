@@ -55,8 +55,6 @@ const ogranici = predmet => {
   if (predmet.y >= marginaDole) predmet.y = marginaDole
 }
 
-const nastavi = () => {}
-
 export {
   izasaoDesno,
   kruzi,
@@ -65,6 +63,5 @@ export {
   odbij,
   stani,
   nestani,
-  ogranici,
-  nastavi
+  ogranici
 }

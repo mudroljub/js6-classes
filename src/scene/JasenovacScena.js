@@ -3,7 +3,7 @@
 import {root} from '../konstante';
 import Scena from '../core/Scena';
 import Predmet from '../core/Predmet';
-import {Pozadina} from '../core/Pozadina';
+import Pozadina from '../core/Pozadina';
 import {TenkOdozgo} from '../2d-odozgo/TenkOdozgo';
 
 /*** INIT ***/

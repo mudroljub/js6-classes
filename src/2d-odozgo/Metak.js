@@ -1,5 +1,6 @@
 import Predmet from '../core/Predmet'
 import {root} from '../konstante'
+import {nestani} from '../akcije/granice'
 
 export class Metak extends Predmet {
 
@@ -7,6 +8,7 @@ export class Metak extends Predmet {
     super(root + "slike/granata.gif")
     this.prevelicaj(0.5)
     this.vlasnik = vlasnik
+    this.granice = nestani
     this.ugao = this.vlasnik.ugao
     this.sakrij()
   }

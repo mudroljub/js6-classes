@@ -4,7 +4,7 @@ import Predmet from '../core/Predmet'
 
 let brojac = 0
 
-export class Patrola extends Predmet {
+export default class Patrola extends Predmet {
 
   constructor(src = `${root}slike/2d-odozgo/nemci-patrola.gif`) {
     super(src)

@@ -8,7 +8,7 @@ import * as _ from '../utils'
 import Predmet from '../core/Predmet'
 import Igrac from '../core/Igrac'
 import platno from '../io/platno'
-import {ogranici, nastavi} from '../akcije/granice'
+import {ogranici} from '../akcije/granice'
 
 export class TenkBocnoIgrac extends Igrac {
 
@@ -34,7 +34,6 @@ export class TenkBocnoIgrac extends Igrac {
   postaviCev(cevSrc, sirina, visina) {
     this.cev = new Predmet(cevSrc, sirina, visina)
     this.cev.brzina = 0
-    this.cev.granice = nastavi
     this.podesiUgaoCevi()
     this.postaviGranatu()
     this.ograniciCev()

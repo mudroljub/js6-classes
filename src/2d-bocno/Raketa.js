@@ -1,11 +1,13 @@
 import {root} from '../konstante'
 import Predmet from '../core/Predmet'
+import {nestani} from '../akcije/granice'
 
 export class Raketa extends Predmet {
 
   constructor(vlasnik) {
     super(root + "slike/raketa.png", 30, 20)
     this.vlasnik = vlasnik
+    this.granice = nestani
     this.pocetniUgao = this.vlasnik.ugao + 19
     this.ispaljena = false
     this.oznake.raketa = true
