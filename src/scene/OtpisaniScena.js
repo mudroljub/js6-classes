@@ -46,6 +46,6 @@ export default class OtpisaniScena extends Scena {
   end() {
     super.end()
     mish.ukloniNishan()
-    this.zvuk.ukloni()
+    this.zvuk.stop()
   }
 }

@@ -59,4 +59,9 @@ export default class Scena1944 extends Scena {
       }
     })
   }
+
+  end() {
+    super.end()
+    igrac.zvukMotora.stop()
+  }
 }
