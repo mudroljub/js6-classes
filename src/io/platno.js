@@ -19,5 +19,7 @@ const pokaziPlatno = () => {
   platno.style.display = 'block'
 }
 
-export {platno, podloga, sakrijPlatno, pokaziPlatno}
+const dijagonalaPlatna = Math.sqrt(platno.height * platno.height + platno.width * platno.width)
+
+export {platno, podloga, sakrijPlatno, pokaziPlatno, dijagonalaPlatna}
 export default platno

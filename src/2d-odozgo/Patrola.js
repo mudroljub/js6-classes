@@ -18,7 +18,7 @@ const zvuciNadjen = [
   'thereheis.wav'
 ]
 
-const pauzaPricanja = 10000
+const pauzaPricanja = 8000
 let brojac = 0
 
 export default class Patrola extends Predmet {
@@ -44,7 +44,7 @@ export default class Patrola extends Predmet {
     this.ugao += nasumicno
   }
 
-  pricajNasumicno(zvuci) {
+  pustiNasumicno(zvuci) {
     const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length-1)]
     this.zvuk.src = `${root}zvuci/patrola/${zvuk}`
     this.zvuk.play()
@@ -52,12 +52,12 @@ export default class Patrola extends Predmet {
 
   pricaj() {
     if (this.vreme.proteklo < pauzaPricanja) return
-    this.pricajNasumicno(zvuciTraganje)
+    this.pustiNasumicno(zvuciTraganje)
     this.vreme.reset()
   }
 
   vikniZaredom(brojPuta) {
-    this.pricajNasumicno(zvuciNadjen)
+    this.pustiNasumicno(zvuciNadjen)
     brojac++
     this.zvuk.onended = () => {
       if (brojac >= brojPuta) return

@@ -1,4 +1,5 @@
 import unidecode from 'unidecode'
+import {dijagonalaPlatna} from './io/platno'
 
 export function dajSliku(src) {
   const slika = new Image()
@@ -24,4 +25,10 @@ export function nasumicnoOkruglo(min, max) {
 
 export function toUrl(naziv) {
   return unidecode(naziv).replace(/\s+/g, '-').toLowerCase()
+}
+
+// vraca od 0 do 1 zavisno od razmaka dva predmeta, u odnosu na scenu
+export function skaliranRazmak (predmet, predmet2) {
+  const razmak = predmet.razmakDo(predmet2)
+  return 1 - razmak / dijagonalaPlatna
 }

@@ -5,6 +5,7 @@
 
 import {root} from '../konstante'
 import {izasaoDesno} from '../akcije/granice'
+import {skaliranRazmak} from '../utils'
 import Scena from '../core/Scena'
 import Pozadina from '../core/Pozadina'
 import Ranjenik from '../2d-odozgo/Ranjenik'
@@ -27,9 +28,9 @@ const promeniPostavku = () => {
 
 /*** INIT ***/
 
-const pozadina = new Pozadina(root + "slike/2d-odozgo/shumarak-pozadina.png")
+const pozadina = new Pozadina(`${root}slike/2d-odozgo/shumarak-pozadina.png`)
 const ranjenik = new Ranjenik()
-const patrola = new Patrola(root + "slike/2d-odozgo/nemci-patrola.gif")
+const patrola = new Patrola(`${root}slike/2d-odozgo/nemci-patrola.gif`)
 
 export default class RanjenikScena extends Scena {
   static get naziv() {
@@ -38,15 +39,14 @@ export default class RanjenikScena extends Scena {
 
   constructor() {
     super()
-    ranjenik.polozaj(this.sirina / 4, this.visina / 2)
     patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
+    ranjenik.polozaj(this.sirina / 4, this.visina / 2)
+    this.dodaj(pozadina, ranjenik, patrola)
   }
 
   update() {
-    this.cisti()
-    pozadina.update()
-    ranjenik.update()
-    patrola.update()
+    super.update()
+    patrola.zvuk.volume = skaliranRazmak(patrola, ranjenik)
     this.proveriSudare()
     this.proveriPobedu()
   }
