@@ -1,11 +1,11 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {VoziloIgracOdozgo} from '../2d-odozgo/VoziloIgracOdozgo'
 
 const JACINA_STRUJE = 0.1
 
 export class CamacIgracOdozgo extends VoziloIgracOdozgo {
 
-  constructor(src = $.root + "slike/2d-odozgo/camac.png", sirina = 100, visina = 50) {
+  constructor(src = root + "slike/2d-odozgo/camac.png", sirina = 100, visina = 50) {
     super(src, sirina, visina)
     this.potisak = 0.8
   }

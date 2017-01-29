@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {mapa as modelMapa} from '../mape/mapa-mala'
 import {Scena} from '../core/Scena.js'
 import {Mapa} from '../3d-prvo-lice/Mapa.js'
@@ -20,8 +20,8 @@ export default class SavoNoc extends Scena {
     super()
     mapa.praviNasumicno(VELICINA_MAPE)
     const panorama = new Panorama(savo,
-      $.root + 'slike/panorame/noc.jpg',
-      $.root + 'slike/teksture/beton.jpg'
+      root + 'slike/panorame/noc.jpg',
+      root + 'slike/teksture/beton.jpg'
     )
     panorama.dometSvetla = 10
     panorama.trebaTlo = false

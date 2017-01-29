@@ -1,7 +1,7 @@
 // dodati crnu pozadinu sa crvenim naslovom i zvezdom
 // dodati neprijatelje
 
-import * as $ from '../konstante';
+import {root} from '../konstante';
 import {mapa as modelMapa} from '../mape/mapa-mala';
 import {Scena} from '../core/Scena.js';
 import {Mapa} from '../3d-prvo-lice/Mapa.js';
@@ -26,10 +26,10 @@ export default class SavoScena extends Scena {
     super()
     this.panorama = new Panorama(
       igrac,
-      $.root + 'slike/panorame/nebo.jpg',
-      $.root + 'slike/teksture/beton.jpg',
-      $.root + 'slike/teksture/cigla2.png',
-      $.root + 'slike/2d-bocno/kuca-bunker.png'
+      root + 'slike/panorame/nebo.jpg',
+      root + 'slike/teksture/beton.jpg',
+      root + 'slike/teksture/cigla2.png',
+      root + 'slike/2d-bocno/kuca-bunker.png'
     )
     this.panorama.dometSvetla = 10
     this.dodaj(this.panorama, igrac)

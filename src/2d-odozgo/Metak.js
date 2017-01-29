@@ -1,10 +1,10 @@
 import {Predmet} from '../core/Predmet'
-import * as $ from '../konstante'
+import {root} from '../konstante'
 
 export class Metak extends Predmet {
 
   constructor(vlasnik) {
-    super($.root + "slike/granata.gif")
+    super(root + "slike/granata.gif")
     this.prevelicaj(0.5)
     this.vlasnik = vlasnik
     this.ugao = this.vlasnik.ugao

@@ -1,9 +1,9 @@
 import {Predmet} from '../core/Predmet';
-import * as $ from '../konstante';
+import {root} from '../konstante';
 
 export class Granata extends Predmet {
 
-  constructor(vlasnik, src = $.root + "slike/granata.gif") {
+  constructor(vlasnik, src = root + "slike/granata.gif") {
     super(src, 24, 6);
     this.sakrij();
     this.vlasnik = vlasnik;

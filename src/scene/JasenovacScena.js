@@ -1,6 +1,6 @@
 // h1: Bekstvo iz Jasenovca
 
-import * as $ from '../konstante';
+import {root} from '../konstante';
 import {Scena} from '../core/Scena';
 import {Predmet} from '../core/Predmet';
 import {Pozadina} from '../core/Pozadina';
@@ -8,9 +8,9 @@ import {TenkOdozgo} from '../2d-odozgo/TenkOdozgo';
 
 /*** INIT ***/
 
-const pozadina = new Pozadina($.root + "slike/teksture/beton.gif");
+const pozadina = new Pozadina(root + "slike/teksture/beton.gif");
 const tenk = new TenkOdozgo(100, 200);
-const zica = new Predmet($.root + "slike/2d-bocno/stvari/bodljikava-zica.gif");
+const zica = new Predmet(root + "slike/2d-bocno/stvari/bodljikava-zica.gif");
 
 /*** EXPORT ***/
 

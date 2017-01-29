@@ -1,4 +1,4 @@
-import * as $ from '../konstante';
+import {KRUZNICA} from '../konstante';
 import {Predmet} from '../core/Predmet';
 
 export class VoziloBocno extends Predmet {
@@ -18,7 +18,7 @@ export class VoziloBocno extends Predmet {
       this.brzina = 3;
     }
     if (this.x >= 600) {
-      this.ugao = $.KRUZNICA / 2;
+      this.ugao = KRUZNICA / 2;
       this.skalarY = -1;
       this.brzina = 3;
     }

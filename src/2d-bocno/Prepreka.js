@@ -1,10 +1,10 @@
 import {Predmet} from '../core/Predmet';
-import * as $ from '../konstante';
+import {root} from '../konstante';
 
 export class Prepreka extends Predmet {
 
   constructor(nizPredmeta) {
-    super($.root + "slike/2d-bocno/stvari/kutija.png", 50, 50);
+    super(root + "slike/2d-bocno/stvari/kutija.png", 50, 50);
     this.nemojPreko (nizPredmeta);
   }
 

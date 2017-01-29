@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {Animiran} from '../core/Animiran'
 import platno from '../io/platno'
 import mish from '../io/mish'
@@ -6,7 +6,7 @@ import mish from '../io/mish'
 export class Okupator extends Animiran {
 
   constructor () {
-    super ($.root + "slike/sprajtovi/okupator-sprite.png", ["nagore", "nadole", "nalevo", "nadesno", "umire"], 5)
+    super (root + "slike/sprajtovi/okupator-sprite.png", ["nagore", "nadole", "nalevo", "nadesno", "umire"], 5)
     this.sirina = 50
     this.visina = 180
     this.brzina = 4

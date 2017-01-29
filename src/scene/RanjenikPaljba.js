@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {Scena} from '../core/Scena'
 import {Vreme} from '../core/Vreme'
 import {UI} from '../core/UI'
@@ -19,7 +19,7 @@ let pocetakPaljbe = 500
 
 /*** INIT ***/
 
-const pozadina = new Pozadina($.root + "slike/teksture/beton.gif")
+const pozadina = new Pozadina(root + "slike/teksture/beton.gif")
 const ranjenik = new Ranjenik()
 const vreme = new Vreme()
 const ui = new UI(sablon)

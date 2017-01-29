@@ -1,11 +1,11 @@
 import {Predmet} from '../core/Predmet';
-import * as $ from '../konstante';
+import {root} from '../konstante';
 import platno from '../io/platno'
 
 export class Ostrvo extends Predmet {
 
   constructor(brzina) {
-    super($.root + "slike/2d-odozgo/ostrvo.gif", 100, 100);
+    super(root + "slike/2d-odozgo/ostrvo.gif", 100, 100);
     this.reset(brzina);
   }
 

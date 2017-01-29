@@ -5,7 +5,7 @@
 // vremenski ograniceno?
 // mitraljez puca iz bunkera, prepreke su zakloni
 
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {Scena} from '../core/Scena'
 import {Vreme} from '../core/Vreme'
 import {Pozadina} from '../core/Pozadina'
@@ -51,12 +51,12 @@ const sablon = () => {
 
 const ui = new UI(sablon, 'ui')
 const vreme = new Vreme()
-const pozadina = new Pozadina($.root + "slike/teksture/beton.gif")
-const bombas = new Bombas($.root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55)
+const pozadina = new Pozadina(root + "slike/teksture/beton.gif")
+const bombas = new Bombas(root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55)
 const bunker = new Bunker(112, 103)
 bunker.nemojPreko(bombas)
 
-export default class BombasScena extends Scena {  
+export default class BombasScena extends Scena {
   static get naziv() {
     return "Bitka za Krupanj 1941."
   }

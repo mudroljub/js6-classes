@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {kruzi} from '../akcije/granice'
 import {Predmet} from '../core/Predmet'
 import {Zvuk} from '../core/Zvuk'
@@ -7,9 +7,9 @@ let brojac = 0
 
 export class Patrola extends Predmet {
 
-  constructor(slikaIzvor = $.root + "slike/2d-odozgo/nemci-patrola.gif") {
+  constructor(slikaIzvor = root + "slike/2d-odozgo/nemci-patrola.gif") {
     super(slikaIzvor, 71, 78)
-    this.zvuk = new Zvuk($.root + "zvuci/halt.mp3")
+    this.zvuk = new Zvuk(root + "zvuci/halt.mp3")
     this.brzina = 10
     this.granice = kruzi
   }

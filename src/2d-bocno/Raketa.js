@@ -1,10 +1,10 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {Predmet} from '../core/Predmet'
 
 export class Raketa extends Predmet {
 
   constructor(vlasnik) {
-    super($.root + "slike/raketa.png", 30, 20)
+    super(root + "slike/raketa.png", 30, 20)
     this.vlasnik = vlasnik
     this.pocetniUgao = this.vlasnik.ugao + 19
     this.ispaljena = false

@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {UI} from '../core/UI'
 import {Scena} from '../core/Scena'
 import {Zvuk} from '../core/Zvuk'
@@ -18,7 +18,7 @@ const sablon = () => `
 
 /*** INIT ***/
 
-const pozadina = new Pozadina($.root + "slike/pozadine/rusevine-varsava.jpg")
+const pozadina = new Pozadina(root + "slike/pozadine/rusevine-varsava.jpg")
 const strazar = new Okupator()
 
 /*** EXPORT ***/
@@ -31,7 +31,7 @@ export default class OtpisaniScena extends Scena {
   constructor() {
     super()
     mish.dodajNishan()
-    this.zvuk = new Zvuk($.root + "zvuci/otpisani.mp3")
+    this.zvuk = new Zvuk(root + "zvuci/otpisani.mp3")
     this.zvuk.play()
     this.dodaj(new UI(sablon))
     platno.addEventListener('click', () => strazar.proveriPogodak())

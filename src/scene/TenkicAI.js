@@ -2,7 +2,7 @@
 // ukloniti dvostruki interval
 // ubaciti uništen tenk
 
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {UI} from '../core/UI'
 import {Scena} from '../core/Scena'
 import {Pozadina} from '../core/Pozadina'
@@ -13,7 +13,7 @@ import {TenkNemacki} from '../2d-bocno/TenkNemacki'
 
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki()
-const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg")
+const pozadina = new Pozadina(root + "slike/pozadine/razrusen-grad-savremen.jpg")
 const interfejs = new UI(sablon)
 
 export default class TenkicAI extends Scena {

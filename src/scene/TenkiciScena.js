@@ -4,7 +4,7 @@
 // napraviti beskonačnu pozadinu sa preprekama i objektima koji nalecu
 // napraviti verziju za minobacače
 
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import platno from '../io/platno'
 import {UI} from '../core/UI'
 import {Scena} from '../core/Scena'
@@ -16,7 +16,7 @@ import {TenkNemacki} from '../2d-bocno/TenkNemacki'
 
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki(650, 450)
-const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jpg")
+const pozadina = new Pozadina(root + "slike/pozadine/razrusen-grad-savremen.jpg")
 const interfejs = new UI(sablon)
 
 export default class TenkiciScena extends Scena {

@@ -1,10 +1,10 @@
 import {Predmet} from '../core/Predmet';
-import * as $ from '../konstante';
+import {root} from '../konstante';
 
 export class Bunker extends Predmet {
 
   constructor(sirina, visina){
-    super($.root + "slike/2d-bocno/kuca-bunker.png", sirina, visina)
+    super(root + "slike/2d-bocno/kuca-bunker.png", sirina, visina)
     this.brzina = 0;
     this.polozaj(400, 100);
   }
@@ -17,7 +17,7 @@ export class Bunker extends Predmet {
   }
 
   gori() {
-    this.slika.src = $.root + "slike/2d-bocno/kuca-bunker-gori.png";
+    this.slika.src = root + "slike/2d-bocno/kuca-bunker-gori.png";
   }
 
 }

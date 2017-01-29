@@ -1,10 +1,10 @@
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {Predmet} from '../core/Predmet'
 import platno from '../io/platno'
 
 export class Oblak extends Predmet {
   constructor(brzina) {
-    super($.root + "slike/oblak.gif", 150, 100)
+    super(root + "slike/oblak.gif", 150, 100)
     this.brzina = brzina
     this.reset()
   }

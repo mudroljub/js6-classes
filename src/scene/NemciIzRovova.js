@@ -3,7 +3,7 @@
 // animirati švabu kako se dize i pada
 // da se ne sudaraju?
 
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import mish from '../io/mish'
 import {UI} from '../core/UI'
 import {Scena} from '../core/Scena'
@@ -22,7 +22,7 @@ let energija = 100
 
 /*** LOGIKA IGRE ***/
 
-const pozadina = new Pozadina($.root + "slike/teksture/suva-trava.jpg")
+const pozadina = new Pozadina(root + "slike/teksture/suva-trava.jpg")
 
 /*** EXPORT ***/
 
