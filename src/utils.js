@@ -18,6 +18,10 @@ export function randomRange(min, max) {
   return Math.random() * (max - min) + min
 }
 
+export function nasumicnoOkruglo(min, max) {
+  return Math.floor(randomRange(min, max + 1))
+}
+
 export function toUrl(naziv) {
   return unidecode(naziv).replace(/\s+/g, '-').toLowerCase()
 }
