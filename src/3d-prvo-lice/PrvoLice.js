@@ -27,6 +27,10 @@ export class PrvoLice {
     this.proveriTipke();
   }
 
+  end() {
+    this.pucanj.pause()
+  }
+
   hoda(razmak) {
     predjeno++;
     let dx = Math.cos(this.ugao) * razmak;

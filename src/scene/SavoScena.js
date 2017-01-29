@@ -15,23 +15,29 @@ const VELICINA_POLJA = 15;
 /*** INIT ***/
 
 const mapa = new Mapa(VELICINA_POLJA, modelMapa);
-const savo = new PrvoLice(mapa, 2, 1);
+const igrac = new PrvoLice(mapa, 2, 1);
 
 export default class SavoScena extends Scena {
   static get naziv() {
-    return "Savo mitraljezac"
+    return "Savo Mitraljezac"
   }
 
   constructor() {
     super()
-    const panorama = new Panorama(
-      savo,
+    this.panorama = new Panorama(
+      igrac,
       $.root + 'slike/panorame/nebo.jpg',
       $.root + 'slike/teksture/beton.jpg',
       $.root + 'slike/teksture/cigla2.png',
       $.root + 'slike/2d-bocno/kuca-bunker.png'
     )
-    panorama.dometSvetla = 10
-    this.dodaj(panorama, savo)
+    this.panorama.dometSvetla = 10
+    this.dodaj(this.panorama, igrac)
+  }
+
+  end() {
+    super.end()
+    igrac.end()
+    this.panorama.end()
   }
 }

@@ -4,11 +4,13 @@
 
 ### Scena
 
-Kada dodamo predmet sceni, Scena na njemu poziva sledeće metode:
+Ako dodamo predmet sceni, Scena na njemu poziva sledeće metode:
 * proveriGranice()
 * update()
 * render()
-Animaciju scene zaustavljamo na stop(), što zaleđuje animaciju. Čitavu scenu okončavamo na end().
+Ako predmet nije dodat sceni, onda ove metode pozivamo ručno.
+
+Petlju scene zaustavljamo na stop(), što zaleđuje animaciju. Čitavu scenu okončavamo na end(). Ova metoda uklanja ubačene stvari iz DOM-a, zaustavlja zvuke i slično. Neki predmeti mogu imati end metodu radi lakšeg čišćenja scene.
 
 ## Input/Output (singletoni)
 
