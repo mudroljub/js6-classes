@@ -6,10 +6,10 @@
 // da se ne sudaraju?
 
 import * as $ from '../konstante'
+import mish from '../io/mish'
 import {UI} from '../core/UI'
 import {Scena} from '../core/Scena'
 import {Pozadina} from '../core/Pozadina'
-import {Nishan} from '../core/Nishan'
 import {Svabo} from '../2d-prvo-lice/Svabo'
 
 /*** KONFIG ***/
@@ -25,18 +25,18 @@ let energija = 100
 /*** LOGIKA IGRE ***/
 
 const pozadina = new Pozadina($.root + "slike/teksture/suva-trava.jpg")
-const ui = new UI(sablon)
 
 /*** EXPORT ***/
 
 export default class NemciIzRovova extends Scena {
   constructor() {
     super()
+    this.ui = new UI(sablon)
     ucitajRekord()
     this.praviSvabe(bliziRovovi, BLIZI_ROVOVI_Y, {sirina: 100, visina: 150, procenatPojavljivanja: 0.003})
     this.praviSvabe(daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.002})
-    const nishan = new Nishan()
-    this.dodajKlik(nishan)
+    mish.dodajNishan()
+    this.dodajKlik()
   }
 
   static get naziv() {
@@ -52,13 +52,12 @@ export default class NemciIzRovova extends Scena {
   }
 
   render() {
-    ui.render()
+    this.ui.render()
   }
 
-  dodajKlik(nishan) {
+  dodajKlik() {
     document.onclick = () => {
-      // proverava rovove u kliknutom delu ekrana
-      let ciljaniRovovi = (nishan.y <= DALJI_ROVOVI_Y) ? daljiRovovi : bliziRovovi
+      const ciljaniRovovi = (mish.y <= DALJI_ROVOVI_Y) ? daljiRovovi : bliziRovovi
       proveriPogotke(ciljaniRovovi)
     }
   }
@@ -78,6 +77,11 @@ export default class NemciIzRovova extends Scena {
       console.log("Play again...")
       // document.location.href = ""
     }
+  }
+
+  end() {
+    super.end()
+    mish.ukloniNishan()
   }
 }
 
