@@ -3,7 +3,7 @@
 // iskoristiti za Bekstvo iz Jasenovca i Stradanje ranjenika na Sutjesci
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
-import * as $ from '../konstante'
+import {root} from '../konstante'
 import {Scena} from '../core/Scena'
 import {Pozadina} from '../core/Pozadina'
 import {Ranjenik} from '../2d-odozgo/Ranjenik'
@@ -15,9 +15,9 @@ let postavka = 0
 
 /*** INIT ***/
 
-const pozadina = new Pozadina($.root + "slike/2d-odozgo/shumarak-pozadina.png")
+const pozadina = new Pozadina(root + "slike/2d-odozgo/shumarak-pozadina.png")
 const ranjenik = new Ranjenik()
-const patrola = new Patrola($.root + "slike/2d-odozgo/nemci-patrola.gif")
+const patrola = new Patrola(root + "slike/2d-odozgo/nemci-patrola.gif")
 
 export default class RanjenikScena extends Scena {
   static get naziv() {
@@ -40,7 +40,6 @@ export default class RanjenikScena extends Scena {
     patrola.update()
   }
 
-
   proveriSudare() {
     if (patrola.sudara(ranjenik)) {
       patrola.stop()
@@ -56,6 +55,11 @@ export default class RanjenikScena extends Scena {
       this.stop()
     }
   }
+
+  end() {
+    super.end()
+    patrola.zvuk.stop()
+  }
 }
 
 /*** FUNKCIJE ***/
@@ -68,8 +72,8 @@ function promeniPostavku() {
   let isEven = postavka % 2 === 0
   let slikaPozadine = isEven ? "slike/teksture/beton.gif" : "slike/2d-odozgo/shumarak-pozadina.png"
   let slikaPatrole = isEven ? "slike/2d-odozgo/talijani-patrola.gif" : "slike/2d-odozgo/nemci-patrola.gif"
-  pozadina.zameniSliku($.root + slikaPozadine)
-  patrola.zameniSliku($.root + slikaPatrole)
+  pozadina.zameniSliku(root + slikaPozadine)
+  patrola.zameniSliku(root + slikaPatrole)
   patrola.postaviNasumicno()
   ranjenik.x = 10
   postavka++

@@ -1,11 +1,9 @@
-// problem sto promena ugla vise ne znaci promenu pravca kretanja?
-
 import * as $ from '../konstante'
-import platno from '../io/platno'
+import {kruzi} from '../akcije/granice'
 import {Predmet} from '../core/Predmet'
 import {Zvuk} from '../core/Zvuk'
 
-let trenutnoVikanje = 0
+let brojac = 0
 
 export class Patrola extends Predmet {
 
@@ -13,8 +11,7 @@ export class Patrola extends Predmet {
     super(slikaIzvor, 71, 78)
     this.zvuk = new Zvuk($.root + "zvuci/halt.mp3")
     this.brzina = 10
-    this.granice = $.KRUZI
-    // this.postaviNasumicno()
+    this.granice = kruzi
   }
 
   zuji() {
@@ -23,23 +20,16 @@ export class Patrola extends Predmet {
     this.ugao += nasumicno
   }
 
-  vikni(brojVikanja) {
+  vikni(brojPuta) {
     this.zvuk.play()
-    trenutnoVikanje++
+    brojac++
     this.zvuk.audio.onended = () => {
-      if(trenutnoVikanje >= brojVikanja) return
-      this.vikni(brojVikanja)
+      if(brojac >= brojPuta) return
+      this.vikni(brojPuta)
     }
   }
 
   stop() {
     this.brzina = 0
   }
-
-  postaviNasumicno() {
-    var randomX = Math.random() * platno.width
-    var randomY = Math.random() * platno.height
-    this.polozaj(randomX, randomY)
-  }
-
 }
