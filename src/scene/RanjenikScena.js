@@ -58,7 +58,7 @@ export default class RanjenikScena extends Scena {
 
   end() {
     super.end()
-    patrola.zvuk.stop()
+    patrola.zvuk.pause()
   }
 }
 
@@ -74,7 +74,7 @@ function promeniPostavku() {
   let slikaPatrole = isEven ? "slike/2d-odozgo/talijani-patrola.gif" : "slike/2d-odozgo/nemci-patrola.gif"
   pozadina.zameniSliku(root + slikaPozadine)
   patrola.zameniSliku(root + slikaPatrole)
-  patrola.postaviNasumicno()
+  patrola.postaviRandom()
   ranjenik.x = 10
   postavka++
 }

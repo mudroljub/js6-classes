@@ -51,7 +51,7 @@ export class Svabo extends Predmet {
 
   jeSpreman() {
     if (!this.stoji) return false
-    let duzinaOstanka = this.vreme.dajProtekleSekunde()
+    let duzinaOstanka = this.vreme.protekloSekundi
     if (duzinaOstanka <= this.VREME_NISANJENJA / 2) return false
     if (duzinaOstanka > this.VREME_NISANJENJA) return true
   }

@@ -1,35 +1,28 @@
 export class Vreme {
 
   constructor() {
-    this.upamcenoVreme = Date.now()
-    this.prosloUpamcenoVreme = 0
+    this.reset()
   }
 
-  start() {
-    this.upamcenoVreme = Date.now()
+  reset() {
+    this.upamceno = Date.now()
   }
 
-  dajTrenutnoVreme() {
+  get trenutno() {
     return Date.now()
   }
 
-  dajProtekleSekunde() {
-    return (this.dajTrenutnoVreme() - this.upamcenoVreme) / 1000
+  get proteklo() {
+    return this.trenutno - this.upamceno
   }
 
-  dajProtekleMilisekunde() {
-    return this.dajTrenutnoVreme() - this.upamcenoVreme
+  get protekloSekundi() {
+    return this.proteklo / 1000
   }
 
-  dajVremenskiRazmak () {
-    this.prosloUpamcenoVreme = this.upamcenoVreme
-    this.upamcenoVreme = Date.now()
-    return (this.upamcenoVreme - this.prosloUpamcenoVreme)
+  get razmak() {
+    const prosloUpamceno = this.upamceno
+    this.upamceno = this.trenutno
+    return this.upamceno - prosloUpamceno
   }
-
-  // alias
-  reset() {
-    this.start()
-  }
-
 }

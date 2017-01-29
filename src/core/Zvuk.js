@@ -1,13 +1,6 @@
-const praviAudio = src => {
-  const audio = document.createElement("audio")
-  audio.src = src
-  audio.preload = "auto"
-  return audio
-}
-
 export class Zvuk {
   constructor(src) {
-    this.audio = praviAudio(src)
+    this.audio = new Audio(src)
   }
 
   play() {

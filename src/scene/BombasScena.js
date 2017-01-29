@@ -94,7 +94,7 @@ export default class BombasScena extends Scena {
   }
 
   proveriVreme() {
-    vremeIgre = vreme.dajProtekleSekunde()
+    vremeIgre = vreme.protekloSekundi
     if (vremeIgre > ZADATOVREME) {
       this.zavrsiIgru('Tvoje vremeIgre je isteklo. Igra je završena!')
     }

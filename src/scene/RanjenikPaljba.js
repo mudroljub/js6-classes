@@ -55,8 +55,8 @@ export default class RanjenikPaljba extends Scena {
   }
 
   proveriVreme() {
-    protekleMilisekunde = vreme.dajProtekleMilisekunde()
-    vremeIgre = vreme.dajProtekleSekunde()
+    protekleMilisekunde = vreme.proteklo
+    vremeIgre = vreme.protekloSekundi
     if (vremeIgre > ZADATO_VREME) {
       this.stop()
       // javi game over

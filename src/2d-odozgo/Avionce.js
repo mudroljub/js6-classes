@@ -38,7 +38,7 @@ export class Avionce extends Igrac {
   }
 
   puca() {
-    let protekloVreme = this.vreme.dajProtekleSekunde()
+    let protekloVreme = this.vreme.protekloSekundi
     let cevNijeSpremna = protekloVreme <= PAUZA_PALJBE
     let nemaMunicije = this.trenutniMetak >= BROJ_METAKA - 2
     if (cevNijeSpremna || nemaMunicije) return
