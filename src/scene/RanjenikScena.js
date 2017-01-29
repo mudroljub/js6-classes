@@ -5,6 +5,7 @@
 
 import {root} from '../konstante'
 import Scena from '../core/Scena'
+import {izasaoDesno} from '../akcije/granice'
 import {Pozadina} from '../core/Pozadina'
 import {Ranjenik} from '../2d-odozgo/Ranjenik'
 import {Patrola} from '../2d-odozgo/Patrola'
@@ -12,6 +13,17 @@ import {Patrola} from '../2d-odozgo/Patrola'
 /*** KONFIG ***/
 
 let postavka = 0
+
+const promeniPostavku = () => {
+  let isEven = postavka % 2 === 0
+  let slikaPozadine = isEven ? "slike/teksture/beton.gif" : "slike/2d-odozgo/shumarak-pozadina.png"
+  let slikaPatrole = isEven ? "slike/2d-odozgo/talijani-patrola.gif" : "slike/2d-odozgo/nemci-patrola.gif"
+  pozadina.zameniSliku(root + slikaPozadine)
+  patrola.zameniSliku(root + slikaPatrole)
+  patrola.postaviRandom()
+  ranjenik.x = 10
+  postavka++
+}
 
 /*** INIT ***/
 
@@ -48,7 +60,7 @@ export default class RanjenikScena extends Scena {
   }
 
   proveriPobedu() {
-    if (jeRanjenikIzasao(this)) promeniPostavku()
+    if (izasaoDesno(ranjenik)) promeniPostavku()
     if (postavka > 3) {
       console.log("pobeda!")
       this.stop()
@@ -59,21 +71,4 @@ export default class RanjenikScena extends Scena {
     super.end()
     patrola.zvuk.pause()
   }
-}
-
-/*** FUNKCIJE ***/
-
-function jeRanjenikIzasao(scena) {
-  return ranjenik.x > scena.sirina - ranjenik.sirina
-}
-
-function promeniPostavku() {
-  let isEven = postavka % 2 === 0
-  let slikaPozadine = isEven ? "slike/teksture/beton.gif" : "slike/2d-odozgo/shumarak-pozadina.png"
-  let slikaPatrole = isEven ? "slike/2d-odozgo/talijani-patrola.gif" : "slike/2d-odozgo/nemci-patrola.gif"
-  pozadina.zameniSliku(root + slikaPozadine)
-  patrola.zameniSliku(root + slikaPatrole)
-  patrola.postaviRandom()
-  ranjenik.x = 10
-  postavka++
 }

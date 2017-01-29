@@ -10,9 +10,9 @@ const izasaoLevoSkroz = predmet => predmet.x < -predmet.sirina / 2
 const izasaoDesnoSkroz = predmet => predmet.x > platno.width + predmet.sirina / 2
 const izasaoIgde = predmet => izasaoLevo(predmet) || izasaoDesno(predmet) || izasaoGore(predmet) || izasaoDole(predmet)
 
-/* GRANICNE FUNKCIJE */
+/* GRANICNE AKCIJE */
 
-export function kruzi(predmet, procenat = 1) {
+const kruzi = (predmet, procenat = 1) => {
   if (Math.random() > procenat) return
   if (izasaoLevoSkroz(predmet)) predmet.x = platno.width + predmet.sirina / 2
   if (izasaoDesnoSkroz(predmet)) predmet.x = 0
@@ -20,31 +20,31 @@ export function kruzi(predmet, procenat = 1) {
   if (izasaoGore(predmet)) predmet.y = platno.height
 }
 
-export function kruziSire(predmet) {
+const kruziSire = predmet => {
   const sirina = platno.width
   if (predmet.x < -sirina) predmet.x = platno.width + sirina
 }
 
-export function vracaVodoravno (predmet, procenatVracanja) {
+const vracaVodoravno = (predmet, procenatVracanja) => {
   const procenat = procenatVracanja || predmet.procenatVracanja
   if (izasaoLevoSkroz(predmet) && Math.random() < procenat) predmet.x = platno.width + predmet.sirina / 2
 }
 
-export function odbij(predmet) {
+const odbij = predmet => {
   if (izasaoGore(predmet) || izasaoDole(predmet)) predmet.ugao = 2 * Math.PI - predmet.ugao
   if (izasaoLevo(predmet) || izasaoDesno(predmet)) predmet.ugao = Math.PI - predmet.ugao
   if (izasaoIgde(predmet)) predmet.pomeri(5)
 }
 
-export function stani(predmet) {
+const stani = predmet => {
   if (izasaoIgde(predmet)) predmet.brzina = 0
 }
 
-export function nestani(predmet) {
+const nestani = predmet => {
   if (izasaoIgde(predmet)) predmet.nestani()
 }
 
-export function ogranici(predmet) {
+const ogranici = predmet => {
   const marginaLevo = predmet.sirina / 4
   const marginaDesno = platno.width - marginaLevo
   const marginaGore = predmet.visina / 2
@@ -55,4 +55,16 @@ export function ogranici(predmet) {
   if (predmet.y >= marginaDole) predmet.y = marginaDole
 }
 
-export function nastavi() {}
+const nastavi = () => {}
+
+export {
+  izasaoDesno,
+  kruzi,
+  kruziSire,
+  vracaVodoravno,
+  odbij,
+  stani,
+  nestani,
+  ogranici,
+  nastavi
+}
