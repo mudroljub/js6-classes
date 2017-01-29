@@ -9,7 +9,7 @@ const sablon = () => {
     izbornik += `<button value='${ruta}' class='js-start full'>${rute[ruta].naziv}</button>`
   })
   return `
-    <h1>Glavni glavniMeni</h1>
+    <h1>Glavni meni</h1>
     ${izbornik}
   `
 }
@@ -19,7 +19,7 @@ export default function indexController() {
   const glavniMeni = new UI(sablon, 'ui')
 
   const menjajScenu = ruta => {
-    if (aktivnaScena) aktivnaScena.stop()
+    if (aktivnaScena) aktivnaScena.end()
     aktivnaScena = rute[ruta] ? new rute[ruta]() : indexController()
     aktivnaScena.start()
   }
@@ -42,7 +42,7 @@ export default function indexController() {
     if (!rute[getRoute()]) glavniMeni.render()
   }
 
-  const stop = () => {
+  const end = () => {
     window.removeEventListener('load', ucitajScenu)
     window.removeEventListener('hashchange', ucitajScenu)
     document.removeEventListener('click', pustiScenu)
@@ -51,6 +51,6 @@ export default function indexController() {
 
   return {
     start: start,
-    stop: stop
+    end: end
   }
 }

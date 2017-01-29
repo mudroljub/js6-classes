@@ -63,6 +63,11 @@ export class Scena {
     this.loopID = null
   }
 
+  end() {
+    this.stop()
+    this.cisti()
+  }
+
   /* POZADINA */
 
   set bojaPozadine(boja) {

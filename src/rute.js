@@ -4,7 +4,7 @@ import BombasScena from './scene/BombasScena'
 import NemciIzRovova from './scene/NemciIzRovova'
 import FranjoKluzScena from './scene/FranjoKluzScena'
 import JasenovacScena from './scene/JasenovacScena'
-import PomorskaScena from './scene/PomorskaScena'
+import CamacScena from './scene/CamacScena'
 import OtpisaniScena from './scene/OtpisaniScena'
 import Scena1944 from './scene/Scena1944'
 
@@ -31,7 +31,7 @@ const scene = [
   NemciIzRovova,
   FranjoKluzScena,
   JasenovacScena,
-  PomorskaScena,
+  CamacScena,
   OtpisaniScena,
   Scena1944,
   TenkicIde,
