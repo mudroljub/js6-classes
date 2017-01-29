@@ -42,8 +42,10 @@ export default function indexController() {
     window.addEventListener('load', ucitajScenu)
     window.addEventListener('hashchange', ucitajScenu)
     document.addEventListener('click', pustiScenu)
-    if (!rute[getRoute()]) glavniMeni.render()
-    sakrijPlatno()
+    if (!rute[getRoute()]) {
+      glavniMeni.render()
+      sakrijPlatno()
+    }
   }
 
   const end = () => {

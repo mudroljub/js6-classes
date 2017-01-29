@@ -30,6 +30,7 @@ export class Panorama {
 
   end() {
     this.zvukKishe.pause()
+    this.grom.pause()
   }
 
   pustiKishu() {

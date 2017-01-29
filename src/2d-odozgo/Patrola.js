@@ -7,11 +7,16 @@ let brojac = 0
 
 export class Patrola extends Predmet {
 
-  constructor(slikaIzvor = root + "slike/2d-odozgo/nemci-patrola.gif") {
-    super(slikaIzvor, 71, 78)
+  constructor(src = root + "slike/2d-odozgo/nemci-patrola.gif") {
+    super(src, 71, 78)
     this.zvuk = new Zvuk(root + "zvuci/halt.mp3")
     this.brzina = 10
     this.granice = kruzi
+  }
+
+  update() {
+    super.update()
+    this.zuji()
   }
 
   zuji() {
@@ -24,7 +29,7 @@ export class Patrola extends Predmet {
     this.zvuk.play()
     brojac++
     this.zvuk.audio.onended = () => {
-      if(brojac >= brojPuta) return
+      if (brojac >= brojPuta) return
       this.vikni(brojPuta)
     }
   }

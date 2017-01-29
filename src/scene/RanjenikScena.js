@@ -1,4 +1,5 @@
-// srediti kretanje na osnovu ugla
+// da patrola malo drzi pravac
+// da kaze halt
 // staviti naznaku da ranjenik moze da izadje sa scene
 // iskoristiti za Bekstvo iz Jasenovca i Stradanje ranjenika na Sutjesci
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
@@ -21,7 +22,7 @@ const patrola = new Patrola(root + "slike/2d-odozgo/nemci-patrola.gif")
 
 export default class RanjenikScena extends Scena {
   static get naziv() {
-    return "Ranjenik na Sutjesci"
+    return "Bekstvo ranjenika"
   }
 
   constructor() {
@@ -32,12 +33,11 @@ export default class RanjenikScena extends Scena {
 
   update() {
     this.cisti()
-    patrola.zuji()
-    this.proveriSudare()
-    this.proveriPobedu()
     pozadina.update()
     ranjenik.update()
     patrola.update()
+    this.proveriSudare()
+    this.proveriPobedu()
   }
 
   proveriSudare() {
