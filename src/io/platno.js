@@ -11,5 +11,13 @@ platno.width = document.body.clientWidth || 800
 platno.style.backgroundColor = 'lightgray'
 platno.focus()
 
-export {platno, podloga}
+const sakrijPlatno = () => {
+  platno.style.display = 'none'
+}
+
+const pokaziPlatno = () => {
+  platno.style.display = 'block'
+}
+
+export {platno, podloga, sakrijPlatno, pokaziPlatno}
 export default platno

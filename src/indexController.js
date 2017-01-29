@@ -1,5 +1,8 @@
+// sakriti platno
+
 import rute from './rute'
 import {UI} from './core/UI'
+import {sakrijPlatno, pokaziPlatno} from './io/platno'
 
 const getRoute = () => window.location.hash.slice(1)
 
@@ -40,6 +43,7 @@ export default function indexController() {
     window.addEventListener('hashchange', ucitajScenu)
     document.addEventListener('click', pustiScenu)
     if (!rute[getRoute()]) glavniMeni.render()
+    sakrijPlatno()
   }
 
   const end = () => {
@@ -47,6 +51,7 @@ export default function indexController() {
     window.removeEventListener('hashchange', ucitajScenu)
     document.removeEventListener('click', pustiScenu)
     glavniMeni.clear()
+    pokaziPlatno()
   }
 
   return {
