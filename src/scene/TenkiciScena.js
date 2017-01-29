@@ -20,14 +20,14 @@ const pozadina = new Pozadina($.root + "slike/pozadine/razrusen-grad-savremen.jp
 const interfejs = new UI(sablon)
 
 export default class TenkiciScena extends Scena {
+  static get naziv() {
+    return "Tenkići"
+  }
+
   constructor() {
     super()
     this.velicina(800, 500)
     this.dodaj()
-  }
-
-  static get naziv() {
-    return "Tenkići"
   }
 
   update() {

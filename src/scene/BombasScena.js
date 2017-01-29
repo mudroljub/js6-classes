@@ -56,15 +56,15 @@ const bombas = new Bombas($.root + "slike/2d-bocno/partizani/vojnici/bombasi/par
 const bunker = new Bunker(112, 103)
 bunker.nemojPreko(bombas)
 
-export default class BombasScena extends Scena {
+export default class BombasScena extends Scena {  
+  static get naziv() {
+    return "Bitka za Krupanj 1941."
+  }
+
   constructor() {
     super()
     this.dodaj(pozadina, bunker, bombas)
     this.praviPrepreke()
-  }
-
-  static get naziv() {
-    return "Bitka za Krupanj 1941."
   }
 
   update() {

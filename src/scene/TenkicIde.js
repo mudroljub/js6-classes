@@ -40,13 +40,13 @@ for (let i = 0; i < BROJ_OBLAKA; i++) {
 
 
 export default class TenkicIde extends Scena {
+  static get naziv() {
+    return "Tenk ide"
+  }
+
   constructor() {
     super()
     this.nivoTla = nivoTla
-  }
-
-  static get naziv() {
-    return "Tenk ide"
   }
 
   update() {

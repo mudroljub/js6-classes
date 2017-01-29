@@ -15,13 +15,13 @@ const zica = new Predmet($.root + "slike/2d-bocno/stvari/bodljikava-zica.gif");
 /*** EXPORT ***/
 
 export default class JasenovacScena extends Scena {
+  static get naziv() {
+    return "Bekstvo iz Jasenovca"
+  }
+
   constructor() {
     super()
     zica.polozaj(400, 100);
-  }
-
-  static get naziv() {
-    return "Bekstvo iz Jasenovca"
   }
 
   update() {

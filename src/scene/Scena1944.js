@@ -30,16 +30,16 @@ const ostrvo = new Ostrvo(brzinaPozadine)
 const igrac = new Avionce()
 
 export default class Scena1944 extends Scena {
+  static get naziv() {
+    return "Osvetnik pete ofanzive"
+  }
+
   constructor() {
     super()
     const interfejs = new UI(sablon)
     const pozadina = new Okean(brzinaPozadine, platno.width)
     for (let i = 0; i < brojOblaka; i++) oblaci[i] = new Oblak(brzinaPozadine)
     this.dodaj(pozadina, ostrvo, igrac, ...oblaci, interfejs)
-  }
-
-  static get naziv() {
-    return "Osvetnik pete ofanzive"
   }
 
   update() {

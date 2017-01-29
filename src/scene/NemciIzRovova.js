@@ -27,6 +27,10 @@ const pozadina = new Pozadina($.root + "slike/teksture/suva-trava.jpg")
 /*** EXPORT ***/
 
 export default class NemciIzRovova extends Scena {
+  static get naziv() {
+    return "Nemci iz rovova"
+  }
+
   constructor() {
     super()
     this.ui = new UI(sablon)
@@ -35,10 +39,6 @@ export default class NemciIzRovova extends Scena {
     this.praviSvabe(daljiRovovi, DALJI_ROVOVI_Y, {sirina: 50, visina: 75, procenatPojavljivanja: 0.002})
     mish.dodajNishan()
     this.dodajKlik()
-  }
-
-  static get naziv() {
-    return "Nemci iz rovova"
   }
 
   update() {

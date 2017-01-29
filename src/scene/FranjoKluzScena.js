@@ -41,6 +41,10 @@ const ruina = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/ruina.png")
 let igrac
 
 export default class FranjoKluzScena extends Scena {
+  static get naziv() {
+    return "Franjo Kluz"
+  }
+
   constructor() {
     super()
     this.nivoTla = nivoTla
@@ -54,10 +58,6 @@ export default class FranjoKluzScena extends Scena {
     for (let i = 0; i < BROJ_SHUME; i++) shume[i] = new Shuma()
     this.dodaj(igrac, vozilo, aerodrom, ruina, ...oblaci, ...zbunovi, ...shume)
     this.pocniParalax()
-  }
-
-  static get naziv() {
-    return "Franjo Kluz"
   }
 
   update(){

@@ -24,16 +24,16 @@ const strazar = new Okupator()
 /*** EXPORT ***/
 
 export default class OtpisaniScena extends Scena {
+  static get naziv() {
+    return "Ubij okupatora!"
+  }
+
   constructor() {
     super()
     mish.dodajNishan()
     new Zvuk("../../zvuci/otpisani.mp3").play()
     this.dodaj(new UI(sablon))
     platno.addEventListener('click', () => strazar.proveriPogodak())
-  }
-
-  static get naziv() {
-    return "Ubij okupatora!"
   }
 
   update() {
