@@ -13,6 +13,7 @@ import Pozadina from '../core/Pozadina'
 import Ranjenik from '../2d-odozgo/Ranjenik'
 import Patrola from '../2d-odozgo/Patrola'
 import Vreme from '../core/Vreme'
+import UI from '../core/UI'
 
 /*** KONFIG ***/
 
@@ -35,6 +36,18 @@ const crtajStrelicu = () => {
   podloga.stroke()
 }
 
+const sablon = () => {
+  return `
+    <div class="komande bg-poluprovidno komande1">
+     <b>Komande</b>
+     <br> A - levo
+     <br> D - desno
+     <br> W - napred
+     <br> S - nazad
+   </div>
+  `
+}
+
 /*** INIT ***/
 
 const pozadina = new Pozadina(`${root}slike/2d-odozgo/shumarak-pozadina.png`)
@@ -46,10 +59,11 @@ export default class RanjenikScena extends Scena {
 
   constructor() {
     super()
+    this.ui = new UI(sablon)
     this.vreme = new Vreme()
     patrola.polozaj(this.sirina * 3/4, this.visina * 3/4)
     ranjenik.polozaj(this.sirina / 4, this.visina / 2)
-    this.dodaj(pozadina, ranjenik, patrola)
+    this.dodaj(pozadina, ranjenik, patrola, this.ui)
   }
 
   update() {

@@ -70,15 +70,15 @@ export default class TenkicIde extends Scena {
 function sablon() {
   return `
     <div class="komande bg-poluprovidno komande1">
-     <span class="bold">Tenk</span>
+     <b>Komande</b>
      <br> A - levo
      <br> D - desno
      <br> W - gore
      <br> S - dole
      <br> space - puca
+     <div class="komande bg-poluprovidno energija1">${tenk.energija}</div>
+     <progress class="komande poluprovidno progres1" value="${tenk.energija}" max="100"></progress>
    </div>
-   <div class="komande bg-poluprovidno energija1">${tenk.energija}</div>
-   <progress class="komande poluprovidno progres1" value="${tenk.energija}" max="100"></progress>
   `
 }
 
