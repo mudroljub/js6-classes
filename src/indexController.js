@@ -12,7 +12,7 @@ const sablon = () => {
     izbornik += `<button value='${ruta}' class='js-start full'>${rute[ruta].naziv}</button>`
   })
   return `
-    <h1>Glavni meni</h1>
+    <h1>Partisan Games ★</h1>
     ${izbornik}
   `
 }
