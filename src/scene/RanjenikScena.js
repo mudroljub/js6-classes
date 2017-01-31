@@ -1,4 +1,3 @@
-// prikazati komande
 // prikazati poruke umesto log (napraviti neko pomagalo)
 // iskoristiti za Bekstvo iz Jasenovca i ranjenik paljba
 // povecavati broj patrola
