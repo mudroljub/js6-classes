@@ -3,10 +3,10 @@
 
 import UI from 'core/UI'
 import Scena from 'core/Scena'
-import {Avionce} from '../2d-odozgo/Avionce'
-import {Okean} from '../2d-odozgo/Okean'
-import {Ostrvo} from '../2d-odozgo/Ostrvo'
-import Oblak from '../2d-odozgo/Oblak'
+import {Avionce} from './Avionce'
+import {Okean} from './Okean'
+import {Ostrvo} from './Ostrvo'
+import Oblak from './Oblak'
 import platno from 'io/platno'
 
 /*** KONFIG ***/
@@ -23,7 +23,7 @@ const igrac = new Avionce()
 
 export default class Scena1944 extends Scena {
   static get naziv() {
-    return '1944'
+    return 'Avionče 1944'
   }
 
   constructor() {

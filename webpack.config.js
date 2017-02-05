@@ -16,6 +16,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     alias: {
+      src: path.resolve(__dirname, 'src'),
       core: path.resolve(__dirname, 'game-engine/core'),
       akcije: path.resolve(__dirname, 'game-engine/akcije/'),
       io: path.resolve(__dirname, 'game-engine/io/'),

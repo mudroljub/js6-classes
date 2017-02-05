@@ -1,6 +1,8 @@
 # Ideje
 
 Ideje za nivoe:
+- odbrani bunker
+- odbrani polozaj
 - hercegovina 1942, četnici iskaču iza kamenja, pa zajedno sa italijanima
 - sremski front (top)
 - desant na drvar (padobranci)

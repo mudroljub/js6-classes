@@ -1,12 +1,12 @@
 import {toUrl} from 'utils'
 
-import BombasScena from './scene/BombasScena'
-import NemciIzRovova from './scene/NemciIzRovova'
+import BombasScena from './scene/bombas/BombasScena'
+import NemciIzRovova from './scene/rovovi/NemciIzRovova'
 import FranjoKluzScena from './scene/FranjoKluzScena'
 import JasenovacScena from './scene/JasenovacScena'
 import CamacScena from './scene/CamacScena'
 import OtpisaniScena from './scene/OtpisaniScena'
-import Scena1944 from './scene/Scena1944'
+import Scena1944 from './scene/avionce1944/Scena1944'
 
 // klice
 import TenkOdozgoScena from './scene/TenkOdozgoScena'
@@ -14,17 +14,17 @@ import MinobacacScena from './scene/MinobacacScena'
 import TopScena from './scene/TopScena'
 
 // za spajanje
-import TenkicIde from './scene/TenkicIde'
-import TenkiciScena from './scene/TenkiciScena'
-import TenkicAI from './scene/TenkicAI'
+import TenkicIde from './scene/tenkici/TenkicIde'
+import TenkiciScena from './scene/tenkici/TenkiciScena'
+import TenkicAI from './scene/tenkici/TenkicAI'
 
 // za spajanje
 import SavoScena from './scene/SavoScena'
 import SavoNoc from './scene/SavoNoc'
 
 // za spajanje
-import RanjenikScena from './scene/RanjenikScena'
-import RanjenikPaljba from './scene/RanjenikPaljba'
+import RanjenikScena from './scene/ranjenik/RanjenikScena'
+import RanjenikPaljba from './scene/ranjenik/RanjenikPaljba'
 
 const scene = [
   BombasScena,

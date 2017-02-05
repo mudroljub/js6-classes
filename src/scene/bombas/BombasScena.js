@@ -9,9 +9,9 @@ import Scena from 'core/Scena'
 import Vreme from 'core/Vreme'
 import Pozadina from 'core/Pozadina'
 import UI from 'core/UI'
-import Bombas from '../2d-bocno/Bombas'
-import Bunker from '../2d-bocno/Bunker'
-import Prepreka from '../2d-bocno/Prepreka'
+import Bombas from './Bombas'
+import Bunker from './Bunker'
+import Prepreka from './Prepreka'
 import slikaBeton from 'slike/teksture/beton.gif'
 import slikaBombas from 'slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif'
 
@@ -65,7 +65,7 @@ const praviPrepreke = () => {
 
 export default class BombasScena extends Scena {
   static get naziv() {
-    return 'Bitka za Krupanj 1941.'
+    return 'Bombaš i bunker'
   }
 
   constructor() {
