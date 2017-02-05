@@ -6,7 +6,7 @@ import Scena from 'core/Scena'
 import {Avionce} from '../2d-odozgo/Avionce'
 import {Okean} from '../2d-odozgo/Okean'
 import {Ostrvo} from '../2d-odozgo/Ostrvo'
-import {Oblak} from '../2d-odozgo/Oblak'
+import Oblak from '../2d-odozgo/Oblak'
 import platno from 'io/platno'
 
 /*** KONFIG ***/

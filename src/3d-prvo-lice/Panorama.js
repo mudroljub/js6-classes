@@ -13,7 +13,7 @@ const REZOLUCIJA = MOBILNI ? 160 : 320
 const IGNORISE_VISINU = true
 const KISHA_PADA = true
 
-export class Panorama {
+export default class Panorama {
   constructor(prvoLice, nebo, ...teksture) {
     this.prvoLice = prvoLice
     this.nebo = new Slika(nebo)

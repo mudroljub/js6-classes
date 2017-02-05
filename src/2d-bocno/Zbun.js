@@ -4,7 +4,7 @@ import platno from 'io/platno'
 import {vracaVodoravno} from 'akcije/granice'
 import slikaZbun from 'slike/2d-bocno/priroda/zbun.png'
 
-export class Zbun extends Predmet {
+export default class Zbun extends Predmet {
   constructor(nivoTla = platno.height, src = slikaZbun) {
     super (src)
     this.procenatVracanja = 1

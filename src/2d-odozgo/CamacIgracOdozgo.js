@@ -1,9 +1,9 @@
-import {VoziloIgracOdozgo} from '../2d-odozgo/VoziloIgracOdozgo'
+import VoziloIgracOdozgo from '../2d-odozgo/VoziloIgracOdozgo'
 import slikaCamac from 'slike/2d-odozgo/camac.png'
 
 const JACINA_STRUJE = 0.1
 
-export class CamacIgracOdozgo extends VoziloIgracOdozgo {
+export default class CamacIgracOdozgo extends VoziloIgracOdozgo {
 
   constructor(src = slikaCamac, sirina = 100, visina = 50) {
     super(src, sirina, visina)

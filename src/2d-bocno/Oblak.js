@@ -4,7 +4,7 @@ import platno from 'io/platno'
 import {vracaVodoravno} from 'akcije/granice'
 import oblakSlika from 'slike/oblak.gif'
 
-export class Oblak extends Predmet {
+export default class Oblak extends Predmet {
 
   constructor(sirina, visina, src = oblakSlika) {
     super(src, sirina, visina)

@@ -1,7 +1,7 @@
 import Predmet from 'core/Predmet'
 import slikaGranata from 'slike/granata.gif'
 
-export class Granata extends Predmet {
+export default class Granata extends Predmet {
 
   constructor(vlasnik, src = slikaGranata) {
     super(src, 24, 6)

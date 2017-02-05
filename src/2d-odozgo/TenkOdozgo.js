@@ -5,7 +5,7 @@ import zvukTenka from 'zvuci/zvuk-tenka.mp3'
 
 const SILA = 1
 
-export class TenkOdozgo extends Predmet {
+export default class TenkOdozgo extends Predmet {
   constructor(x = 100, y = 200) {
     super(slikaTenk, 168, 70)
     this.x = x

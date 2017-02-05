@@ -1,9 +1,9 @@
-import {Animiran} from 'core/Animiran'
+import Animiran from 'core/Animiran'
 import platno from 'io/platno'
 import mish from 'io/mish'
 import okupatorSprite from 'slike/sprajtovi/okupator-sprite.png'
 
-export class Okupator extends Animiran {
+export default class Okupator extends Animiran {
 
   constructor() {
     super (okupatorSprite, ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], 5)

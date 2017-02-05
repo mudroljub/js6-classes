@@ -2,7 +2,7 @@ import Predmet from 'core/Predmet'
 import {nestani} from 'akcije/granice'
 import slikaGranata from 'slike/granata.gif'
 
-export class Metak extends Predmet {
+export default class Metak extends Predmet {
 
   constructor(vlasnik) {
     super(slikaGranata)

@@ -9,7 +9,7 @@ const MIN_UGAO = 0
 const MAX_UGAO = 65
 const MIN_BRZINA = 20
 
-export class Top {
+export default class Top {
 
   constructor(x = platno.width / 8, y = platno.height / 2) {
     this.x = x

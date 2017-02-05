@@ -8,7 +8,7 @@ const POMERAJ_UGLA = 0.008
 const POMERAJ_BRZINE = 0.3
 const DJULE_POLUPRECNIK = 10
 
-export class Minobacac extends Kvadrat {
+export default class Minobacac extends Kvadrat {
 
   constructor(x, y, sirina, visina, boja='rgb(40,40,0)') {
     super(x, y, sirina, visina, boja)

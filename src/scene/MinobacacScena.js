@@ -5,7 +5,7 @@
 import Scena from 'core/Scena'
 import Predmet from 'core/Predmet'
 import Kvadrat from 'core/Kvadrat'
-import {Minobacac} from '../2d-bocno/Minobacac'
+import Minobacac from '../2d-bocno/Minobacac'
 import slikaBrdo from 'slike/brdo.jpg'
 
 /*** KONFIG ***/

@@ -3,9 +3,9 @@
 
 import {mapa as modelMapa} from '../mape/mapa-mala'
 import Scena from 'core/Scena.js'
-import {Mapa} from '../3d-prvo-lice/Mapa.js'
-import {PrvoLice} from '../3d-prvo-lice/PrvoLice.js'
-import {Panorama} from '../3d-prvo-lice/Panorama.js'
+import Mapa from '../3d-prvo-lice/Mapa.js'
+import PrvoLice from '../3d-prvo-lice/PrvoLice.js'
+import Panorama from '../3d-prvo-lice/Panorama.js'
 import slikaBeton from 'slike/teksture/beton.jpg'
 import slikaNebo from 'slike/panorame/nebo.jpg'
 import slikaCigle from 'slike/teksture/cigla2.png'

@@ -3,7 +3,7 @@ import platno from 'io/platno'
 import {vracaVodoravno} from 'akcije/granice'
 import slikaShumarak from 'slike/2d-bocno/priroda/shumarak.png'
 
-export class Shuma extends Predmet {
+export default class Shuma extends Predmet {
 
   constructor(nivoTla = platno.height, src = slikaShumarak) {
     super(src)

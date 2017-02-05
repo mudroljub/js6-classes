@@ -2,7 +2,7 @@ import Predmet from 'core/Predmet'
 import {nestani} from 'akcije/granice'
 import slikaRaketa from 'slike/raketa.png'
 
-export class Raketa extends Predmet {
+export default class Raketa extends Predmet {
 
   constructor(vlasnik) {
     super(slikaRaketa, 30, 20)

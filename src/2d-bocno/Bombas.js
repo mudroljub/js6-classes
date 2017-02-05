@@ -2,7 +2,7 @@ import tipke from 'io/tipke'
 import mish from 'io/mish'
 import Igrac from 'core/Igrac'
 
-export class Bombas extends Igrac {
+export default class Bombas extends Igrac {
 
   constructor(slika, sirina, visina) {
     super(slika, sirina, visina)

@@ -11,7 +11,7 @@ import platno from 'io/platno'
 import {ogranici} from 'akcije/granice'
 import slikaGranata from 'slike/granata.gif'
 
-export class TenkBocnoIgrac extends Igrac {
+export default class TenkBocnoIgrac extends Igrac {
 
   constructor(src, jelNadesno, sirina, visina) {
     super(src, sirina, visina)

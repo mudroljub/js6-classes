@@ -3,7 +3,7 @@ import {podloga} from 'io/platno'
 
 const BOJE = ['#fff', '#444', '#701206', '#000'];
 
-export class Mapa {
+export default class Mapa {
 
   constructor(velicinaPolja = 30, polja = mapa) {
     this.polja = polja;

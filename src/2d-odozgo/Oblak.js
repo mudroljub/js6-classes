@@ -2,7 +2,7 @@ import Predmet from 'core/Predmet'
 import platno from 'io/platno'
 import slikaOblak from 'slike/oblak.gif'
 
-export class Oblak extends Predmet {
+export default class Oblak extends Predmet {
   constructor(brzina) {
     super(slikaOblak, 150, 100)
     this.brzina = brzina

@@ -7,7 +7,7 @@ import slikaNemacPuca from 'slike/2d-prvo-lice/nemac-rov-puca.gif'
 
 const VREME_NISANJENJA = 3
 
-export class Svabo extends Predmet {
+export default class Svabo extends Predmet {
 
   constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.003) {
     super (slikaRovPrazan, sirina, visina)

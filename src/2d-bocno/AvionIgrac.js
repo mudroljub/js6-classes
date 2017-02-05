@@ -1,7 +1,7 @@
 import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
-import {Raketa} from './Raketa'
+import Raketa from './Raketa'
 import {ogranici} from 'akcije/granice'
 import avionSrc from 'slike/2d-bocno/spitfire.png'
 import slikaMrtav from 'slike/2d-bocno/spitfire-gori.png'
@@ -10,7 +10,7 @@ const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066
 const GRAVITACIJA = 0.3
 
-export class AvionIgrac extends Igrac {
+export default class AvionIgrac extends Igrac {
   // treba scena zbog pratecih
   constructor(scena, src = avionSrc, sirina = 200, visina = 60) {
     super(src, sirina, visina)

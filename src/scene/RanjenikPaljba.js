@@ -3,7 +3,7 @@ import Vreme from 'core/Vreme'
 import UI from 'core/UI'
 import Ranjenik from '../2d-odozgo/Ranjenik'
 import Pozadina from 'core/Pozadina'
-import {Paljba} from '../2d-odozgo/Paljba'
+import Paljba from '../2d-odozgo/Paljba'
 import slikaPozadina from 'slike/teksture/beton.gif'
 
 /*** KONFIG ***/

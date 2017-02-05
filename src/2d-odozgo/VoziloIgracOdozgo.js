@@ -1,9 +1,9 @@
 import * as $ from 'konstante'
 import Igrac from 'core/Igrac'
-import {Granata} from './Granata'
+import Granata from './Granata'
 import {odbij} from 'akcije/granice'
 
-export class VoziloIgracOdozgo extends Igrac {
+export default class VoziloIgracOdozgo extends Igrac {
 
   constructor(src, sirina, visina) {
     super(src, sirina, visina)

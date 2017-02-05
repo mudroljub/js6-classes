@@ -14,7 +14,7 @@ const VELICINA_KRUZICA = 5
 const BOJA_KRUZICA = '#f00'
 const BOJA_LAMPE = '#ff0'
 
-export class PrvoLice {
+export default class PrvoLice {
 
   constructor(mapa, x, y, ugao = 0) {
     this.x = x

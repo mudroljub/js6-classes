@@ -1,7 +1,7 @@
 import Predmet from 'core/Predmet'
 import slikaKutija from 'slike/2d-bocno/stvari/kutija.png'
 
-export class Prepreka extends Predmet {
+export default class Prepreka extends Predmet {
 
   constructor(nizPredmeta) {
     super(slikaKutija, 50, 50)

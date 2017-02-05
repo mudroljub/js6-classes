@@ -1,4 +1,4 @@
-import {VoziloIgracOdozgo} from '../2d-odozgo/VoziloIgracOdozgo'
+import VoziloIgracOdozgo from '../2d-odozgo/VoziloIgracOdozgo'
 import slikaTenk from 'slike/2d-odozgo/tenk-rdjavi.gif'
 
 export class TenkIgracOdozgo extends VoziloIgracOdozgo {
