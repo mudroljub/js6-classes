@@ -1,16 +1,11 @@
-var path = require('path');
+const path = require('path')
 
-const PUTANJE = {
-  slike: path.join(__dirname, 'slike'),
-  dist: path.join(__dirname, 'dist')
-};
-
-var config = {
+module.exports = {
   entry: {
     main: './src/main.js'
   },
   output: {
-    path: PUTANJE.dist,
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js',
     publicPath: '/dist/'
   },
@@ -21,27 +16,18 @@ var config = {
   devtool: 'source-map',
   module: {
     loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel'
-    }, {
-      test: /\.json$/,
-      loader: 'json'
-    }, {
       test: /\.css$/,
       loaders: ['to-string-loader', 'css-loader']
     }, {
       test: /\.html$/,
-      loader: "html"
+      loader: 'html-loader'
     }, {
       test: /\.(jpg|png)$/,
-      loader: 'url?limit=25000',
-      include: PUTANJE.slike
+      loader: 'url-loader?limit=25000',
+      include: path.join(__dirname, 'slike')
     }, {
       test: /\.(jpg|png)$/,
-      loader: 'file?name=[path][name].[hash].[ext]'
+      loader: 'file-loader?name=[path][name].[hash].[ext]'
     }]
   }
-};
-
-module.exports = config;
+}
