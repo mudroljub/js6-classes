@@ -15,19 +15,19 @@ module.exports = {
   watch: true,
   devtool: 'source-map',
   module: {
-    loaders: [{
+    rules: [{
       test: /\.css$/,
-      loaders: ['to-string-loader', 'css-loader']
+      use: ['to-string-loader', 'css-loader']
     }, {
       test: /\.html$/,
-      loader: 'html-loader'
+      use: 'html-loader'
     }, {
       test: /\.(jpg|png)$/,
-      loader: 'url-loader?limit=25000',
+      use: 'url-loader?limit=25000',
       include: path.join(__dirname, 'slike')
     }, {
       test: /\.(jpg|png)$/,
-      loader: 'file-loader?name=[path][name].[hash].[ext]'
+      use: 'file-loader?name=[path][name].[hash].[ext]'
     }]
   }
 }
