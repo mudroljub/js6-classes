@@ -8,8 +8,8 @@ import OtpisaniScena from './scene/OtpisaniScena'
 import Scena1944 from './scene/avionce1944/Scena1944'
 
 // za spajanje
-import MinobacacScena from './scene/MinobacacScena'
-import TopScena from './scene/TopScena'
+import MinobacacScena from './scene/artiljerija/MinobacacScena'
+import TopScena from './scene/artiljerija/TopScena'
 
 // za spajanje
 import TenkicIde from './scene/tenkici/TenkicIde'
@@ -31,6 +31,7 @@ const scene = [
   // JasenovacScena,
   TenkOdozgoScena,
   // TopScena,
+  MinobacacScena,
   CamacScena,
   OtpisaniScena,
   Scena1944,
