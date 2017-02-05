@@ -65,7 +65,7 @@ const praviPrepreke = () => {
 
 export default class BombasScena extends Scena {
   static get naziv() {
-    return 'Bombaš i bunkeri'
+    return 'Bombaš'
   }
 
   constructor() {
