@@ -1,0 +1,3 @@
+[submodule "game-ui"]
+	path = game-ui
+	url = git@github.com:mudroljub/game-ui.git
