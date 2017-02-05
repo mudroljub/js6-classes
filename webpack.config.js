@@ -31,16 +31,7 @@ module.exports = {
     }, {
       test: /\.html$/,
       loader: 'html-loader'
-    },
-    // {
-    //   test: /\.(jpg|png)$/,
-    //   loader: 'url-loader',
-    //   options: {
-    //     limit: 25000,
-    //   },
-    //   include: path.join(__dirname, 'slike')
-    // },
-    {
+    }, {
       test: /\.(jpg|png|gif)$/,
       loader: 'file-loader',
       options: {
