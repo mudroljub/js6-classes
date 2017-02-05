@@ -1,10 +1,10 @@
-![](screen.png)
+[![](screen.png)](https://mudroljub.github.io/igrica-partizani/)
 
 # Igrica partizani
 
 Male igrice o Nemcima i partizanima.
 
-Razvojna verzija je ovde: https://mudroljub.github.io/igrica-partizani/
+Razvojna verzija je ovde: [mudroljub.github.io/igrica-partizani](https://mudroljub.github.io/igrica-partizani/)
 
 ## Instalacija
 
@@ -24,7 +24,7 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## Uraditi:
-- odvojiti 3 podmodula: game-ui, game-engine i game-assets
+- odvojiti game-assets
 - staviti svima default export
 - odvajati zajednicke metode u akcije (kompozitni obrazac)
 - dodati fiziku
