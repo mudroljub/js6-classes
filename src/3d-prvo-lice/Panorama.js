@@ -1,4 +1,4 @@
-import * as $ from 'konstante'
+import {MOBILNI, KRUZNICA} from 'konstante'
 import {platno, podloga} from 'io/platno'
 import Slika from 'core/Slika.js'
 
@@ -7,7 +7,7 @@ const BOJA_KISHE = '#ffffff'
 const SENKA_ZIDA = '#000000'
 const ZIZNA_DALJINA = 0.8
 const PROCENAT_MUNJE = 0.04
-const REZOLUCIJA = $.MOBILNI ? 160 : 320
+const REZOLUCIJA = MOBILNI ? 160 : 320
 const IGNORISE_VISINU = true
 const KISHA_PADA = true
 
@@ -17,7 +17,7 @@ export class Panorama {
     this.nebo = new Slika(nebo)
     this.teksture = teksture.map((tekstura) => new Slika(tekstura))
     this.sirinaGrida = platno.width / REZOLUCIJA
-    this.grom = new Audio($.root + 'zvuci/grom.mp3')
+    this.grom = new Audio(__dirname + 'zvuci/grom.mp3')
     this.dometSvetla = 5
     this.svetlo = 0
     this.pustiKishu()
@@ -34,7 +34,7 @@ export class Panorama {
   }
 
   pustiKishu() {
-    this.zvukKishe = new Audio($.root + 'zvuci/kisha.mp3')
+    this.zvukKishe = new Audio(__dirname + 'zvuci/kisha.mp3')
     this.zvukKishe.loop = true
     this.zvukKishe.play()
   }
@@ -50,9 +50,9 @@ export class Panorama {
   }
 
   crtaNebo() {
-    let novaSirina = this.trebaTlo ? this.nebo.sirina : this.nebo.sirina * (platno.height / this.nebo.visina) * 2
-    let novaVisina = this.trebaTlo ? platno.height / 2 : platno.height
-    let x = -(this.prvoLice.ugao / $.KRUZNICA) * novaSirina
+    const novaSirina = this.trebaTlo ? this.nebo.sirina : this.nebo.sirina * (platno.height / this.nebo.visina) * 2
+    const novaVisina = this.trebaTlo ? platno.height / 2 : platno.height
+    const x = -(this.prvoLice.ugao / KRUZNICA) * novaSirina
     podloga.save()
     podloga.drawImage(this.nebo.slika, x, 0, novaSirina, novaVisina)
     if (x < (novaSirina - platno.width)) {

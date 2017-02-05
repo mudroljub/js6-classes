@@ -1,4 +1,3 @@
-import {root} from 'konstante'
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
@@ -25,13 +24,13 @@ const strazar = new Okupator()
 
 export default class OtpisaniScena extends Scena {
   static get naziv() {
-    return "Ubij okupatora!"
+    return 'Ubij okupatora!'
   }
 
   constructor() {
     super()
     mish.dodajNishan()
-    this.zvuk = new Audio(root + "zvuci/otpisani.mp3")
+    this.zvuk = new Audio(__dirname + 'zvuci/otpisani.mp3')
     this.zvuk.play()
     this.dodaj(new UI(sablon))
     platno.addEventListener('click', () => strazar.proveriPogodak())

@@ -1,8 +1,6 @@
-// sakriti platno
-
 import rute from './rute'
-import UI from './core/UI'
-import {sakrijPlatno, pokaziPlatno} from './io/platno'
+import UI from 'core/UI'
+import {sakrijPlatno, pokaziPlatno} from 'io/platno'
 
 const getRoute = () => window.location.hash.slice(1)
 
@@ -57,7 +55,7 @@ export default function indexController() {
   }
 
   return {
-    start: start,
-    end: end
+    start,
+    end
   }
 }

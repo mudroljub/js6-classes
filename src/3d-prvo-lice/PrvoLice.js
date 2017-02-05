@@ -3,6 +3,7 @@ import {platno, podloga} from 'io/platno'
 import tipke from 'io/tipke'
 import Slika from 'core/Slika.js'
 import slikaMitraljez from 'slike/2d-prvo-lice/mitraljez.png'
+import slikaPlam from 'slike/mali-plam.png'
 
 let predjeno = 0
 export const BRZINA = 0.3
@@ -20,7 +21,7 @@ export class PrvoLice {
     this.ugao = ugao
     this.mapa = mapa
     this.oruzje = new Slika(slikaMitraljez)
-    this.pucanj = new Audio($.root + 'zvuci/rafal.mp3')
+    this.pucanj = new Audio(__dirname + 'zvuci/rafal.mp3')
     this.drmanje = 0
   }
 
@@ -51,7 +52,7 @@ export class PrvoLice {
 
   crtaPlamen(x, y) {
     if (!this.drmanje) return
-    const plamen = new Slika($.root + 'slike/mali-plam.png', 300, 200)
+    const plamen = new Slika(slikaPlam, 300, 200)
     podloga.drawImage(plamen.slika, x, y)
   }
 

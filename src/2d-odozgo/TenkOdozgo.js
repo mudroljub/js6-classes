@@ -1,4 +1,4 @@
-import {root, KRUZNICA} from 'konstante'
+import {KRUZNICA} from 'konstante'
 import Predmet from 'core/Predmet'
 import slikaTenk from 'slike/2d-odozgo/tenk-rdjavi.gif'
 
@@ -9,7 +9,7 @@ export class TenkOdozgo extends Predmet {
     super(slikaTenk, 168, 70)
     this.x = x
     this.y = y
-    this.zvuk = new Audio(root + 'zvuci/zvuk-tenka.mp3')
+    this.zvuk = new Audio(__dirname + 'zvuci/zvuk-tenka.mp3')
     this.dodajSilu(SILA, 0)
   }
 

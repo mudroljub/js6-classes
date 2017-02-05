@@ -1,4 +1,4 @@
-import {toUrl} from './utils'
+import {toUrl} from 'utils'
 
 import BombasScena from './scene/BombasScena'
 import NemciIzRovova from './scene/NemciIzRovova'

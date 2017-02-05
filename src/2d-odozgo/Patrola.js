@@ -1,4 +1,3 @@
-import {root} from 'konstante'
 import {kruzi} from 'akcije/granice'
 import {nasumicnoOkruglo} from 'utils'
 import Predmet from 'core/Predmet'
@@ -27,7 +26,7 @@ export default class Patrola extends Predmet {
   constructor(src = slikaNemciPatrola) {
     super(src)
     this.vreme = new Vreme()
-    this.zvuk = new Audio(`${root}zvuci/patrola/Stop.wav`)
+    this.zvuk = new Audio(`${__dirname}zvuci/patrola/Stop.wav`)
     this.brzina = 6
     this.granice = kruzi
   }
@@ -47,7 +46,7 @@ export default class Patrola extends Predmet {
 
   pustiNasumicno(zvuci) {
     const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length-1)]
-    this.zvuk.src = `${root}zvuci/patrola/${zvuk}`
+    this.zvuk.src = `${__dirname}zvuci/patrola/${zvuk}`
     this.zvuk.play()
   }
 
