@@ -1,5 +1,5 @@
 import * as $ from '../konstante'
-import tipke from '../io/tipke'
+import tipke from 'io/tipke'
 import Predmet from './Predmet'
 
 const OKRET = 0.087

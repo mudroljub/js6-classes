@@ -1,6 +1,6 @@
 import Vreme from './Vreme';
 import Predmet from './Predmet';
-import {podloga} from '../io/platno'
+import {podloga} from 'io/platno'
 
 export class Animiran extends Predmet {
 

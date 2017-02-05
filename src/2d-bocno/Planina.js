@@ -1,7 +1,7 @@
 import {root} from '../konstante'
-import Predmet from '../core/Predmet'
-import platno from '../io/platno'
-import {kruzi} from '../akcije/granice'
+import Predmet from 'core/Predmet'
+import platno from 'io/platno'
+import {kruzi} from 'akcije/granice'
 
 export class Planina extends Predmet {
 

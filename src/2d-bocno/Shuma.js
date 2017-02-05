@@ -1,7 +1,7 @@
 import {root} from '../konstante'
-import Predmet from '../core/Predmet'
-import platno from '../io/platno'
-import {vracaVodoravno} from '../akcije/granice'
+import Predmet from 'core/Predmet'
+import platno from 'io/platno'
+import {vracaVodoravno} from 'akcije/granice'
 
 export class Shuma extends Predmet {
 

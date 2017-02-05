@@ -1,5 +1,5 @@
-import Predmet from '../core/Predmet'
-import platno from '../io/platno'
+import Predmet from 'core/Predmet'
+import platno from 'io/platno'
 
 export default class Pozadina extends Predmet {
 

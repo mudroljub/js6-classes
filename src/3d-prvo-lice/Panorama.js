@@ -1,6 +1,6 @@
 import * as $ from '../konstante'
-import {platno, podloga} from '../io/platno'
-import Slika from '../core/Slika.js'
+import {platno, podloga} from 'io/platno'
+import Slika from 'core/Slika.js'
 
 const BOJA_TLA = '#701206'
 const BOJA_KISHE = '#ffffff'

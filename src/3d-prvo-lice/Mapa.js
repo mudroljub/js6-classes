@@ -1,5 +1,5 @@
 import {mapa} from '../mape/mapa-mala';
-import {podloga} from '../io/platno'
+import {podloga} from 'io/platno'
 
 const BOJE = ['#fff', '#444', '#701206', '#000'];
 

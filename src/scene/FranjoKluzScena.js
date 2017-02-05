@@ -1,9 +1,9 @@
 // avion Potez 25
 
 import * as $ from '../konstante'
-import tipke from '../io/tipke'
-import platno from '../io/platno'
-import Scena from '../core/Scena'
+import tipke from 'io/tipke'
+import platno from 'io/platno'
+import Scena from 'core/Scena'
 import {AvionIgrac} from '../2d-bocno/AvionIgrac'
 import {Hummel} from '../2d-bocno/Hummel'
 import {Zgrada} from '../2d-bocno/Zgrada'

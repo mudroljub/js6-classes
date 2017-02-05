@@ -14,6 +14,13 @@ module.exports = {
   },
   watch: true,
   devtool: 'source-map',
+  resolve: {
+    alias: {
+      core: path.resolve(__dirname, 'src/core/'),
+      akcije: path.resolve(__dirname, 'src/akcije/'),
+      io: path.resolve(__dirname, 'src/io/')
+    }
+  },
   module: {
     rules: [{
       test: /\.css$/,

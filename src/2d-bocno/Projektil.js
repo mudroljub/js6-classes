@@ -1,4 +1,4 @@
-import {podloga} from '../io/platno'
+import {podloga} from 'io/platno'
 
 const GRAVITACIJA = 0.9
 

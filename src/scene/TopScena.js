@@ -1,5 +1,5 @@
-import Scena from '../core/Scena'
-import UI from '../core/UI'
+import Scena from 'core/Scena'
+import UI from 'core/UI'
 import {Top} from '../2d-bocno/Top'
 
 // top je rezervisano

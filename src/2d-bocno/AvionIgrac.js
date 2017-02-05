@@ -1,8 +1,8 @@
 import * as $ from '../konstante'
-import tipke from '../io/tipke'
-import Igrac from '../core/Igrac'
+import tipke from 'io/tipke'
+import Igrac from 'core/Igrac'
 import {Raketa} from './Raketa'
-import {ogranici} from '../akcije/granice'
+import {ogranici} from 'akcije/granice'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066

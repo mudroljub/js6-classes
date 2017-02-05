@@ -1,4 +1,4 @@
-import {platno, podloga} from '../io/platno'
+import {platno, podloga} from 'io/platno'
 
 export default class Scena {
 

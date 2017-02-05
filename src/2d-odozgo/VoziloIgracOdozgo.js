@@ -1,7 +1,7 @@
 import * as $ from '../konstante'
-import Igrac from '../core/Igrac'
+import Igrac from 'core/Igrac'
 import {Granata} from './Granata'
-import {odbij} from '../akcije/granice'
+import {odbij} from 'akcije/granice'
 
 export class VoziloIgracOdozgo extends Igrac {
 

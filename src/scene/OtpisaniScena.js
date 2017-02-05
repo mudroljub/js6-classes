@@ -1,10 +1,10 @@
 import {root} from '../konstante'
-import UI from '../core/UI'
-import Scena from '../core/Scena'
-import Pozadina from '../core/Pozadina'
+import UI from 'core/UI'
+import Scena from 'core/Scena'
+import Pozadina from 'core/Pozadina'
 import {Okupator} from '../2d-prvo-lice/Okupator'
-import platno from '../io/platno'
-import mish from '../io/mish'
+import platno from 'io/platno'
+import mish from 'io/mish'
 
 /*** KONFIG ***/
 

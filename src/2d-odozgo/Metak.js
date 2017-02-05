@@ -1,6 +1,6 @@
-import Predmet from '../core/Predmet'
+import Predmet from 'core/Predmet'
 import {root} from '../konstante'
-import {nestani} from '../akcije/granice'
+import {nestani} from 'akcije/granice'
 
 export class Metak extends Predmet {
 

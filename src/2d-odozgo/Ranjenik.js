@@ -1,5 +1,5 @@
 import {root} from '../konstante'
-import Igrac from '../core/Igrac'
+import Igrac from 'core/Igrac'
 
 const OKRET = 0.035
 

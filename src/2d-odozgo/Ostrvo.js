@@ -1,6 +1,6 @@
-import Predmet from '../core/Predmet';
+import Predmet from 'core/Predmet';
 import {root} from '../konstante';
-import platno from '../io/platno'
+import platno from 'io/platno'
 
 export class Ostrvo extends Predmet {
 

@@ -5,10 +5,10 @@
 
 import * as $ from '../konstante'
 import * as _ from '../utils'
-import Predmet from '../core/Predmet'
-import Igrac from '../core/Igrac'
-import platno from '../io/platno'
-import {ogranici} from '../akcije/granice'
+import Predmet from 'core/Predmet'
+import Igrac from 'core/Igrac'
+import platno from 'io/platno'
+import {ogranici} from 'akcije/granice'
 
 export class TenkBocnoIgrac extends Igrac {
 

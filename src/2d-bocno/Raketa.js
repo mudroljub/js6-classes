@@ -1,6 +1,6 @@
 import {root} from '../konstante'
-import Predmet from '../core/Predmet'
-import {nestani} from '../akcije/granice'
+import Predmet from 'core/Predmet'
+import {nestani} from 'akcije/granice'
 
 export class Raketa extends Predmet {
 

@@ -1,8 +1,8 @@
 import {root} from '../konstante'
-import {kruzi} from '../akcije/granice'
+import {kruzi} from 'akcije/granice'
 import {nasumicnoOkruglo} from '../utils'
-import Predmet from '../core/Predmet'
-import Vreme from '../core/Vreme'
+import Predmet from 'core/Predmet'
+import Vreme from 'core/Vreme'
 
 const zvuciTraganje = [
   'eatdirtpig.wav',

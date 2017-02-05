@@ -4,15 +4,15 @@
 // u jasenovcu beton i trebalo bi ustase, a na sutjesci nemci, italijani, cetnici
 
 import {root} from '../konstante'
-import {izasaoDesno} from '../akcije/granice'
-import {platno, podloga} from '../io/platno'
+import {izasaoDesno} from 'akcije/granice'
+import {platno, podloga} from 'io/platno'
 import {skaliranRazmak} from '../utils'
-import Scena from '../core/Scena'
-import Pozadina from '../core/Pozadina'
+import Scena from 'core/Scena'
+import Pozadina from 'core/Pozadina'
 import Ranjenik from '../2d-odozgo/Ranjenik'
 import Patrola from '../2d-odozgo/Patrola'
-import Vreme from '../core/Vreme'
-import UI from '../core/UI'
+import Vreme from 'core/Vreme'
+import UI from 'core/UI'
 
 /*** KONFIG ***/
 

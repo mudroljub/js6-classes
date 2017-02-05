@@ -1,4 +1,4 @@
-import {unutar} from '../akcije/sudari'
+import {unutar} from 'akcije/sudari'
 import {root} from '../konstante'
 
 const mish = {

@@ -1,7 +1,7 @@
 import {root} from '../konstante'
-import {Animiran} from '../core/Animiran'
-import platno from '../io/platno'
-import mish from '../io/mish'
+import {Animiran} from 'core/Animiran'
+import platno from 'io/platno'
+import mish from 'io/mish'
 
 export class Okupator extends Animiran {
 

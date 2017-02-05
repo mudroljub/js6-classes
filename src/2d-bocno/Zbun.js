@@ -1,8 +1,8 @@
 import {root} from '../konstante'
 import * as _ from '../utils'
-import Predmet from '../core/Predmet'
-import platno from '../io/platno'
-import {vracaVodoravno} from '../akcije/granice'
+import Predmet from 'core/Predmet'
+import platno from 'io/platno'
+import {vracaVodoravno} from 'akcije/granice'
 
 export class Zbun extends Predmet {
   constructor(nivoTla = platno.height, src = root + "slike/2d-bocno/priroda/zbun.png") {

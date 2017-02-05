@@ -3,7 +3,7 @@
 
 import {root} from '../konstante';
 import {mapa as modelMapa} from '../mape/mapa-mala';
-import Scena from '../core/Scena.js';
+import Scena from 'core/Scena.js';
 import {Mapa} from '../3d-prvo-lice/Mapa.js';
 import {PrvoLice} from '../3d-prvo-lice/PrvoLice.js';
 import {Panorama} from '../3d-prvo-lice/Panorama.js';

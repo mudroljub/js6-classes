@@ -3,8 +3,8 @@
 // razlicite podloge ubrzavaju/usporavaju tenk
 
 import {root} from '../konstante'
-import Scena from '../core/Scena'
-import Pozadina from '../core/Pozadina'
+import Scena from 'core/Scena'
+import Pozadina from 'core/Pozadina'
 import {TenkIgracOdozgo} from '../2d-odozgo/TenkIgracOdozgo'
 
 /*** INIT ***/

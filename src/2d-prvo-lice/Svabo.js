@@ -1,7 +1,7 @@
 import {root} from '../konstante'
-import Predmet from '../core/Predmet'
-import Vreme from '../core/Vreme'
-import mish from '../io/mish'
+import Predmet from 'core/Predmet'
+import Vreme from 'core/Vreme'
+import mish from 'io/mish'
 
 const VREME_NISANJENJA = 3
 
