@@ -1,6 +1,7 @@
 import {KRUZNICA} from 'konstante'
 import Predmet from 'core/Predmet'
 import slikaTenk from 'slike/2d-odozgo/tenk-rdjavi.gif'
+import zvukTenka from 'zvuci/zvuk-tenka.mp3'
 
 const SILA = 1
 
@@ -9,7 +10,7 @@ export class TenkOdozgo extends Predmet {
     super(slikaTenk, 168, 70)
     this.x = x
     this.y = y
-    this.zvuk = new Audio(__dirname + 'zvuci/zvuk-tenka.mp3')
+    this.zvuk = new Audio(zvukTenka)
     this.dodajSilu(SILA, 0)
   }
 

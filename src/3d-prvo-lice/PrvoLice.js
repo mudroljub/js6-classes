@@ -4,6 +4,7 @@ import tipke from 'io/tipke'
 import Slika from 'core/Slika.js'
 import slikaMitraljez from 'slike/2d-prvo-lice/mitraljez.png'
 import slikaPlam from 'slike/mali-plam.png'
+import zvukRafal from 'zvuci/rafal.mp3'
 
 let predjeno = 0
 export const BRZINA = 0.3
@@ -21,7 +22,7 @@ export class PrvoLice {
     this.ugao = ugao
     this.mapa = mapa
     this.oruzje = new Slika(slikaMitraljez)
-    this.pucanj = new Audio(__dirname + 'zvuci/rafal.mp3')
+    this.pucanj = new Audio(zvukRafal)
     this.drmanje = 0
   }
 

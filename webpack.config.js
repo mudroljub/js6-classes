@@ -21,7 +21,8 @@ module.exports = {
       io: path.resolve(__dirname, 'game-engine/src/io/'),
       konstante: path.resolve(__dirname, 'game-engine/src/konstante'),
       utils: path.resolve(__dirname, 'game-engine/src/utils'),
-      slike: path.resolve(__dirname, 'slike/')
+      slike: path.resolve(__dirname, 'game-assets/slike/'),
+      zvuci: path.resolve(__dirname, 'game-assets/zvuci/')
     }
   },
   module: {
@@ -32,7 +33,7 @@ module.exports = {
       test: /\.html$/,
       loader: 'html-loader'
     }, {
-      test: /\.(jpg|png|gif)$/,
+      test: /\.(jpg|png|gif|wav|mp3)$/,
       loader: 'file-loader',
       options: {
         name: '[path][name].[hash].[ext]'

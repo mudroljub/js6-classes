@@ -3,6 +3,7 @@ import {nasumicnoOkruglo} from 'utils'
 import Predmet from 'core/Predmet'
 import Vreme from 'core/Vreme'
 import slikaNemciPatrola from 'slike/2d-odozgo/nemci-patrola.gif'
+import zvukStop from 'zvuci/patrola/Stop.wav'
 
 const zvuciTraganje = [
   'eatdirtpig.wav',
@@ -26,7 +27,7 @@ export default class Patrola extends Predmet {
   constructor(src = slikaNemciPatrola) {
     super(src)
     this.vreme = new Vreme()
-    this.zvuk = new Audio(`${__dirname}zvuci/patrola/Stop.wav`)
+    this.zvuk = new Audio(zvukStop)
     this.brzina = 6
     this.granice = kruzi
   }
@@ -46,7 +47,7 @@ export default class Patrola extends Predmet {
 
   pustiNasumicno(zvuci) {
     const zvuk = zvuci[nasumicnoOkruglo(0, zvuci.length-1)]
-    this.zvuk.src = `${__dirname}zvuci/patrola/${zvuk}`
+    this.zvuk.src = `${__dirname}game-assets/zvuci/patrola/${zvuk}`
     this.zvuk.play()
   }
 
