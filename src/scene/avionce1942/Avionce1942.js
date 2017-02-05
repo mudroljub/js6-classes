@@ -4,12 +4,12 @@ import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import platno from 'io/platno'
 import Scena from 'core/Scena'
-import AvionIgrac from '../2d-bocno/AvionIgrac'
-import Hummel from '../2d-bocno/Hummel'
-import Zgrada from '../2d-bocno/Zgrada'
-import Oblak from '../2d-bocno/Oblak'
-import Zbun from '../2d-bocno/Zbun'
-import Shuma from '../2d-bocno/Shuma'
+import AvionIgrac from './AvionIgrac'
+import Hummel from './Hummel'
+import Zgrada from './Zgrada'
+import Oblak from 'src/2d-bocno/Oblak'
+import Zbun from 'src/2d-bocno/Zbun'
+import Shuma from 'src/2d-bocno/Shuma'
 import slikaAerodrom from 'slike/2d-bocno/zgrade/aerodrom.png'
 import slikaRuina from 'slike/2d-bocno/zgrade/ruina.png'
 
@@ -42,9 +42,9 @@ const aerodrom = new Zgrada(nivoTla, slikaAerodrom)
 const ruina = new Zgrada(nivoTla, slikaRuina)
 let igrac
 
-export default class FranjoKluzScena extends Scena {
+export default class Avionce1942 extends Scena {
   static get naziv() {
-    return 'Franjo Kluz'
+    return 'Avionče 1942'
   }
 
   constructor() {

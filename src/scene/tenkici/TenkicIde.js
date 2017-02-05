@@ -41,7 +41,7 @@ for (let i = 0; i < BROJ_OBLAKA; i++) {
 
 export default class TenkicIde extends Scena {
   static get naziv() {
-    return "Tenk ide"
+    return "Tenkić solo"
   }
 
   constructor() {

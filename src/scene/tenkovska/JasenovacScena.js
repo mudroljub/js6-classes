@@ -3,7 +3,7 @@
 import Scena from 'core/Scena'
 import Predmet from 'core/Predmet'
 import Pozadina from 'core/Pozadina'
-import TenkOdozgo from '../2d-odozgo/TenkOdozgo'
+import TenkOdozgo from './TenkOdozgo'
 import slikaBeton from 'slike/teksture/beton.gif'
 import slikaZica from 'slike/2d-bocno/stvari/bodljikava-zica.gif'
 
