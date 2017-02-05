@@ -24,10 +24,9 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## Uraditi:
-- odvajati zajednicke metode u akcije (kompozitni obrazac)
+- odvojiti vaznije igre (1944, tenkiće i sl.)
 - dodati fiziku
 - napraviti Kameru
-- redukovati css
 
 ### Faza 1: refaktor i sredjivanje
 - Avionce: promeniti zvuk motora
