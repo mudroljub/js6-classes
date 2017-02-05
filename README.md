@@ -12,6 +12,8 @@ Prvo instaliraj [node.js](https://nodejs.org), noviju verziju. Nakon toga klonir
 ```
 git clone
 npm install
+git submodule init
+git submodule update
 ```
 Da pokreneš igru u razvojnom modu ukucaj:
 ```
