@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import * as $ from 'konstante'
 import {platno, podloga} from 'io/platno'
 import tipke from 'io/tipke'
 import Slika from 'core/Slika.js'

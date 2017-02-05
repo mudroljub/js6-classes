@@ -1,4 +1,4 @@
-import {KRUZNICA} from '../konstante';
+import {KRUZNICA} from 'konstante';
 import Predmet from 'core/Predmet';
 
 export class VoziloBocno extends Predmet {

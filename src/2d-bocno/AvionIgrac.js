@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
 import {Raketa} from './Raketa'

@@ -1,4 +1,4 @@
-import {root, KRUZNICA} from '../konstante'
+import {root, KRUZNICA} from 'konstante'
 import Predmet from 'core/Predmet'
 import slikaTenk from 'slike/2d-odozgo/tenk-rdjavi.gif'
 

@@ -1,5 +1,5 @@
 import {unutar} from 'akcije/sudari'
-import {root} from '../konstante'
+import {root} from 'konstante'
 import nisan from 'slike/2d-prvo-lice/nisan.png'
 
 const mish = {

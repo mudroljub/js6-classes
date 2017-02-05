@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import {podloga} from 'io/platno'
 import Kvadrat from 'core/Kvadrat'
@@ -10,7 +10,7 @@ const DJULE_POLUPRECNIK = 10
 
 export class Minobacac extends Kvadrat {
 
-  constructor(x, y, sirina, visina, boja="rgb(40,40,0)") {
+  constructor(x, y, sirina, visina, boja='rgb(40,40,0)') {
     super(x, y, sirina, visina, boja)
     this.ugao = 0.5
     this.brzina = 20

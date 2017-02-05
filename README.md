@@ -24,6 +24,7 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## Uraditi:
+- odvojiti 3 podmodula: game-ui, game-engine i game-assets
 - staviti svima default export
 - odvajati zajednicke metode u akcije (kompozitni obrazac)
 - dodati fiziku

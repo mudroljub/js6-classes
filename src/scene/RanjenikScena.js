@@ -5,7 +5,7 @@
 
 import {izasaoDesno} from 'akcije/granice'
 import {platno, podloga} from 'io/platno'
-import {skaliranRazmak} from '../utils'
+import {skaliranRazmak} from 'utils'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import Ranjenik from '../2d-odozgo/Ranjenik'

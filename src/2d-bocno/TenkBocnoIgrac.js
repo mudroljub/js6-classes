@@ -3,8 +3,8 @@
 // napraviti niz granata, da puca zaredom
 // popraviti granatu, da menja ugaoCevi sukladno gravitaciji
 
-import * as $ from '../konstante'
-import * as _ from '../utils'
+import * as $ from 'konstante'
+import * as _ from 'utils'
 import Predmet from 'core/Predmet'
 import Igrac from 'core/Igrac'
 import platno from 'io/platno'

@@ -1,6 +1,6 @@
 // avion Potez 25
 
-import * as $ from '../konstante'
+import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import platno from 'io/platno'
 import Scena from 'core/Scena'

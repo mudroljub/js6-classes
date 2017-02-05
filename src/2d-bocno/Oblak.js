@@ -1,4 +1,4 @@
-import * as _ from '../utils'
+import * as _ from 'utils'
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
 import {vracaVodoravno} from 'akcije/granice'

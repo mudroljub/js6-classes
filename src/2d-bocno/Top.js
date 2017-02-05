@@ -1,4 +1,4 @@
-import * as $ from '../konstante'
+import * as $ from 'konstante'
 import tipke from 'io/tipke'
 import {platno, podloga} from 'io/platno'
 import Slika from 'core/Slika'

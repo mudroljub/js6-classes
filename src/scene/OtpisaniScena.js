@@ -1,4 +1,4 @@
-import {root} from '../konstante'
+import {root} from 'konstante'
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
