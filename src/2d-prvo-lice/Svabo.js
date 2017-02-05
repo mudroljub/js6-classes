@@ -1,17 +1,19 @@
-import {root} from '../konstante'
 import Predmet from 'core/Predmet'
 import Vreme from 'core/Vreme'
 import mish from 'io/mish'
+import slikaNemac from 'slike/2d-prvo-lice/nemac-rov.gif'
+import slikaRovPrazan from 'slike/2d-prvo-lice/rov-prazan.gif'
+import slikaNemacPuca from 'slike/2d-prvo-lice/nemac-rov-puca.gif'
 
 const VREME_NISANJENJA = 3
 
 export class Svabo extends Predmet {
 
-  constructor (sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.003) {
-    super (root + "slike/2d-prvo-lice/rov-prazan.gif", sirina, visina)
+  constructor(sirina = 100, visina = 150, PROCENAT_POJAVLJIVANJA = 0.003) {
+    super (slikaRovPrazan, sirina, visina)
     this.stoji = false
-    this.slikaGore = root + "slike/2d-prvo-lice/nemac-rov.gif"
-    this.slikaDole = root + "slike/2d-prvo-lice/rov-prazan.gif"
+    this.slikaGore = slikaNemac
+    this.slikaDole = slikaRovPrazan
     this.PROCENAT_POJAVLJIVANJA = PROCENAT_POJAVLJIVANJA
     this.VREME_NISANJENJA = VREME_NISANJENJA //koliko sekundi stoji pre nego zapuca
     this.vreme = new Vreme()
@@ -28,7 +30,7 @@ export class Svabo extends Predmet {
 
   stav(bul) {
     this.stoji = bul
-    let slika = bul ? this.slikaGore : this.slikaDole
+    const slika = bul ? this.slikaGore : this.slikaDole
     this.zameniSliku(slika)
     if (bul) this.vreme.reset() // startuje tajmer
   }
@@ -42,7 +44,7 @@ export class Svabo extends Predmet {
   }
 
   puca() {
-    this.slika.src = root + "slike/2d-prvo-lice/nemac-rov-puca.gif"
+    this.slika.src = slikaNemacPuca
   }
 
   jePogodjen() {
@@ -51,7 +53,7 @@ export class Svabo extends Predmet {
 
   jeSpreman() {
     if (!this.stoji) return false
-    let duzinaOstanka = this.vreme.protekloSekundi
+    const duzinaOstanka = this.vreme.protekloSekundi
     if (duzinaOstanka <= this.VREME_NISANJENJA / 2) return false
     if (duzinaOstanka > this.VREME_NISANJENJA) return true
   }

@@ -4,24 +4,24 @@
 // napraviti beskonačnu pozadinu sa preprekama i objektima koji nalecu
 // napraviti verziju za minobacače
 
-import {root} from '../konstante'
 import platno from 'io/platno'
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import {TenkPartizanski} from '../2d-bocno/TenkPartizanski'
 import {TenkNemacki} from '../2d-bocno/TenkNemacki'
+import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 
 /*** INIT ***/
 
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki(650, 450)
-const pozadina = new Pozadina(root + "slike/pozadine/razrusen-grad-savremen.jpg")
+const pozadina = new Pozadina(slikaPozadina)
 const interfejs = new UI(sablon)
 
 export default class TenkiciScena extends Scena {
   static get naziv() {
-    return "Tenkići"
+    return 'Tenkići'
   }
 
   constructor() {
@@ -68,8 +68,8 @@ function reset() {
 
 function sablon() {
   return `
-    <div class="komande bg-poluprovidno komande1">
-      <span class="bold">Tenk 1</span>
+    <div class='komande bg-poluprovidno komande1'>
+      <span class='bold'>Tenk 1</span>
       <br> A - levo
       <br> D - desno
       <br> W - gore
@@ -77,17 +77,17 @@ function sablon() {
       <br> space - puca
     </div>
 
-    <div class="komande bg-poluprovidno komande2">
-      <span class="bold">Tenk 2</span>
+    <div class='komande bg-poluprovidno komande2'>
+      <span class='bold'>Tenk 2</span>
       <br> ← levo
       <br> → desno
       <br> ↑ gore
       <br> ↓ dole
       <br> M - puca
     </div>
-    <div class="komande bg-poluprovidno energija1">${tenk1.energija}</div>
-    <div class="komande bg-poluprovidno energija2">${tenk2.energija}</div>
-    <progress class="komande poluprovidno progres1" value="${tenk1.energija}" max="100"></progress>
-    <progress class="komande poluprovidno progres2" value="${tenk2.energija}" max="100"></progress>
+    <div class='komande bg-poluprovidno energija1'>${tenk1.energija}</div>
+    <div class='komande bg-poluprovidno energija2'>${tenk2.energija}</div>
+    <progress class='komande poluprovidno progres1' value='${tenk1.energija}' max='100'></progress>
+    <progress class='komande poluprovidno progres2' value='${tenk2.energija}' max='100'></progress>
   `
 }

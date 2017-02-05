@@ -1,23 +1,24 @@
-import Predmet from 'core/Predmet';
-import {root} from '../konstante';
+import Predmet from 'core/Predmet'
+import slikaBunker from 'slike/2d-bocno/kuca-bunker.png'
+import slikaBunkerGori from 'slike/2d-bocno/kuca-bunker-gori.png'
 
 export class Bunker extends Predmet {
 
-  constructor(sirina, visina){
-    super(root + "slike/2d-bocno/kuca-bunker.png", sirina, visina)
-    this.brzina = 0;
-    this.polozaj(400, 100);
+  constructor(sirina, visina) {
+    super(slikaBunker, sirina, visina)
+    this.brzina = 0
+    this.polozaj(400, 100)
   }
 
   nemojPreko(predmet) {
-    this.postaviRandomUredno();
+    this.postaviRandomUredno()
     if (this.razmakDo(predmet) < 150) {
-      this.nemojPreko(predmet);
+      this.nemojPreko(predmet)
     }
   }
 
   gori() {
-    this.slika.src = root + "slike/2d-bocno/kuca-bunker-gori.png";
+    this.slika.src = slikaBunkerGori
   }
 
 }

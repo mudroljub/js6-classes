@@ -2,11 +2,11 @@
 // ubaciti sliku minobacača
 // bodovi, mozda pogoci prema pokušajima, mozda dva igraca
 
-import {root}from '../konstante'
 import Scena from 'core/Scena'
 import Predmet from 'core/Predmet'
 import Kvadrat from 'core/Kvadrat'
 import {Minobacac} from '../2d-bocno/Minobacac'
+import slikaBrdo from 'slike/brdo.jpg'
 
 /*** KONFIG ***/
 
@@ -21,9 +21,9 @@ export default class MinobacacScena extends Scena {
   }
 
   init() {
-    brdo = new Predmet(root + "slike/brdo.jpg", 85, 280, 500, 50)
+    brdo = new Predmet(slikaBrdo, 85, 280, 500, 50)
     minobacac = new Minobacac(10, 280, 200, 20)
-    tlo = new Kvadrat(0, 300, 600, 30, "rgb(10,250,0)")
+    tlo = new Kvadrat(0, 300, 600, 30, 'rgb(10,250,0)')
     this.start()
   }
 

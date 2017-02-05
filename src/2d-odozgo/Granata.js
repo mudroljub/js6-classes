@@ -1,19 +1,19 @@
-import Predmet from 'core/Predmet';
-import {root} from '../konstante';
+import Predmet from 'core/Predmet'
+import slikaGranata from 'slike/granata.gif'
 
 export class Granata extends Predmet {
 
-  constructor(vlasnik, src = root + "slike/granata.gif") {
-    super(src, 24, 6);
-    this.sakrij();
-    this.vlasnik = vlasnik;
+  constructor(vlasnik, src = slikaGranata) {
+    super(src, 24, 6)
+    this.sakrij()
+    this.vlasnik = vlasnik
   }
 
   puca() {
-    this.pokazi();
-    this.brzina = 20;
-    this.polozaj(this.vlasnik.x, this.vlasnik.y);
-    this.ugao = this.vlasnik.ugao;
+    this.pokazi()
+    this.brzina = 20
+    this.polozaj(this.vlasnik.x, this.vlasnik.y)
+    this.ugao = this.vlasnik.ugao
   }
 
 }

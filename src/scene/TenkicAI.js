@@ -2,18 +2,18 @@
 // ukloniti dvostruki interval
 // ubaciti uništen tenk
 
-import {root} from '../konstante'
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import {TenkPartizanski} from '../2d-bocno/TenkPartizanski'
 import {TenkNemacki} from '../2d-bocno/TenkNemacki'
+import slikaPozadina from 'slike/pozadine/razrusen-grad-savremen.jpg'
 
 /*** INIT ***/
 
 const tenk1 = new TenkPartizanski(100, 450)
 const tenk2 = new TenkNemacki()
-const pozadina = new Pozadina(root + "slike/pozadine/razrusen-grad-savremen.jpg")
+const pozadina = new Pozadina(slikaPozadina)
 const interfejs = new UI(sablon)
 
 export default class TenkicAI extends Scena {

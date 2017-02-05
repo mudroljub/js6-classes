@@ -18,7 +18,8 @@ module.exports = {
     alias: {
       core: path.resolve(__dirname, 'src/core/'),
       akcije: path.resolve(__dirname, 'src/akcije/'),
-      io: path.resolve(__dirname, 'src/io/')
+      io: path.resolve(__dirname, 'src/io/'),
+      slike: path.resolve(__dirname, 'slike/')
     }
   },
   module: {
@@ -27,14 +28,22 @@ module.exports = {
       use: ['to-string-loader', 'css-loader']
     }, {
       test: /\.html$/,
-      use: 'html-loader'
-    }, {
-      test: /\.(jpg|png)$/,
-      use: 'url-loader?limit=25000',
-      include: path.join(__dirname, 'slike')
-    }, {
-      test: /\.(jpg|png)$/,
-      use: 'file-loader?name=[path][name].[hash].[ext]'
+      loader: 'html-loader'
+    },
+    // {
+    //   test: /\.(jpg|png)$/,
+    //   loader: 'url-loader',
+    //   options: {
+    //     limit: 25000,
+    //   },
+    //   include: path.join(__dirname, 'slike')
+    // },
+    {
+      test: /\.(jpg|png|gif)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[path][name].[hash].[ext]'
+      }
     }]
   }
 }

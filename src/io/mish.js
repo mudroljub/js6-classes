@@ -1,5 +1,6 @@
 import {unutar} from 'akcije/sudari'
 import {root} from '../konstante'
+import nisan from 'slike/2d-prvo-lice/nisan.png'
 
 const mish = {
   stisnut: false,
@@ -15,7 +16,7 @@ const mish = {
   dodajNishan() {
     mish.pucanj = new Audio(root + 'zvuci/pucanj.wav')
     document.body.addEventListener('click', mish.pucaj)
-    document.body.setAttribute('style', `cursor:url(${root}slike/2d-prvo-lice/nisan.png) 50 50, crosshair`)
+    document.body.setAttribute('style', `cursor:url(${nisan}) 50 50, crosshair`)
   },
 
   ukloniNishan() {

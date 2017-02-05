@@ -4,6 +4,7 @@ import Vreme from 'core/Vreme'
 import {Metak} from '../2d-odozgo/Metak'
 import platno from 'io/platno'
 import {ogranici} from 'akcije/granice'
+import slikaAvionce from 'slike/2d-odozgo/avionce.gif'
 
 const BROJ_METAKA = 999
 const SIRINA_PALJBE = 13
@@ -12,10 +13,10 @@ const PAUZA_PALJBE = 0.1
 export class Avionce extends Igrac {
 
   constructor() {
-    super(root + "slike/2d-odozgo/avionce.gif")
+    super(slikaAvionce)
     this.prevelicaj(0.75)
     this.vreme = new Vreme()
-    this.zvukMotora = new Audio(root + "zvuci/engine.mp3")
+    this.zvukMotora = new Audio(root + 'zvuci/engine.mp3')
     this.meci = []
     this.trenutniMetak = 0
     this.brzina = 0
@@ -37,9 +38,9 @@ export class Avionce extends Igrac {
   }
 
   puca() {
-    let protekloVreme = this.vreme.protekloSekundi
-    let cevNijeSpremna = protekloVreme <= PAUZA_PALJBE
-    let nemaMunicije = this.trenutniMetak >= BROJ_METAKA - 2
+    const protekloVreme = this.vreme.protekloSekundi
+    const cevNijeSpremna = protekloVreme <= PAUZA_PALJBE
+    const nemaMunicije = this.trenutniMetak >= BROJ_METAKA - 2
     if (cevNijeSpremna || nemaMunicije) return
 
     this.meci[this.trenutniMetak].puca(0)

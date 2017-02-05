@@ -1,12 +1,12 @@
-import {root} from '../konstante'
 import {Animiran} from 'core/Animiran'
 import platno from 'io/platno'
 import mish from 'io/mish'
+import okupatorSprite from 'slike/sprajtovi/okupator-sprite.png'
 
 export class Okupator extends Animiran {
 
-  constructor () {
-    super (root + "slike/sprajtovi/okupator-sprite.png", ["nagore", "nadole", "nalevo", "nadesno", "umire"], 5)
+  constructor() {
+    super (okupatorSprite, ['nagore', 'nadole', 'nalevo', 'nadesno', 'umire'], 5)
     this.sirina = 50
     this.visina = 180
     this.brzina = 4
@@ -17,8 +17,8 @@ export class Okupator extends Animiran {
   }
 
   patroliraj() {
-    if (this.x <= this.limitLevo) this.hodaj("nadesno", 0)
-    if (this.x >= this.limitDesno) this.hodaj("nalevo", 180)
+    if (this.x <= this.limitLevo) this.hodaj('nadesno', 0)
+    if (this.x >= this.limitDesno) this.hodaj('nalevo', 180)
   }
 
   hodaj(imeAnimacije, ugao) {
@@ -32,8 +32,8 @@ export class Okupator extends Animiran {
 
   umri() {
     super.umri()
-    this.postaviAnimaciju("umire")
-    this.nePonavljaAnimaciju("umire")
+    this.postaviAnimaciju('umire')
+    this.nePonavljaAnimaciju('umire')
   }
 
 }

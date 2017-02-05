@@ -10,6 +10,8 @@ import {Zgrada} from '../2d-bocno/Zgrada'
 import {Oblak} from '../2d-bocno/Oblak'
 import {Zbun} from '../2d-bocno/Zbun'
 import {Shuma} from '../2d-bocno/Shuma'
+import slikaAerodrom from 'slike/2d-bocno/zgrade/aerodrom.png'
+import slikaRuina from 'slike/2d-bocno/zgrade/ruina.png'
 
 /*** KONFIG ***/
 
@@ -36,13 +38,13 @@ let dignutostScene = 0
 /*** INIT ***/
 
 const vozilo = new Hummel(nivoTla)
-const aerodrom = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/aerodrom.png")
-const ruina = new Zgrada(nivoTla, $.root + "slike/2d-bocno/zgrade/ruina.png")
+const aerodrom = new Zgrada(nivoTla, slikaAerodrom)
+const ruina = new Zgrada(nivoTla, slikaRuina)
 let igrac
 
 export default class FranjoKluzScena extends Scena {
   static get naziv() {
-    return "Franjo Kluz"
+    return 'Franjo Kluz'
   }
 
   constructor() {
@@ -60,7 +62,7 @@ export default class FranjoKluzScena extends Scena {
     this.pocniParalax()
   }
 
-  update(){
+  update() {
     this.crtaNebo(this.nivoTla + dignutostScene, 'blue', 'lightblue', dignutostScene)
     super.update()
     this.proveriTipke()
@@ -92,7 +94,7 @@ export default class FranjoKluzScena extends Scena {
 
   zaustaviParalax() {
     igrac.sviOstali(predmet => {
-      if (!("neprijatelj" in predmet.oznake)) predmet.dx *= 0.9
+      if (!('neprijatelj' in predmet.oznake)) predmet.dx *= 0.9
     })
     ubrzanostScene = 0
   }

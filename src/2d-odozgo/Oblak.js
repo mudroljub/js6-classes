@@ -1,10 +1,10 @@
-import {root} from '../konstante'
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
+import slikaOblak from 'slike/oblak.gif'
 
 export class Oblak extends Predmet {
   constructor(brzina) {
-    super(root + "slike/oblak.gif", 150, 100)
+    super(slikaOblak, 150, 100)
     this.brzina = brzina
     this.reset()
   }
@@ -12,7 +12,7 @@ export class Oblak extends Predmet {
   reset() {
     this.dy = Math.random() * this.brzina + 5
     this.dx = Math.random() * 10 - 5
-    var noviX = Math.random() * platno.width
+    const noviX = Math.random() * platno.width
     this.polozaj(noviX, 50)
   }
 

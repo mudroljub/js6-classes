@@ -5,6 +5,7 @@ import Pozadina from 'core/Pozadina'
 import {Okupator} from '../2d-prvo-lice/Okupator'
 import platno from 'io/platno'
 import mish from 'io/mish'
+import slikaPozadina from 'slike/pozadine/rusevine-varsava.jpg'
 
 /*** KONFIG ***/
 
@@ -17,7 +18,7 @@ const sablon = () => `
 
 /*** INIT ***/
 
-const pozadina = new Pozadina(root + "slike/pozadine/rusevine-varsava.jpg")
+const pozadina = new Pozadina(slikaPozadina)
 const strazar = new Okupator()
 
 /*** EXPORT ***/

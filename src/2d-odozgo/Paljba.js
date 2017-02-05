@@ -1,11 +1,11 @@
-import Predmet from 'core/Predmet';
-import {root} from '../konstante';
+import Predmet from 'core/Predmet'
+import slikaKrater from 'slike/oblak.gif'
 
 export class Paljba extends Predmet {
 
   constructor() {
-    super(root + "slike/2d-odozgo/krater.gif", 100, 74)
-    this.postaviRandom();
+    super(slikaKrater, 100, 74)
+    this.postaviRandom()
   }
 
 }

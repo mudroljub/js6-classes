@@ -3,6 +3,8 @@ import tipke from 'io/tipke'
 import Igrac from 'core/Igrac'
 import {Raketa} from './Raketa'
 import {ogranici} from 'akcije/granice'
+import avionSrc from 'slike/2d-bocno/spitfire.png'
+import slikaMrtav from 'slike/2d-bocno/spitfire-gori.png'
 
 const OKRET = 0.01
 const DOZVOLJEN_UGAO = 0.066
@@ -10,7 +12,7 @@ const GRAVITACIJA = 0.3
 
 export class AvionIgrac extends Igrac {
   // treba scena zbog pratecih
-  constructor(scena, src = $.root + "slike/2d-bocno/spitfire.png", sirina = 200, visina = 60) {
+  constructor(scena, src = avionSrc, sirina = 200, visina = 60) {
     super(src, sirina, visina)
     this.scena = scena
     this.brzina = 0
@@ -18,7 +20,7 @@ export class AvionIgrac extends Igrac {
     this.nivoTla = scena.nivoTla
     this.oznake.igrac = true
     this.raketa = new Raketa(this)
-    this.slikaMrtav = $.root + "slike/2d-bocno/spitfire-gori.png"
+    this.slikaMrtav = slikaMrtav
   }
 
   update() {
@@ -74,10 +76,10 @@ export class AvionIgrac extends Igrac {
     return this.y + this.visina / 2 >= this.nivoTla
   }
 
-  proveriTlo () {
+  proveriTlo() {
     if (!this.jePrizemljen()) return
     if (this.ugao > DOZVOLJEN_UGAO / 2) return this.umri()
-    this.dodajOtporTla()
+    // this.dodajOtporTla()
   }
 
   proveriGravitaciju() {
@@ -85,20 +87,16 @@ export class AvionIgrac extends Igrac {
     if (this.mrtav && !this.jePrizemljen()) this.y += GRAVITACIJA * 70
   }
 
-  dodajOtporTla() {
-    //
-  }
-
   sviOstali(callback) {
-    for (let predmet of this.scena.predmeti) {
-      if ("igrac" in predmet.oznake || "raketa" in predmet.oznake) continue
+    for (const predmet of this.scena.predmeti) {
+      if ('igrac' in predmet.oznake || 'raketa' in predmet.oznake) continue
       callback(predmet)
     }
   }
 
   proveriSudare() {
     this.sviOstali(predmet => {
-      if ("neprijatelj" in predmet.oznake && this.sudara(predmet)) {
+      if ('neprijatelj' in predmet.oznake && this.sudara(predmet)) {
         this.umri()
         predmet.umri()
       }

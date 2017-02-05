@@ -3,12 +3,12 @@
 // animirati švabu kako se dize i pada
 // da se ne sudaraju?
 
-import {root} from '../konstante'
 import mish from 'io/mish'
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
 import {Svabo} from '../2d-prvo-lice/Svabo'
+import slikaPozadina from 'slike/teksture/suva-trava.jpg'
 
 /*** KONFIG ***/
 
@@ -22,13 +22,13 @@ let energija = 100
 
 /*** LOGIKA IGRE ***/
 
-const pozadina = new Pozadina(root + "slike/teksture/suva-trava.jpg")
+const pozadina = new Pozadina(slikaPozadina)
 
 /*** EXPORT ***/
 
 export default class NemciIzRovova extends Scena {
   static get naziv() {
-    return "Nemci iz rovova"
+    return 'Nemci iz rovova'
   }
 
   constructor() {
@@ -72,8 +72,8 @@ export default class NemciIzRovova extends Scena {
     if (energija < 1) {
       sacuvajRekord()
       this.stop()
-      console.log("Play again...")
-      // document.location.href = ""
+      console.log('Play again...')
+      // document.location.href = ''
     }
   }
 
@@ -105,14 +105,14 @@ function azurirajSvabe(rovovi) {
 }
 
 function ucitajRekord() {
-  rekord = parseInt(localStorage.getItem("svabeRekord"))
+  rekord = parseInt(localStorage.getItem('svabeRekord'))
   if (!rekord) rekord = 0
 }
 
 function sacuvajRekord() {
   if (pogoci > rekord) {
-    console.log("Ubio si " + pogoci + " okupatora. To je novi rekord!")
-    localStorage.setItem("svabeRekord", pogoci)
+    console.log('Ubio si ' + pogoci + ' okupatora. To je novi rekord!')
+    localStorage.setItem('svabeRekord', pogoci)
   }
 }
 

@@ -5,7 +5,6 @@
 // vremenski ograniceno?
 // mitraljez puca iz bunkera, prepreke su zakloni
 
-import {root} from '../konstante'
 import Scena from 'core/Scena'
 import Vreme from 'core/Vreme'
 import Pozadina from 'core/Pozadina'
@@ -13,6 +12,8 @@ import UI from 'core/UI'
 import {Bombas} from '../2d-bocno/Bombas'
 import {Bunker} from '../2d-bocno/Bunker'
 import {Prepreka} from '../2d-bocno/Prepreka'
+import slikaBeton from 'slike/teksture/beton.gif'
+import slikaBombas from 'slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif'
 
 /*** KONFIG ***/
 
@@ -39,7 +40,7 @@ const sablon = () => {
     <main class='centar'>
       <h1>${BombasScena.naziv}</h1>
       <h3>Dovedi Žikicu Jovanovića Španca do nemačkog bunkera! </h3>
-      <div class="tabela">
+      <div class='tabela'>
         Nivo: ${nivo} <br>
         Vreme: ${Math.floor(vremeIgre)} <br>
         Prepreke: ${BROJ_PREPREKA}
@@ -51,20 +52,26 @@ const sablon = () => {
 
 const ui = new UI(sablon, 'ui')
 const vreme = new Vreme()
-const pozadina = new Pozadina(root + "slike/teksture/beton.gif")
-const bombas = new Bombas(root + "slike/2d-bocno/partizani/vojnici/bombasi/partizan-bombas.gif", 50, 55)
+const pozadina = new Pozadina(slikaBeton)
+const bombas = new Bombas(slikaBombas, 50, 55)
 const bunker = new Bunker(112, 103)
 bunker.nemojPreko(bombas)
 
+const praviPrepreke = () => {
+  for (let i = 0; i < BROJ_PREPREKA; i++) {
+    prepreke[i] = new Prepreka([bunker, bombas])
+  }
+}
+
 export default class BombasScena extends Scena {
   static get naziv() {
-    return "Bitka za Krupanj 1941."
+    return 'Bitka za Krupanj 1941.'
   }
 
   constructor() {
     super()
     this.dodaj(pozadina, bunker, bombas)
-    this.praviPrepreke()
+    praviPrepreke()
   }
 
   update() {
@@ -78,12 +85,6 @@ export default class BombasScena extends Scena {
   render() {
     super.render()
     ui.render()
-  }
-
-  praviPrepreke() {
-    for (let i = 0; i < BROJ_PREPREKA; i++) {
-      prepreke[i] = new Prepreka([bunker, bombas])
-    }
   }
 
   proveriPobedu() {

@@ -1,21 +1,21 @@
-import {root} from '../konstante'
 import Predmet from 'core/Predmet'
 import {nestani} from 'akcije/granice'
+import slikaRaketa from 'slike/raketa.png'
 
 export class Raketa extends Predmet {
 
   constructor(vlasnik) {
-    super(root + "slike/raketa.png", 30, 20)
+    super(slikaRaketa, 30, 20)
     this.vlasnik = vlasnik
     this.granice = nestani
     this.pocetniUgao = this.vlasnik.ugao + 19
     this.ispaljena = false
     this.oznake.raketa = true
-    this.cilj = "neprijatelj"
+    this.cilj = 'neprijatelj'
     this.sakrij()
   }
 
-  update(){
+  update() {
     super.update()
     if (!this.ispaljena) this.pripremi()
     if (this.ispaljena) this.proveriSudare()
@@ -26,7 +26,7 @@ export class Raketa extends Predmet {
     this.pripremi()
   }
 
-  pripremi(){
+  pripremi() {
     this.polozaj(this.vlasnik.x + 5, this.vlasnik.y + 15)
     this.ugao = this.pocetniUgao
   }

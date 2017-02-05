@@ -9,10 +9,11 @@ import Predmet from 'core/Predmet'
 import Igrac from 'core/Igrac'
 import platno from 'io/platno'
 import {ogranici} from 'akcije/granice'
+import slikaGranata from 'slike/granata.gif'
 
 export class TenkBocnoIgrac extends Igrac {
 
-  constructor (src, jelNadesno, sirina, visina) {
+  constructor(src, jelNadesno, sirina, visina) {
     super(src, sirina, visina)
     this.x = 100
     this.okrenutNadesno = jelNadesno
@@ -40,17 +41,17 @@ export class TenkBocnoIgrac extends Igrac {
   }
 
   podesiUgaoCevi() {
-    let ugaoCevi = this.okrenutNadesno ? -_.uRadijane(10) : _.uRadijane(10)
+    const ugaoCevi = this.okrenutNadesno ? -_.uRadijane(10) : _.uRadijane(10)
     this.cev.ugao = ugaoCevi
     this.pomerajCevi = this.okrenutNadesno ? -_.uRadijane(1) : _.uRadijane(1)
-    let maxDonjiPomak = this.okrenutNadesno ? _.uRadijane(15) : _.uRadijane(10)
-    let maxGornjiPomak = this.okrenutNadesno ? _.uRadijane(10) : _.uRadijane(15)
+    const maxDonjiPomak = this.okrenutNadesno ? _.uRadijane(15) : _.uRadijane(10)
+    const maxGornjiPomak = this.okrenutNadesno ? _.uRadijane(10) : _.uRadijane(15)
     this.donjiLimitCevi = ugaoCevi - maxDonjiPomak
     this.gornjiLimitCevi = ugaoCevi + maxGornjiPomak
   }
 
   postaviGranatu() {
-    this.granata = new Predmet($.root + "slike/granata.gif", 12, 3)
+    this.granata = new Predmet(slikaGranata, 12, 3)
     this.granata.sakrij()
   }
 
@@ -91,8 +92,8 @@ export class TenkBocnoIgrac extends Igrac {
     }
   }
 
-  puca () {
-    let ugaoCevi = this.okrenutNadesno ? 0 : 180
+  puca() {
+    const ugaoCevi = this.okrenutNadesno ? 0 : 180
     this.granata.ugaoKretanja = this.cev.ugao - ugaoCevi
     this.granata.ugao = this.cev.ugao - ugaoCevi
     this.granata.polozaj(this.cev.x, this.cev.y)

@@ -1,17 +1,17 @@
-import {root} from '../konstante'
 import Scena from 'core/Scena'
 import Vreme from 'core/Vreme'
 import UI from 'core/UI'
 import Ranjenik from '../2d-odozgo/Ranjenik'
 import Pozadina from 'core/Pozadina'
 import {Paljba} from '../2d-odozgo/Paljba'
+import slikaPozadina from 'slike/teksture/beton.gif'
 
 /*** KONFIG ***/
 
 const BROJ_PLOTUNA = 15
 const RITAM_PALJBE = 1500
 const ZADATO_VREME = 60
-let plotuni = []
+const plotuni = []
 let ovajPlotun = 0
 let vremeIgre = 0
 let protekleMilisekunde = 0
@@ -19,7 +19,7 @@ let pocetakPaljbe = 500
 
 /*** INIT ***/
 
-const pozadina = new Pozadina(root + "slike/teksture/beton.gif")
+const pozadina = new Pozadina(slikaPozadina)
 const ranjenik = new Ranjenik()
 const vreme = new Vreme()
 const ui = new UI(sablon)

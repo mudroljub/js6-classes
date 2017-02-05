@@ -1,12 +1,12 @@
-import {root} from '../konstante'
 import * as _ from '../utils'
 import Predmet from 'core/Predmet'
 import platno from 'io/platno'
 import {vracaVodoravno} from 'akcije/granice'
+import oblakSlika from 'slike/oblak.gif'
 
 export class Oblak extends Predmet {
 
-  constructor(sirina, visina, src = root + "slike/oblak.gif") {
+  constructor(sirina, visina, src = oblakSlika) {
     super(src, sirina, visina)
     this.polozaj(Math.random() * platno.width, _.randomRange(0, platno.height - this.visina))
     this.dy = Math.random() * 2 - 1

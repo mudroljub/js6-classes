@@ -24,8 +24,6 @@ Browser će se automatski osvežavati svaki put kada sačuvaš izmenu.
 P.S. ako izbacuje grešku proveri jel već pokrenut webpack-dev-server.
 
 ## Uraditi:
-- srediti ucitavač: učitavati slike u JS, podesiti webpack
-- dodati glavni meni (procitati dir scene/ sa nodom?)
 - staviti svima default export
 - odvajati zajednicke metode u akcije (kompozitni obrazac)
 - dodati fiziku
