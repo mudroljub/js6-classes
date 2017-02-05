@@ -19,10 +19,6 @@ import TenkiciScena from './scene/tenkici/TenkiciScena'
 import TenkicAI from './scene/tenkici/TenkicAI'
 
 // za spajanje
-import SavoScena from './scene/SavoScena'
-import SavoNoc from './scene/SavoNoc'
-
-// za spajanje
 import RanjenikScena from './scene/ranjenik/RanjenikScena'
 import RanjenikPaljba from './scene/ranjenik/RanjenikPaljba'
 
@@ -36,7 +32,6 @@ const scene = [
   Scena1944,
   TenkicIde,
   TenkiciScena,
-  SavoScena,
   RanjenikScena
 ]
 const rute = {}
