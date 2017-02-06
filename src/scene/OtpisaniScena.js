@@ -1,3 +1,5 @@
+// popraviti animaciju na osnovu mini-frp
+
 import UI from 'core/UI'
 import Scena from 'core/Scena'
 import Pozadina from 'core/Pozadina'
