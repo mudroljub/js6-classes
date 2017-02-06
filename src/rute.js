@@ -1,4 +1,4 @@
-import {toUrl} from 'utils'
+import unidecode from 'unidecode'
 
 import BombasScena from './scene/bombas/BombasScena'
 import NemciIzRovova from './scene/rovovi/NemciIzRovova'
@@ -40,6 +40,10 @@ const scene = [
   RanjenikScena
 ]
 const rute = {}
+
+const toUrl = naziv => {
+  return unidecode(naziv).replace(/\s+/g, '-').toLowerCase()
+}
 
 scene.map(scena => rute[toUrl(scena.naziv)] = scena)
 
