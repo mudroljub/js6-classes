@@ -4,6 +4,7 @@
 [submodule "game-engine"]
 	path = game-engine
 	url = git@github.com:mudroljub/game-engine.git
+	branch = legacy
 [submodule "game-assets"]
 	path = game-assets
 	url = git@github.com:mudroljub/game-assets.git
